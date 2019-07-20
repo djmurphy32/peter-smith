@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="hello__greeting">Hello {{ name }}{{ exclamationMarks }}</div>
+    <div class="hello__greeting">Hello {{ exclamationMarks }}</div>
     <button @click="decrement">-</button>
     <button @click="increment">+</button>
   </div>
@@ -10,10 +10,10 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  props: ['name', 'initialEnthusiasm'],
+  name: 'hello',
   data() {
     return {
-      enthusiasm: this.initialEnthusiasm,
+      enthusiasm: 1,
     }
   },
   methods: {

@@ -1,9 +1,6 @@
 <template>
   <div>
-    Name:
-    <input :v-model="name" type="text" />
-    <h1>Hello Components</h1>
-    <HelloComponent :name="name" :initialEnthusiasm="5" />
+    <router-view />
   </div>
 </template>
 
