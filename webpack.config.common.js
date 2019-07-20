@@ -71,7 +71,7 @@ const webpackConfig = {
             options: {
               resources: [
                 './src/web-client/styles/functions/_layout.scss',
-                './src/web-client/styles/variables/_layout.scss',
+                './src/web-client/styles/variables/_all.scss',
               ],
             },
           },

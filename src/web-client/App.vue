@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="site site-trunk">
     <router-view />
   </div>
 </template>
@@ -16,3 +16,13 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss">
+.site-trunk {
+  margin: 30px;
+
+  @include media-query-min($mq-sm) {
+    margin: 30px 90px;
+  }
+}
+</style>
