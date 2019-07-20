@@ -2,7 +2,7 @@
   <div class="portfolio">
     <ul class="portfolio-items-container">
       <li class="portfolio-item" v-for="(item, i) in images" :key="i">
-        <ImageViewer :alt="item.name" :url="item.path" />
+        <img class="portfolio-image" :src="item.path" :alt="item.name" />
       </li>
     </ul>
   </div>
@@ -10,13 +10,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import ImageViewer from '@/components/Image.vue'
 
 export default Vue.extend({
   name: 'Portfolio',
-  components: {
-    ImageViewer,
-  },
   data() {
     return {
       images: [
@@ -67,7 +63,17 @@ export default Vue.extend({
   }
 
   &-item {
-    padding: 10px;
+    flex: 1 0 45%;
+    margin: 10px;
+    @include media-query-min($mq-sm) {
+      flex: 1 0 21%;
+    }
+  }
+
+  &-image {
+    width: 100%;
+    margin: auto;
+    display: block;
   }
 }
 </style>
