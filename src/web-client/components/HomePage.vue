@@ -1,20 +1,18 @@
 <template>
-  <div class="home-page">
-    <div class="home-page-image">
-      <ImageViewer altText="Peter Smith" :url="imagePath" />
+  <div class="homepage">
+    <div class="homepage-image-container">
+      <img class="homepage-image" :src="imagePath" alt="Peter Smith" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import ImageViewer from '@/components/Image.vue'
 import ContactDetails from '@/components/ContactDetails.vue'
 
 export default Vue.extend({
   name: 'HomePage',
   components: {
-    ImageViewer,
     ContactDetails,
   },
   data() {
@@ -26,14 +24,24 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.home-page {
+.homepage {
   @include media-query-min($mq-lg) {
     margin: 40px 200px;
   }
 
   &-image {
-    @include media-query-min($mq-md) {
-      text-align: center;
+    width: 90%;
+    margin: auto;
+    display: block;
+
+    @include media-query-min($mq-sm) {
+      width: 500px;
+    }
+
+    &-container {
+      @include media-query-min($mq-md) {
+        text-align: center;
+      }
     }
   }
 }
