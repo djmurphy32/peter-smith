@@ -65,7 +65,7 @@ export default Vue.extend({
   &-item {
     flex: 1 0 45%;
     margin: 10px;
-    @include media-query-min($mq-sm) {
+    @include media-query-min($mq-md) {
       flex: 1 0 21%;
     }
   }
