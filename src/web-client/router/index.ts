@@ -2,6 +2,8 @@ import VueRouter from 'vue-router'
 import NotFound from '@/components/NotFound.vue'
 import HomePage from '@/components/HomePage.vue'
 import Portfolio from '@/components/Portfolio.vue'
+import ImagePage from '@/components/ImagePage.vue'
+import { Page } from './Page'
 
 function createRouter(): VueRouter {
   const router = new VueRouter({
@@ -10,17 +12,22 @@ function createRouter(): VueRouter {
     routes: [
       {
         path: '/portfolio',
-        name: 'Portfolio',
+        name: Page.Portfolio,
         component: Portfolio,
       },
       {
+        path: '/image/:src',
+        name: Page.Image,
+        component: ImagePage,
+      },
+      {
         path: '/',
-        name: 'Home',
+        name: Page.Home,
         component: HomePage,
       },
       {
         path: '*',
-        name: '404',
+        name: Page.NotFound,
         component: NotFound,
       },
     ],

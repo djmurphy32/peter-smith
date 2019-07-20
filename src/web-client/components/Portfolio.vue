@@ -1,8 +1,11 @@
 <template>
   <div class="portfolio">
+    <
     <ul class="portfolio-items-container">
       <li class="portfolio-item" v-for="(item, i) in images" :key="i">
-        <img class="portfolio-image" :src="item.path" :alt="item.name" />
+        <router-link :to="{ name: imageRouteName, params: { src: item.path } }">
+          <img class="portfolio-image" :src="item.path" :alt="item.name" />
+        </router-link>
       </li>
     </ul>
   </div>
@@ -10,11 +13,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { Page } from '@/router/Page'
 
 export default Vue.extend({
   name: 'Portfolio',
   data() {
     return {
+      imageRouteName: Page.Image,
       images: [
         {
           name: 'Test',
