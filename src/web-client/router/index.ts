@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router'
-import Hello from '@/components/Hello.vue'
-import Test from '@/components/Test.vue'
 import NotFound from '@/components/NotFound.vue'
+import HomePage from '@/components/HomePage.vue'
+import Portfolio from '@/components/Portfolio.vue'
 
 function createRouter(): VueRouter {
   const router = new VueRouter({
@@ -9,14 +9,14 @@ function createRouter(): VueRouter {
 
     routes: [
       {
-        path: '/test',
-        name: 'TEST',
-        component: Test,
+        path: '/portfolio',
+        name: 'Portfolio',
+        component: Portfolio,
       },
       {
         path: '/',
         name: 'Home',
-        component: Hello,
+        component: HomePage,
       },
       {
         path: '*',
@@ -24,11 +24,6 @@ function createRouter(): VueRouter {
         component: NotFound,
       },
     ],
-  })
-
-  router.beforeEach((to, from, next) => {
-    console.log(to.path)
-    next()
   })
 
   return router

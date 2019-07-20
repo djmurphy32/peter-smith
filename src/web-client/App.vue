@@ -1,12 +1,11 @@
 <template>
-  <div>
+  <div class="site site-trunk">
     <router-view />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import HelloComponent from '@/components/Hello.vue'
 
 export default Vue.extend({
   name: 'App',
@@ -15,8 +14,15 @@ export default Vue.extend({
       name: '',
     }
   },
-  components: {
-    HelloComponent,
-  },
 })
 </script>
+
+<style lang="scss">
+.site-trunk {
+  margin: 30px;
+
+  @include media-query-min($mq-sm) {
+    margin: 30px 60px;
+  }
+}
+</style>
