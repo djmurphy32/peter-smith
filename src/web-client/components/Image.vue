@@ -26,6 +26,8 @@ export default Vue.extend({
 .image {
   &-viewer {
     width: 250px;
+    margin: auto;
+    display: block;
 
     @include media-query-min($mq-sm) {
       width: 400px;

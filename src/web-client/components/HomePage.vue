@@ -27,7 +27,9 @@ export default Vue.extend({
 
 <style lang="scss">
 .home-page {
-  margin: 40px 200px;
+  @include media-query-min($mq-lg) {
+    margin: 40px 200px;
+  }
 
   &-image {
     @include media-query-min($mq-md) {
