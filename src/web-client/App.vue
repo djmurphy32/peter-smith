@@ -18,6 +18,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+body {
+  margin: 0;
+}
+
 .site-trunk {
   margin: 30px;
 
