@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>Hellossss</div>
+    <div>You look lost</div>
   </div>
 </template>
 
@@ -8,6 +8,6 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'Test',
+  name: '404',
 })
 </script>

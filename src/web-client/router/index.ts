@@ -1,6 +1,7 @@
 import VueRouter from 'vue-router'
 import Hello from '@/components/Hello.vue'
 import Test from '@/components/Test.vue'
+import NotFound from '@/components/NotFound.vue'
 
 function createRouter(): VueRouter {
   const router = new VueRouter({
@@ -16,6 +17,11 @@ function createRouter(): VueRouter {
         path: '/',
         name: 'Home',
         component: Hello,
+      },
+      {
+        path: '*',
+        name: '404',
+        component: NotFound,
       },
     ],
   })
