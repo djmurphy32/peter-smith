@@ -22,7 +22,7 @@ export default Vue.extend({
   margin: 30px;
 
   @include media-query-min($mq-sm) {
-    margin: 30px 90px;
+    margin: 30px 60px;
   }
 }
 </style>
