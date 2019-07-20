@@ -6,7 +6,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import HelloComponent from '@/components/Hello.vue'
 
 export default Vue.extend({
   name: 'App',
@@ -14,9 +13,6 @@ export default Vue.extend({
     return {
       name: '',
     }
-  },
-  components: {
-    HelloComponent,
   },
 })
 </script>
