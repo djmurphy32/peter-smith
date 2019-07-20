@@ -6,7 +6,6 @@ const webpackConfig = {
   entry: './src/web-client/index.ts',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
     filename: 'build.js',
   },
   resolve: {

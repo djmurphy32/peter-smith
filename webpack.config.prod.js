@@ -13,7 +13,6 @@ const webpackConfig = merge(commonConfig, {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/',
     filename: 'js/[hash].js',
     chunkFilename: 'js/[id].[hash].chunk.js',
   },
