@@ -14,6 +14,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .contact-email {
+  font-size: $base-font-size;
   text-decoration: none;
   color: $black;
 }
