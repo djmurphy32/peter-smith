@@ -2,7 +2,6 @@ import VueRouter from 'vue-router'
 import NotFound from '@/components/NotFound.vue'
 import HomePage from '@/components/HomePage.vue'
 import Portfolio from '@/components/Portfolio.vue'
-import ImagePage from '@/components/ImagePage.vue'
 import { Page } from './Page'
 
 function createRouter(): VueRouter {
@@ -14,11 +13,6 @@ function createRouter(): VueRouter {
         path: '/portfolio',
         name: Page.Portfolio,
         component: Portfolio,
-      },
-      {
-        path: '/image/:src',
-        name: Page.Image,
-        component: ImagePage,
       },
       {
         path: '/',

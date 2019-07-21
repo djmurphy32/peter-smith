@@ -3,9 +3,7 @@
     <ContactDetails />
     <ul class="portfolio-items-container">
       <li class="portfolio-item" v-for="(item, i) in images" :key="i">
-        <router-link :to="{ name: imageRouteName, params: { src: item.path } }">
-          <img class="portfolio-image" :src="item.path" :alt="item.name" />
-        </router-link>
+        <img class="portfolio-image" :src="item.path" :alt="item.name" />
       </li>
     </ul>
   </div>
