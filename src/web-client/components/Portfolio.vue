@@ -1,5 +1,6 @@
 <template>
   <div class="portfolio">
+    <ContactDetails />
     <ul class="portfolio-items-container">
       <li class="portfolio-item" v-for="(item, i) in images" :key="i">
         <img class="portfolio-image" :src="item.path" :alt="item.name" />
@@ -10,11 +11,17 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import ContactDetails from '@/components/ContactDetails.vue'
+import { Page } from '@/router/Page'
 
 export default Vue.extend({
   name: 'Portfolio',
+  components: {
+    ContactDetails,
+  },
   data() {
     return {
+      imageRouteName: Page.Image,
       images: [
         {
           name: 'Test',
@@ -60,6 +67,7 @@ export default Vue.extend({
     display: flex;
     list-style: none;
     flex-wrap: wrap;
+    padding: 0;
   }
 
   &-item {
