@@ -25,35 +25,35 @@ export default Vue.extend({
       images: [
         {
           name: 'Test',
-          path: require('@/assets/home.jpg'),
+          path: require('@/assets/images/home.jpg'),
         },
         {
           name: 'Test',
-          path: require('@/assets/home.jpg'),
+          path: require('@/assets/images/home.jpg'),
         },
         {
           name: 'Test',
-          path: require('@/assets/home.jpg'),
+          path: require('@/assets/images/home.jpg'),
         },
         {
           name: 'Test',
-          path: require('@/assets/home.jpg'),
+          path: require('@/assets/images/home.jpg'),
         },
         {
           name: 'Test',
-          path: require('@/assets/home.jpg'),
+          path: require('@/assets/images/home.jpg'),
         },
         {
           name: 'Test',
-          path: require('@/assets/home.jpg'),
+          path: require('@/assets/images/home.jpg'),
         },
         {
           name: 'Test',
-          path: require('@/assets/home.jpg'),
+          path: require('@/assets/images/home.jpg'),
         },
         {
           name: 'Test',
-          path: require('@/assets/home.jpg'),
+          path: require('@/assets/images/home.jpg'),
         },
       ],
     }

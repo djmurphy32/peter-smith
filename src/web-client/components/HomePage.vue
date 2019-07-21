@@ -17,7 +17,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      imagePath: require('@/assets/home.jpg'),
+      imagePath: require('@/assets/images/home.jpg'),
     }
   },
 })
