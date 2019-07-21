@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 const webpackConfig = {
   entry: './src/web-client/index.ts',
@@ -41,7 +42,7 @@ const webpackConfig = {
       {
         test: /\.(png|jpg|gif|svg)$/,
         include: [path.resolve(__dirname, 'src/web-client')],
-        loader: 'file-loader?outputPath=images/',
+        loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]',
           outputPath: 'images',
@@ -80,7 +81,15 @@ const webpackConfig = {
       },
     ],
   },
-  plugins: [new VueLoaderPlugin(), new HtmlPlugin({ template: 'index.html', chunksSortMode: 'dependency' })],
+  plugins: [
+    new VueLoaderPlugin(),
+    new HtmlPlugin({
+      template: 'index.html',
+      chunksSortMode: 'dependency',
+      faviconL: './src/web-client/assets/favicon.png',
+    }),
+    new FaviconsWebpackPlugin('./src/web-client/assets/favicon.png'),
+  ],
 }
 
 module.exports = webpackConfig
