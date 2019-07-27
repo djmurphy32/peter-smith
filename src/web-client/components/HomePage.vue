@@ -1,5 +1,8 @@
 <template>
   <div class="homepage">
+    <div class="homepage-contact-container">
+      <ContactDetails />
+    </div>
     <div class="homepage-image-container">
       <img class="homepage-image" :src="imagePath" alt="Peter Smith" />
     </div>
@@ -17,7 +20,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      imagePath: require('@/assets/images/home.jpg'),
+      imagePath: require('@/assets/images/home/woman.jpg'),
     }
   },
 })
@@ -27,6 +30,10 @@ export default Vue.extend({
 .homepage {
   @include media-query-min($mq-lg) {
     margin: 40px 200px;
+  }
+
+  &-contact-container {
+    padding: 20px 0;
   }
 
   &-image {
