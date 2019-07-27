@@ -5,7 +5,7 @@
         <ContactDetails />
       </div>
       <div class="homepage-image-container">
-        <carousel :perPage="1"
+        <carousel :perPage="1" :loop="true"
           ><slide> <img class="homepage-image" :src="womanImgPath" alt="Peter Smith" /> </slide>
           <slide> <img class="homepage-image" :src="carImgPath" alt="Peter Smith" /> </slide>
         </carousel>
@@ -56,6 +56,7 @@ export default Vue.extend({
 
     &-container {
       display: inline-block;
+      padding-top: 40px;
       @include media-query-min($mq-md) {
         text-align: center;
       }
