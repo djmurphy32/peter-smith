@@ -30,8 +30,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      womanImgPath: `${require('@/assets/images/home/woman.jpg')}?nf_resize=fit&w=500`,
-      carImgPath: `${require('@/assets/images/home/car.jpg')}?nf_resize=fit&w=500`,
+      womanImgPath: `${require('@/assets/images/home/woman.jpg')}&nf_resize=fit&w=500`,
+      carImgPath: `${require('@/assets/images/home/car.jpg')}&nf_resize=fit&w=500`,
     }
   },
 })
