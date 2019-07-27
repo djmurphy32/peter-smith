@@ -1,15 +1,17 @@
 <template>
   <div class="homepage">
-    <div class="homepage-container">
-      <div class="homepage-contact-container">
-        <ContactDetails />
-      </div>
-      <div class="homepage-image-container">
-        <carousel :perPage="1" :loop="true"
-          ><slide> <img class="homepage-image" :src="womanImgPath" alt="Peter Smith" /> </slide>
-          <slide> <img class="homepage-image" :src="carImgPath" alt="Peter Smith" /> </slide>
-        </carousel>
-      </div>
+    <div class="homepage-contact-container">
+      <ContactDetails />
+    </div>
+    <div class="homepage-image-container">
+      <carousel :perPage="1" :paginationEnabled="false" :autoplay="true" :loop="true"
+        ><slide>
+          <div>
+            <img class="homepage-image" :src="womanImgPath" alt="Peter Smith" />
+          </div>
+        </slide>
+        <slide> <img class="homepage-image" :src="carImgPath" alt="Peter Smith" /> </slide>
+      </carousel>
     </div>
   </div>
 </template>
@@ -37,10 +39,6 @@ export default Vue.extend({
 
 <style lang="scss">
 .homepage {
-  &-container {
-    display: flex;
-  }
-
   &-contact-container {
     display: inline-block;
   }
@@ -55,11 +53,7 @@ export default Vue.extend({
     }
 
     &-container {
-      display: inline-block;
       padding-top: 40px;
-      @include media-query-min($mq-md) {
-        text-align: center;
-      }
     }
   }
 }
