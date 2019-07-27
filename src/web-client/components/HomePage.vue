@@ -1,13 +1,15 @@
 <template>
   <div class="homepage">
-    <div class="homepage-contact-container">
-      <ContactDetails />
-    </div>
-    <div class="homepage-image-container">
-      <carousel :perPage="1"
-        ><slide> <img class="homepage-image" :src="imagePath" alt="Peter Smith" /> </slide>
-        <slide> <img class="homepage-image" :src="imagePath2" alt="Peter Smith" /> </slide>
-      </carousel>
+    <div class="homepage-container">
+      <div class="homepage-contact-container">
+        <ContactDetails />
+      </div>
+      <div class="homepage-image-container">
+        <carousel :perPage="1" :loop="true"
+          ><slide> <img class="homepage-image" :src="womanImgPath" alt="Peter Smith" /> </slide>
+          <slide> <img class="homepage-image" :src="carImgPath" alt="Peter Smith" /> </slide>
+        </carousel>
+      </div>
     </div>
   </div>
 </template>
@@ -26,8 +28,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      imagePath: require('@/assets/images/home/woman.jpg'),
-      imagePath2: require('@/assets/images/home/car.jpg'),
+      womanImgPath: require('@/assets/images/home/woman.jpg'),
+      carImgPath: require('@/assets/images/home/car.jpg'),
     }
   },
 })
@@ -35,12 +37,12 @@ export default Vue.extend({
 
 <style lang="scss">
 .homepage {
-  @include media-query-min($mq-lg) {
-    margin: 40px 200px;
+  &-container {
+    display: flex;
   }
 
   &-contact-container {
-    padding: 20px 0;
+    display: inline-block;
   }
 
   &-image {
@@ -49,10 +51,12 @@ export default Vue.extend({
     display: block;
 
     @include media-query-min($mq-sm) {
-      width: 600px;
+      width: 500px;
     }
 
     &-container {
+      display: inline-block;
+      padding-top: 40px;
       @include media-query-min($mq-md) {
         text-align: center;
       }
