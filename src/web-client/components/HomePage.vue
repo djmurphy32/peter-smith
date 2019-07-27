@@ -4,7 +4,7 @@
       <ContactDetails />
     </div>
     <div class="homepage-image-container">
-      <carousel :perPage="1" :loop="true"
+      <carousel :perPage="1" :paginationEnabled="false" :autoplay="true" :loop="true"
         ><slide>
           <div>
             <img class="homepage-image" :src="womanImgPath" alt="Peter Smith" />
