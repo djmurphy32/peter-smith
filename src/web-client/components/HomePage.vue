@@ -6,9 +6,7 @@
     <div class="homepage-image-container">
       <carousel :perPage="1" :paginationEnabled="false" :autoplay="true" :loop="true"
         ><slide v-for="(img, i) in images" :key="i">
-          <div>
-            <img class="homepage-image" :src="img" alt="Peter Smith" />
-          </div>
+          <img class="homepage-image" :src="img" alt="Peter Smith" />
         </slide>
       </carousel>
     </div>
