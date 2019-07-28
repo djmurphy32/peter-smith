@@ -5,12 +5,11 @@
     </div>
     <div class="homepage-image-container">
       <carousel :perPage="1" :paginationEnabled="false" :autoplay="true" :loop="true"
-        ><slide>
+        ><slide v-for="(img, i) in images" :key="i">
           <div>
-            <img class="homepage-image" :src="womanImgPath" alt="Peter Smith" />
+            <img class="homepage-image" :src="img" alt="Peter Smith" />
           </div>
         </slide>
-        <slide> <img class="homepage-image" :src="carImgPath" alt="Peter Smith" /> </slide>
       </carousel>
     </div>
   </div>
@@ -30,8 +29,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      womanImgPath: `${require('@/assets/images/home/woman.jpg')}&nf_resize=fit&w=500`,
-      carImgPath: `${require('@/assets/images/home/car.jpg')}&nf_resize=fit&w=500`,
+      images: [require('@/assets/images/home/woman.jpg')],
     }
   },
 })
