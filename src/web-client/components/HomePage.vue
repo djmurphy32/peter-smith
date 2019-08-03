@@ -3,13 +3,14 @@
     <div class="homepage-contact-container">
       <ContactDetails />
     </div>
-    <div class="homepage-image-container">
+    <img class="homepage-image" src="../assets/images/home/woman.jpg" alt="Peter Smith" />
+    <!-- <div class="homepage-image-container">
       <carousel :perPage="1" :paginationEnabled="false" :autoplay="true" :loop="true"
         ><slide v-for="(img, i) in images" :key="i">
           <img class="homepage-image" :src="img" alt="Peter Smith" />
         </slide>
       </carousel>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -17,7 +18,6 @@
 import Vue from 'vue'
 import ContactDetails from '@/components/ContactDetails.vue'
 import { Carousel, Slide } from 'vue-carousel'
-
 export default Vue.extend({
   name: 'HomePage',
   components: {
@@ -27,7 +27,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      images: [require('@/assets/images/home/woman.jpg')],
+      mages: [require('@/assets/images/home/woman.jpg')],
     }
   },
 })
