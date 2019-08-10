@@ -3,7 +3,7 @@
     <div class="homepage-contact-container">
       <ContactDetails />
     </div>
-    <img class="homepage-image" src="../assets/images/home/woman.jpg" alt="Peter Smith" />
+    <img class="homepage-image" src="../assets/images/home/test2.jpg" alt="Peter Smith" />
     <!-- <div class="homepage-image-container">
       <carousel :perPage="1" :paginationEnabled="false" :autoplay="true" :loop="true"
         ><slide v-for="(img, i) in images" :key="i">
