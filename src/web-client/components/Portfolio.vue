@@ -24,36 +24,108 @@ export default Vue.extend({
       imageRouteName: Page.Image,
       images: [
         {
-          name: 'Test',
-          path: require('@/assets/images/home/home.jpg'),
+          name: '001',
+          path: require('@/assets/images/portfolio/001.jpg'),
         },
         {
-          name: 'Test',
-          path: require('@/assets/images/home/home.jpg'),
+          name: '002',
+          path: require('@/assets/images/portfolio/002.jpg'),
         },
         {
-          name: 'Test',
-          path: require('@/assets/images/home/home.jpg'),
+          name: '003',
+          path: require('@/assets/images/portfolio/003.jpg'),
         },
         {
-          name: 'Test',
-          path: require('@/assets/images/home/home.jpg'),
+          name: '004',
+          path: require('@/assets/images/portfolio/004.jpg'),
         },
         {
-          name: 'Test',
-          path: require('@/assets/images/home/home.jpg'),
+          name: '005',
+          path: require('@/assets/images/portfolio/005.jpg'),
         },
         {
-          name: 'Test',
-          path: require('@/assets/images/home/home.jpg'),
+          name: '006',
+          path: require('@/assets/images/portfolio/006.jpg'),
         },
         {
-          name: 'Test',
-          path: require('@/assets/images/home/home.jpg'),
+          name: '007',
+          path: require('@/assets/images/portfolio/007.jpg'),
         },
         {
-          name: 'Test',
-          path: require('@/assets/images/home/home.jpg'),
+          name: '008',
+          path: require('@/assets/images/portfolio/008.jpg'),
+        },
+        {
+          name: '009',
+          path: require('@/assets/images/portfolio/009.jpg'),
+        },
+        {
+          name: '010',
+          path: require('@/assets/images/portfolio/010.jpg'),
+        },
+        {
+          name: '011',
+          path: require('@/assets/images/portfolio/011.jpg'),
+        },
+        {
+          name: '012',
+          path: require('@/assets/images/portfolio/012.jpg'),
+        },
+        {
+          name: '013',
+          path: require('@/assets/images/portfolio/013.jpg'),
+        },
+        {
+          name: '014',
+          path: require('@/assets/images/portfolio/014.jpg'),
+        },
+        {
+          name: '015',
+          path: require('@/assets/images/portfolio/015.jpg'),
+        },
+        {
+          name: '016',
+          path: require('@/assets/images/portfolio/016.jpg'),
+        },
+        {
+          name: '017',
+          path: require('@/assets/images/portfolio/017.jpg'),
+        },
+        {
+          name: '018',
+          path: require('@/assets/images/portfolio/018.jpg'),
+        },
+        {
+          name: '019',
+          path: require('@/assets/images/portfolio/019.jpg'),
+        },
+        {
+          name: '020',
+          path: require('@/assets/images/portfolio/020.jpg'),
+        },
+        {
+          name: '021',
+          path: require('@/assets/images/portfolio/021.jpg'),
+        },
+        {
+          name: '022',
+          path: require('@/assets/images/portfolio/022.jpg'),
+        },
+        {
+          name: '023',
+          path: require('@/assets/images/portfolio/023.jpg'),
+        },
+        {
+          name: '024',
+          path: require('@/assets/images/portfolio/024.jpg'),
+        },
+        {
+          name: '025',
+          path: require('@/assets/images/portfolio/025.jpg'),
+        },
+        {
+          name: '026',
+          path: require('@/assets/images/portfolio/026.jpg'),
         },
       ],
     }
