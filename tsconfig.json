@@ -20,7 +20,7 @@
     "paths": {
       "@/*": ["src/web-client/*"]
     },
-    "typeRoots": ["./src/web-client/typings/", "./node_modules/@types/"],
+    "typeRoots": ["./src/web-client/typings/", "./node_modules/@types"],
     "allowSyntheticDefaultImports": true,
     /* Experimental Options  */
     "experimentalDecorators": false,
