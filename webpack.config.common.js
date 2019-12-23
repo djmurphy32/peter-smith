@@ -86,7 +86,7 @@ const webpackConfig = {
     new HtmlPlugin({
       template: 'index.html',
       chunksSortMode: 'dependency',
-      faviconL: './src/web-client/assets/favicon.png',
+      favicon: './src/web-client/assets/favicon.png',
     }),
     new FaviconsWebpackPlugin('./src/web-client/assets/favicon.png'),
   ],
