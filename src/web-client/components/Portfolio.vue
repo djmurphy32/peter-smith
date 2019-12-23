@@ -50,6 +50,7 @@ export default Vue.extend({
   }
 
   &-image {
+    width: 100%;
     margin: auto;
     display: block;
   }
