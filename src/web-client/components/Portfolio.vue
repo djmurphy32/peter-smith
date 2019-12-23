@@ -3,7 +3,7 @@
     <ContactDetails />
     <ul class="portfolio-items-container">
       <li class="portfolio-item" v-for="(item, i) in images" :key="i">
-        <img class="portfolio-image" :src="`${item.path}`" :alt="item.name" />
+        <img class="portfolio-image" :src="`${item.path}?nf_resize=fit&w=400`" :alt="item.name" />
       </li>
     </ul>
   </div>
