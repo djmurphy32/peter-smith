@@ -13,9 +13,10 @@
 import Vue from 'vue'
 import ContactDetails from '@/components/ContactDetails.vue'
 import { Page } from '@/router/Page'
+import portfolioContext from '@/utils/webpackContexts/portfolio'
 import importAll from '@/utils/importAll'
 
-const requiredImages = importAll(require.context('@/assets/images/portfolio', false, /\.jpg$/))
+const requiredImages = importAll(portfolioContext)
 
 export default Vue.extend({
   name: 'Portfolio',
