@@ -15,7 +15,6 @@
   "license": "ISC",
   "dependencies": {
     "vue": "2.6.10",
-    "vue-carousel": "^0.18.0",
     "vue-router": "3.0.7"
   },
   "devDependencies": {
