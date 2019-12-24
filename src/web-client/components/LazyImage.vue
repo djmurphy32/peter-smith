@@ -25,12 +25,13 @@ export default Vue.extend({
     lazyWidth: { type: Number, required: true },
   },
   mounted() {
-    const lazyImages = [].slice.call(document.querySelectorAll('lazy-images'))
+    const lazyImages = [].slice.call(document.querySelectorAll('.lazy-image'))
 
     if ('IntersectionObserver' in window) {
       const lazyImageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            console.log('INTERSECTED')
             const lazyImage = entry.target as HTMLImageElement
             lazyImage.src = lazyImage.dataset.src as string
             lazyImageObserver.unobserve(lazyImage)
