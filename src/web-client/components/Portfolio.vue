@@ -3,7 +3,7 @@
     <ContactDetails />
     <ul class="portfolio-items-container">
       <li class="portfolio-item" v-for="(item, i) in images" :key="i">
-        <img class="portfolio-image" :src="`${item.path}?nf_resize=fit&w=400`" :alt="item.name" />
+        <LazyImage class="portfolio-image" :src="`${item.path}?nf_resize=fit&w=400`" :alt="item.name" />
       </li>
     </ul>
   </div>
@@ -12,6 +12,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import ContactDetails from '@/components/ContactDetails.vue'
+import LazyImage from '@/components/LazyImage.vue'
 import { Page } from '@/router/Page'
 import portfolioContext from '@/utils/webpackContexts/portfolio'
 import importAll from '@/utils/importAll'
@@ -22,6 +23,7 @@ export default Vue.extend({
   name: 'Portfolio',
   components: {
     ContactDetails,
+    LazyImage,
   },
   data() {
     return {
