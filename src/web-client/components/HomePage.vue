@@ -4,7 +4,7 @@
       <ContactDetails />
     </div>
     <div class="homepage-image-container">
-      <LazyImage class="homepage-image" :src="`${image}?nf_resize=fit&w=500`" alt="Peter Smith" />
+      <LazyImage class="homepage-image" :src="image" :fullWidth="500" :lazyWidth="200" alt="Peter Smith" />
     </div>
   </div>
 </template>

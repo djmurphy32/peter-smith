@@ -3,7 +3,7 @@
     <ContactDetails />
     <ul class="portfolio-items-container">
       <li class="portfolio-item" v-for="(item, i) in images" :key="i">
-        <LazyImage class="portfolio-image" :src="`${item.path}?nf_resize=fit&w=400`" :alt="item.name" />
+        <LazyImage class="portfolio-image" :src="item.path" :fullWidth="400" :lazyWidth="100" :alt="item.name" />
       </li>
     </ul>
   </div>

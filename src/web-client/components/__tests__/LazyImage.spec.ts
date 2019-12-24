@@ -8,14 +8,17 @@ describe('LazyImage.vue', () => {
     beforeEach(() => {
       wrapper = shallowMount(LazyImage, {
         propsData: {
-          src: 'testImage.png?foo=bar',
+          src: 'testImage.png',
           alt: 'Test Image',
+          fullWidth: 300,
+          lazyWidth: 500,
         },
       })
     })
 
     it('THEN renders the image correctly', () => {
-      expect(wrapper.find('.lazy-image').attributes().src).toBe('testImage.png?foo=bar')
+      const qs = '?nf_resize=fit&w='
+      expect(wrapper.find('.lazy-image').attributes().src).toBe(`testImage.png${qs}500`)
       expect(wrapper.find('.lazy-image').attributes().alt).toBe('Test Image')
     })
   })

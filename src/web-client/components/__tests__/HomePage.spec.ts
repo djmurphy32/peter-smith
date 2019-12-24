@@ -15,8 +15,7 @@ describe('HomePage.vue', () => {
     })
 
     it('THEN renders the homepage image correctly', () => {
-      const queryString = '?nf_resize=fit&w=500'
-      expect(wrapper.find({ name: 'LazyImage' }).props().src).toBe(`test-file${queryString}`)
+      expect(wrapper.find({ name: 'LazyImage' }).props().src).toBe(`test-file`)
       expect(wrapper.find({ name: 'LazyImage' }).props().alt).toBe(`Peter Smith`)
     })
   })
