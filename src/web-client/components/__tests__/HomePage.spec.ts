@@ -15,8 +15,11 @@ describe('HomePage.vue', () => {
     })
 
     it('THEN renders the homepage image correctly', () => {
-      expect(wrapper.find({ name: 'LazyImage' }).props().src).toBe(`test-file`)
-      expect(wrapper.find({ name: 'LazyImage' }).props().alt).toBe(`Peter Smith`)
+      const imageProps = wrapper.find({ name: 'LazyImage' }).props()
+      expect(imageProps.src).toBe(`test-file`)
+      expect(imageProps.alt).toBe(`Peter Smith`)
+      expect(imageProps.fullWidth).toBe(500)
+      expect(imageProps.lazyWidth).toBe(200)
     })
   })
 })

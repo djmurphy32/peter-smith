@@ -3,7 +3,7 @@
     <ContactDetails />
     <ul class="portfolio-items-container">
       <li class="portfolio-item" v-for="(item, i) in images" :key="i">
-        <LazyImage class="portfolio-image" :src="item.path" :fullWidth="400" :lazyWidth="100" :alt="item.name" />
+        <LazyImage class="portfolio-image" :src="item.path" :fullWidth="400" :lazyWidth="50" :alt="item.name" />
       </li>
     </ul>
   </div>
@@ -45,7 +45,7 @@ export default Vue.extend({
 
   &-item {
     flex: 1 0 45%;
-    margin: 10px 2%;
+    margin: 20px 2%;
     @include media-query-min($mq-md) {
       flex: 1 0 28%;
       margin: 10px 2%;

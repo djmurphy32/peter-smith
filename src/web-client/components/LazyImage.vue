@@ -1,10 +1,5 @@
 <template>
-  <img
-    class="lazy-image"
-    :src="`${src}?nf_resize=fit&w=${lazyWidth}`"
-    :data-src="`${src}?nf_resize=fit&w=${fullWidth}`"
-    :alt="alt"
-  />
+  <img :class="['lazy-image', { 'lazy-image--lazy': !inViewport }]" :src="imageSource" :alt="alt" />
 </template>
 
 <script lang="ts">
@@ -24,26 +19,38 @@ export default Vue.extend({
     fullWidth: { type: Number, required: true },
     lazyWidth: { type: Number, required: true },
   },
+  data() {
+    return {
+      inViewport: false,
+    }
+  },
+  computed: {
+    imageSource(): string {
+      return this.inViewport
+        ? `${this.src}?nf_resize=fit&w=${this.fullWidth}`
+        : `${this.src}?nf_resize=fit&w=${this.lazyWidth}`
+    },
+  },
   mounted() {
-    const lazyImages = [].slice.call(document.querySelectorAll('.lazy-image'))
-
     if ('IntersectionObserver' in window) {
-      const lazyImageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            console.log('INTERSECTED')
-            const lazyImage = entry.target as HTMLImageElement
-            lazyImage.src = lazyImage.dataset.src as string
-            lazyImageObserver.unobserve(lazyImage)
-          }
-        })
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        const entry = entries[0]
+        if (entry.isIntersecting) {
+          this.inViewport = true
+          imageObserver.unobserve(this.$el)
+        }
       })
-      lazyImages.forEach((lazyImage) => {
-        lazyImageObserver.observe(lazyImage)
-      })
+      imageObserver.observe(this.$el)
     } else {
       // Possibly fall back to a more compatible method here
     }
   },
 })
 </script>
+<style lang="scss" scoped>
+.lazy-image {
+  &--lazy {
+    filter: blur(5px);
+  }
+}
+</style>
