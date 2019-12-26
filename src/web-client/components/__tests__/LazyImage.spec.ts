@@ -7,13 +7,13 @@ describe('LazyImage.vue', () => {
   })
   describe('GIVEN initial state', () => {
     const observeSpy = jest.fn()
-    const unobserveSpy = jest.fn()
+    const disconnectSpy = jest.fn()
     let wrapper: Wrapper<any>
 
     beforeEach(() => {
       ;(window as any).IntersectionObserver = jest.fn().mockImplementation(() => ({
         observe: observeSpy,
-        unobserve: unobserveSpy,
+        disconnect: disconnectSpy,
       }))
 
       wrapper = shallowMount(LazyImage, {
@@ -42,7 +42,7 @@ describe('LazyImage.vue', () => {
       expect(observeSpy).toBeCalledWith(wrapper.element)
     })
 
-    describe('WHEN scroll element into viewport', () => {
+    describe('WHEN image enters viewport', () => {
       beforeEach(() => {
         // @ts-ignore
         const observerCallback = window.IntersectionObserver.mock.calls[0][0]
@@ -50,8 +50,7 @@ describe('LazyImage.vue', () => {
       })
 
       it('THEN stops tracking element', () => {
-        expect(unobserveSpy).toBeCalledTimes(1)
-        expect(unobserveSpy).toBeCalledWith(wrapper.element)
+        expect(disconnectSpy).toBeCalledTimes(1)
       })
 
       it('THEN renders the image correctly', () => {
@@ -63,6 +62,16 @@ describe('LazyImage.vue', () => {
 
       it('THEN does not have the lazy class', () => {
         expect(wrapper.find('.lazy-image--lazy').exists()).toBe(false)
+      })
+    })
+
+    describe('WHEN component destroyed', () => {
+      beforeEach(() => {
+        wrapper.destroy()
+      })
+
+      it('THEN stops observing', () => {
+        expect(disconnectSpy).toBeCalledTimes(1)
       })
     })
   })

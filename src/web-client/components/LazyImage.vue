@@ -21,6 +21,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      observer: {} as any,
       inViewport: false,
     }
   },
@@ -33,16 +34,21 @@ export default Vue.extend({
   },
   mounted() {
     if ('IntersectionObserver' in window) {
-      const imageObserver = new IntersectionObserver((entries, observer) => {
+      this.observer = new IntersectionObserver((entries, observer) => {
         const entry = entries[0]
         if (entry.isIntersecting) {
           this.inViewport = true
-          imageObserver.unobserve(this.$el)
+          this.observer.disconnect()
         }
       })
-      imageObserver.observe(this.$el)
+      this.observer.observe(this.$el)
     } else {
       // Possibly fall back to a more compatible method here
+    }
+  },
+  destroyed() {
+    if ('IntersectionObserver' in window) {
+      this.observer.disconnect()
     }
   },
 })
