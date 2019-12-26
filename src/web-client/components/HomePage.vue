@@ -4,7 +4,7 @@
       <ContactDetails />
     </div>
     <div class="homepage-image-container">
-      <img class="homepage-image" :src="`${image}?nf_resize=fit&w=500`" alt="Peter Smith" />
+      <LazyImage imageClass="homepage-image" :src="image" :fullWidth="500" :lazyWidth="200" alt="Peter Smith" />
     </div>
   </div>
 </template>
@@ -12,11 +12,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import ContactDetails from '@/components/ContactDetails.vue'
+import LazyImage from '@/components/LazyImage.vue'
 
 export default Vue.extend({
   name: 'HomePage',
   components: {
     ContactDetails,
+    LazyImage,
   },
   data() {
     return {
