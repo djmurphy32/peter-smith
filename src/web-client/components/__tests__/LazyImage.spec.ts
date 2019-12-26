@@ -2,6 +2,10 @@ import { Wrapper, mount } from '@vue/test-utils'
 import LazyImage from '../LazyImage.vue'
 
 describe('LazyImage.vue', () => {
+  let wrapper: Wrapper<any>
+  const observeSpy = jest.fn()
+  const disconnectSpy = jest.fn()
+
   const propsData = {
     src: 'testImage.png',
     alt: 'Test Image',
@@ -13,16 +17,15 @@ describe('LazyImage.vue', () => {
     jest.clearAllMocks()
   })
 
-  describe('GIVEN initial state', () => {
-    const observeSpy = jest.fn()
-    const disconnectSpy = jest.fn()
-    let wrapper: Wrapper<any>
-    beforeEach(() => {
-      ;(window as any).IntersectionObserver = jest.fn().mockImplementation(() => ({
-        observe: observeSpy,
-        disconnect: disconnectSpy,
-      }))
+  beforeEach(() => {
+    ;(window as any).IntersectionObserver = jest.fn().mockImplementation(() => ({
+      observe: observeSpy,
+      disconnect: disconnectSpy,
+    }))
+  })
 
+  describe('GIVEN initial state', () => {
+    beforeEach(() => {
       wrapper = mount(LazyImage, {
         propsData,
       })
@@ -92,6 +95,31 @@ describe('LazyImage.vue', () => {
         it('THEN stops observing', () => {
           expect(disconnectSpy).toBeCalledTimes(1)
         })
+      })
+    })
+  })
+
+  describe('WHEN image has query string and url fragment', () => {
+    beforeEach(() => {
+      propsData.src = 'testimg.png?foo=bar#testfragment'
+
+      wrapper = mount(LazyImage, {
+        propsData,
+      })
+      wrapper.find('.lazy-image').trigger('load')
+    })
+    it('THEN correctly renders the image with correct query string', () => {
+      expect(wrapper.find('.lazy-image').attributes().src).toBe(`testimg.png?foo=bar&nf_resize=fit&w=300`)
+    })
+    describe('WHEN image enters viewport', () => {
+      beforeEach(() => {
+        // @ts-ignore
+        const observerCallback = window.IntersectionObserver.mock.calls[0][0]
+        observerCallback([{ isIntersecting: true }])
+      })
+
+      it('THEN correctly renders the image with correct query string', () => {
+        expect(wrapper.find('.lazy-image').attributes().src).toBe(`testimg.png?foo=bar&nf_resize=fit&w=500`)
       })
     })
   })

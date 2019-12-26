@@ -36,9 +36,17 @@ export default Vue.extend({
   },
   computed: {
     imageSource(): string {
-      return this.inViewport
-        ? `${this.src}?nf_resize=fit&w=${this.fullWidth}`
-        : `${this.src}?nf_resize=fit&w=${this.lazyWidth}`
+      const netlifyQs = this.inViewport ? `nf_resize=fit&w=${this.fullWidth}` : `nf_resize=fit&w=${this.lazyWidth}`
+      let inputSrc = this.src
+
+      if (inputSrc.indexOf('#') > -1) {
+        inputSrc = inputSrc.substring(0, inputSrc.indexOf('#'))
+      }
+      if (inputSrc.indexOf('?') > -1) {
+        return `${inputSrc}&${netlifyQs}`
+      }
+
+      return `${inputSrc}?${netlifyQs}`
     },
   },
   methods: {
