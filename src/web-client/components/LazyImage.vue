@@ -51,18 +51,14 @@ export default Vue.extend({
   },
   methods: {
     attachObserver(): void {
-      if ('IntersectionObserver' in window) {
-        this.observer = new IntersectionObserver((entries, observer) => {
-          const entry = entries[0]
-          if (entry.isIntersecting) {
-            this.inViewport = true
-            this.observer.disconnect()
-          }
-        })
-        this.observer.observe(this.$el)
-      } else {
-        // Possibly fall back to a more compatible method here
-      }
+      this.observer = new IntersectionObserver((entries, observer) => {
+        const entry = entries[0]
+        if (entry.isIntersecting) {
+          this.inViewport = true
+          this.observer.disconnect()
+        }
+      })
+      this.observer.observe(this.$el)
     },
     imageLoad(): void {
       this.imageLoaded = true
