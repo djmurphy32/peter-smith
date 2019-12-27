@@ -20,8 +20,12 @@ export default Vue.extend({
 <style lang="scss">
 body {
   margin: 0;
-  font-size: $base-font-size;
+  font-size: $medium-font-size;
   font-family: $open-sans;
+
+  @include media-query-min($mq-lg) {
+    font-size: $base-font-size;
+  }
 }
 
 .site-trunk {
