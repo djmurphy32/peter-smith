@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "intersection-observer": "^0.7.0",
-    "vue": "2.6.10",
+    "vue": "2.6.11",
     "vue-router": "3.0.7"
   },
   "devDependencies": {
@@ -63,7 +63,7 @@
     "vue-jest": "3.0.4",
     "vue-loader": "15.7.1",
     "vue-style-loader": "4.1.2",
-    "vue-template-compiler": "2.6.10",
+    "vue-template-compiler": "2.6.11",
     "webpack": "4.36.1",
     "webpack-bundle-analyzer": "3.3.2",
     "webpack-cli": "3.3.6",
