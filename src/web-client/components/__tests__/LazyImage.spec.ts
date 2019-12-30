@@ -1,10 +1,20 @@
-import { Wrapper, mount } from '@vue/test-utils'
+import { Wrapper, mount, createLocalVue } from '@vue/test-utils'
 import LazyImage from '../LazyImage.vue'
+import VueRouter from 'vue-router'
+import { trackPictureImpression } from '@/utils/tracking'
+const localVue = createLocalVue()
+
+localVue.use(VueRouter)
+
+jest.mock('@/utils/tracking')
 
 describe('LazyImage.vue', () => {
   let wrapper: Wrapper<any>
   const observeSpy = jest.fn()
   const disconnectSpy = jest.fn()
+  const currentRoute = {
+    name: 'test Page',
+  }
 
   const propsData = {
     src: 'testImage.png',
@@ -13,6 +23,7 @@ describe('LazyImage.vue', () => {
     lazyWidth: 300,
     imageClass: 'test-class',
   }
+
   afterEach(() => {
     jest.clearAllMocks()
   })
@@ -28,6 +39,9 @@ describe('LazyImage.vue', () => {
     beforeEach(() => {
       wrapper = mount(LazyImage, {
         propsData,
+        mocks: {
+          $route: currentRoute,
+        },
       })
     })
 
@@ -85,6 +99,11 @@ describe('LazyImage.vue', () => {
         it('THEN does not have the lazy class', () => {
           expect(wrapper.find('.lazy-image--lazy').exists()).toBe(false)
         })
+
+        it('THEN correctly tracks the impression on the picture', () => {
+          expect(trackPictureImpression).toBeCalledTimes(1)
+          expect(trackPictureImpression).toBeCalledWith('test_page_test_image')
+        })
       })
 
       describe('WHEN component destroyed', () => {
@@ -105,6 +124,9 @@ describe('LazyImage.vue', () => {
 
       wrapper = mount(LazyImage, {
         propsData,
+        mocks: {
+          $route: currentRoute,
+        },
       })
       wrapper.find('.lazy-image').trigger('load')
     })

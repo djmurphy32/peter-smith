@@ -11,6 +11,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { trackPictureImpression } from '@/utils/tracking'
 
 export default Vue.extend({
   name: 'LazyImage',
@@ -55,6 +56,11 @@ export default Vue.extend({
         const entry = entries[0]
         if (entry.isIntersecting) {
           this.inViewport = true
+          const label = `${this.$route.name}_${this.alt}`
+            .trim()
+            .replace(/\s+/g, '_')
+            .toLowerCase()
+          trackPictureImpression(label)
           this.observer.disconnect()
         }
       })
