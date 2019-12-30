@@ -1,10 +1,6 @@
-import { Wrapper, mount, createLocalVue } from '@vue/test-utils'
+import { Wrapper, mount } from '@vue/test-utils'
 import LazyImage from '../LazyImage.vue'
-import VueRouter from 'vue-router'
 import { trackPictureImpression } from '@/utils/tracking'
-const localVue = createLocalVue()
-
-localVue.use(VueRouter)
 
 jest.mock('@/utils/tracking')
 
@@ -128,7 +124,6 @@ describe('LazyImage.vue', () => {
           $route: currentRoute,
         },
       })
-      wrapper.find('.lazy-image').trigger('load')
     })
     it('THEN correctly renders the image with correct query string', () => {
       expect(wrapper.find('.lazy-image').attributes().src).toBe(`testimg.png?foo=bar&nf_resize=fit&w=300`)
