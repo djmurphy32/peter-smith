@@ -2,6 +2,6 @@ export {}
 
 declare global {
   interface Window {
-    gtag: () => void
+    gtag: (type: string, action: string, arguments: object) => void
   }
 }
