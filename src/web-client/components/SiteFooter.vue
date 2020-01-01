@@ -21,6 +21,7 @@ export default Vue.extend({
 <style lang="scss">
 .site-footer {
   margin-top: 20px;
+  margin-bottom: 50px;
   text-align: center;
 }
 </style>
