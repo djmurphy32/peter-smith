@@ -24,6 +24,10 @@ export default Vue.extend({
   &-item {
     color: $black;
     margin: 0 5px;
+    font-size: $medium-font-size;
+    @include media-query-min($mq-md) {
+      font-size: $base-font-size;
+    }
   }
 
   &-email {
