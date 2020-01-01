@@ -1,6 +1,5 @@
 <template>
   <div class="portfolio">
-    <ContactDetails />
     <ul class="portfolio-items-container">
       <li class="portfolio-item" v-for="(item, i) in images" :key="i">
         <LazyImage imageClass="portfolio-image" :src="item.path" :fullWidth="400" :lazyWidth="50" :alt="item.name" />

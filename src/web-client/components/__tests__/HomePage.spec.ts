@@ -10,10 +10,6 @@ describe('HomePage.vue', () => {
       wrapper = shallowMount(HomePage)
     })
 
-    it('THEN renders contact details', () => {
-      expect(wrapper.find({ name: 'ContactDetails' }).exists()).toBe(true)
-    })
-
     it('THEN renders the homepage image correctly', () => {
       const imageProps = wrapper.find({ name: 'LazyImage' }).props()
       expect(imageProps.imageClass).toBe(`homepage-image`)

@@ -1,8 +1,5 @@
 <template>
   <div class="homepage">
-    <div class="homepage-contact-container">
-      <ContactDetails />
-    </div>
     <div class="homepage-image-container">
       <LazyImage imageClass="homepage-image" :src="image" :fullWidth="500" :lazyWidth="200" alt="Peter Smith" />
     </div>
@@ -30,10 +27,6 @@ export default Vue.extend({
 
 <style lang="scss">
 .homepage {
-  &-contact-container {
-    display: inline-block;
-  }
-
   &-image {
     width: 90%;
     margin: auto;
@@ -44,7 +37,7 @@ export default Vue.extend({
     }
 
     &-container {
-      padding-top: 40px;
+      padding-top: 20px;
     }
   }
 }

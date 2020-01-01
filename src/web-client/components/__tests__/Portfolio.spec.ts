@@ -26,9 +26,5 @@ describe('Portfolio.vue', () => {
       expect(images.at(1).props().src).toStrictEqual(`image2.jpg`)
       expect(images.at(2).props().src).toStrictEqual(`images/test/image3.jpg`)
     })
-
-    it('THEN renders cntact details', () => {
-      expect(wrapper.find({ name: 'ContactDetails' }).exists()).toBe(true)
-    })
   })
 })
