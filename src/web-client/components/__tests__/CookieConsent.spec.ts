@@ -10,9 +10,16 @@ Vue.directive('external-click', externalClick)
 
 describe('CookieConsent', () => {
   let wrapper: Wrapper<any>
+  const gtagSpy = jest.fn()
+
   describe('GIVEN initial state', () => {
     beforeEach(() => {
+      window.gtag = gtagSpy
       wrapper = shallowMount(CookieConsent)
+    })
+
+    afterEach(() => {
+      jest.clearAllMocks()
     })
 
     it('THEN renders the consent banner', () => {
@@ -31,6 +38,11 @@ describe('CookieConsent', () => {
       it('THEN sets the consent cookie', () => {
         const cookieValue = Cookies.get('_cookie_consent')
         expect(cookieValue).toStrictEqual('true')
+      })
+
+      it('THEN sets up google analytics', () => {
+        expect(gtagSpy).toBeCalledTimes(2)
+        expect(gtagSpy).toBeCalledWith('config', 'UA-155099216-1')
       })
     })
   })

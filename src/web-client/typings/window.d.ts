@@ -3,7 +3,7 @@ export {}
 declare global {
   interface Window {
     gaId: string
-    gtag: (type: string, action: string, arguments: object) => void
+    gtag: (...args: any[]) => void
     [key: string]: any
   }
 }

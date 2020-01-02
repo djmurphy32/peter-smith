@@ -1,7 +1,7 @@
 <template>
   <div v-if="!hasCookieConsent" class="cookie-consent_wrapper">
     <span v-external-click="acceptCookie"
-      >This website uses cookies as described in our <router-link :to="privacyPolicy"> cookie policy </router-link>, to
+      >This website uses cookies as described in our <router-link :to="privacyPolicy">cookie policy</router-link>, to
       see what cookies we use and to set your own preferences, click here. Otherwise, by clicking on or navigating this
       site, you accept our use of cookies.
     </span>
@@ -29,6 +29,10 @@ export default Vue.extend({
     acceptCookie(): void {
       this.hasCookieConsent = true
       Cookies.set(cookieName, 'true')
+      window.gtag('js', new Date())
+
+      window.gtag('config', 'UA-155099216-1')
+      window.gtag('pageview')
     },
   },
 })
