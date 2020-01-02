@@ -1,6 +1,6 @@
 <template>
   <div class="site-footer">
-    <router-link :to="PrivacyPolicy">Privacy Policy</router-link>
+    <router-link class="site-footer_link" :to="PrivacyPolicy">Privacy Policy</router-link>
   </div>
 </template>
 
