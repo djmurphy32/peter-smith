@@ -31,7 +31,7 @@ export default Vue.extend({
       Cookies.set(cookieName, 'true')
       window.gtag('js', new Date())
 
-      window.gtag('config', 'UA-155099216-1')
+      window.gtag('config', window.gaId)
       window.gtag('pageview')
     },
   },

@@ -41,8 +41,9 @@ describe('CookieConsent', () => {
       })
 
       it('THEN sets up google analytics', () => {
-        expect(gtagSpy).toBeCalledTimes(2)
-        expect(gtagSpy).toBeCalledWith('config', 'UA-155099216-1')
+        expect(gtagSpy).toBeCalledTimes(3)
+        expect(gtagSpy).toBeCalledWith('config', 'TEST-GA-ID')
+        expect(gtagSpy).toBeCalledWith('pageview')
       })
     })
   })
