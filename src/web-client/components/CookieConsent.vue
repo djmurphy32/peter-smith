@@ -10,8 +10,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {hasConsentCookie, setConsentCookie} from '@/utils/cookieConsent'
+import { hasConsentCookie, setConsentCookie } from '@/utils/cookieConsent'
 import { Page } from '@/router/Page'
+import { initGa } from '@/utils/tracking'
 
 export default Vue.extend({
   name: 'CookieConsent',
@@ -30,10 +31,7 @@ export default Vue.extend({
     },
     loadGa(): void {
       this.showConsentBanner = false
-      window.gtag('js', new Date())
-
-      window.gtag('config', window.gaId)
-      window.gtag('pageview')
+      initGa()
     },
   },
 })
