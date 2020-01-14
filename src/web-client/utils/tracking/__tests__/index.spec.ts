@@ -8,12 +8,15 @@ describe('Tracking', () => {
   })
   beforeEach(() => {
     window.gtag = gtagSpy
+    initGa()
+    jest.clearAllMocks()
   })
 
   describe('Impression tracking', () => {
     beforeEach(() => {
       trackPictureImpression('testlabel')
     })
+
     it('Tracks event in GA correctly', () => {
       expect(gtagSpy).toBeCalledTimes(1)
       expect(gtagSpy).toBeCalledWith('event', 'impression', {
@@ -24,14 +27,30 @@ describe('Tracking', () => {
   })
 
   describe('Initialize google analytics', () => {
-    beforeEach(() => {
-      initGa()
-    })
+    describe('GIVEN events triggered when gtag not on window', () => {
+      beforeEach(() => {
+        pageView()
+        trackPictureImpression('test')
+      })
 
-    it('THEN correctly initializes GA', () => {
-      expect(gtagSpy).toBeCalledTimes(3)
-      expect(gtagSpy).toBeCalledWith('config', 'UA-155099216-1')
-      expect(gtagSpy).toBeCalledWith('pageview')
+      describe('WHEN ga initialised', () => {
+        beforeEach(() => {
+          initGa()
+        })
+
+        it('THEN initializes GA', () => {
+          expect(gtagSpy).toBeCalledTimes(4)
+          expect(gtagSpy).toBeCalledWith('config', 'UA-155099216-1')
+          expect(gtagSpy).toHaveBeenCalledWith('pageview')
+        })
+
+        it('THEN processes the previous events', () => {
+          expect(gtagSpy).toHaveBeenCalledWith('event', 'impression', {
+            event_category: 'picture',
+            event_label: 'test',
+          })
+        })
+      })
     })
   })
 

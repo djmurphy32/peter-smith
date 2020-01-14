@@ -1,14 +1,6 @@
 import { Wrapper, shallowMount } from '@vue/test-utils'
 import Portfolio from '../Portfolio.vue'
 
-jest.mock('@/utils/webpackContexts/portfolio', () => {
-  const context: any = (id: string) => id
-  context.keys = () => {
-    return ['image1.jpg', 'image2.jpg', 'images/test/image3.jpg']
-  }
-  return context
-})
-
 describe('Portfolio.vue', () => {
   describe('GIVEN initial state', () => {
     let wrapper: Wrapper<any>

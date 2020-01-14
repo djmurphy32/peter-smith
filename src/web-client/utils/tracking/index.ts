@@ -1,17 +1,34 @@
+let gaInitialized = false
+const queue: any[] = []
+
 export const trackPictureImpression = (label: string) => {
-  window.gtag('event', 'impression', {
+  pushToGa('event', 'impression', {
     event_category: 'picture',
     event_label: label,
   })
 }
 
 export const initGa = () => {
+  gaInitialized = true
   window.gtag('js', new Date())
 
   window.gtag('config', 'UA-155099216-1')
-  pageView()
+  processItemsInQueue()
 }
 
 export const pageView = () => {
-  window.gtag('pageview')
+  pushToGa('pageview')
+}
+
+const processItemsInQueue = () => {
+  queue.forEach((item) => {
+    pushToGa(item)
+  })
+}
+
+const pushToGa = (...args: any[]) => {
+  if (!gaInitialized) {
+    queue.push(args)
+  }
+  window.gtag(...args)
 }
