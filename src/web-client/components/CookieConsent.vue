@@ -40,12 +40,17 @@ export default Vue.extend({
 .cookie-consent {
   &_wrapper {
     bottom: 8px;
+    left: 8px;
+    right: 8px;
     position: fixed;
     background: #fff;
     border: 1px solid #000;
     border-radius: 2px;
     padding: 2px;
-    margin: 0 20px;
+
+    @include media-query-min($mq-sm) {
+      margin: 0 20px;
+    }
   }
 }
 </style>
