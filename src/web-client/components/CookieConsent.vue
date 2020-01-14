@@ -49,7 +49,9 @@ export default Vue.extend({
     padding: 2px;
 
     @include media-query-min($mq-sm) {
-      margin: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-width: 344;
     }
   }
 }
