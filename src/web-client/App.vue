@@ -30,6 +30,10 @@ body {
   font-family: $open-sans;
 }
 
+a {
+  color: $black;
+}
+
 .site-trunk {
   margin: 30px;
 
