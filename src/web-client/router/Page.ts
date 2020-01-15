@@ -3,4 +3,5 @@ export enum Page {
   NotFound = 'notfound',
   Portfolio = 'portfolio',
   Image = 'image',
+  PrivacyPolicy = 'privacyPolicy',
 }

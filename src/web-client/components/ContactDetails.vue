@@ -22,7 +22,6 @@ export default Vue.extend({
 <style lang="scss">
 .contact {
   &-item {
-    color: $black;
     margin: 0 5px;
   }
 

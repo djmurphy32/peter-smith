@@ -1,18 +1,24 @@
 <template>
   <div class="site site-trunk">
+    <SiteHeader />
     <router-view />
+    <SiteFooter />
+    <CookieConsent />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import CookieConsent from '@/components/CookieConsent.vue'
+import SiteFooter from '@/components/SiteFooter.vue'
+import SiteHeader from '@/components/SiteHeader.vue'
 
 export default Vue.extend({
   name: 'App',
-  data() {
-    return {
-      name: '',
-    }
+  components: {
+    CookieConsent,
+    SiteFooter,
+    SiteHeader,
   },
 })
 </script>
@@ -20,12 +26,12 @@ export default Vue.extend({
 <style lang="scss">
 body {
   margin: 0;
-  font-size: $medium-font-size;
+  font-size: $base-font-size;
   font-family: $open-sans;
+}
 
-  @include media-query-min($mq-lg) {
-    font-size: $base-font-size;
-  }
+a {
+  color: $black;
 }
 
 .site-trunk {
