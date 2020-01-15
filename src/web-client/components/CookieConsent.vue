@@ -47,11 +47,14 @@ export default Vue.extend({
     border: 1px solid #000;
     border-radius: 2px;
     padding: 2px;
+    margin: 0 auto;
+    font-size: $small-font-size;
 
     @include media-query-min($mq-sm) {
+      font-size: $base-font-size;
+      min-width: 344px;
       max-width: 1200px;
       margin: 0 auto;
-      min-width: 344;
     }
   }
 }
