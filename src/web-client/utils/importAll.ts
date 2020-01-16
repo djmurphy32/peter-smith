@@ -1,8 +1,11 @@
 function importAll(context: __WebpackModuleApi.RequireContext) {
   const images: { [index: string]: any } = {}
-  context.keys().map((item) => {
-    images[item.replace('./', '')] = context(item)
-  })
+  context
+    .keys()
+    .sort()
+    .map((item) => {
+      images[item.replace('./', '')] = context(item)
+    })
   return images
 }
 

@@ -25,7 +25,7 @@ describe('CookieConsent.vue', () => {
   const gtagSpy = jest.fn()
 
   afterEach(() => {
-    jest.resetAllMocks()
+    jest.clearAllMocks()
   })
 
   describe('GIVEN initial state', () => {
@@ -73,12 +73,17 @@ describe('CookieConsent.vue', () => {
         wrapper = shallowMount(CookieConsent)
       })
 
-      it.skip('THEN does not render the banner', () => {
+      it('THEN does not render the banner', () => {
         expect(wrapper.find('.cookie-consent_wrapper').exists()).toBe(false)
       })
 
       it('THEN does not set consent cookies', () => {
         expect(setConsentCookieSpy).not.toBeCalled()
+      })
+
+      it('THEN sets up google analytics', () => {
+        expect(gtagSpy).toBeCalledTimes(2)
+        expect(gtagSpy).toBeCalledWith('config', 'UA-155099216-1')
       })
     })
   })
