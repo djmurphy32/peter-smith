@@ -44,7 +44,7 @@ const webpackConfig = {
         include: [path.resolve(__dirname, 'src/web-client')],
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]',
+          name: '[name]_[contenthash].[ext]',
           outputPath: 'images',
         },
       },
