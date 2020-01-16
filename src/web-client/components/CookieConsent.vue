@@ -12,7 +12,7 @@
 import Vue from 'vue'
 import { hasConsentCookie, setConsentCookie } from '@/utils/cookieConsent'
 import { Page } from '@/router/Page'
-import { initGa } from '@/utils/tracking'
+// import { initGa } from '@/utils/tracking'
 
 export default Vue.extend({
   name: 'CookieConsent',
@@ -27,11 +27,11 @@ export default Vue.extend({
   methods: {
     onExternalClick(): void {
       setConsentCookie()
-      this.loadGa()
+      // this.loadGa()
     },
     loadGa(): void {
       this.showConsentBanner = false
-      initGa()
+      // initGa()
     },
   },
 })

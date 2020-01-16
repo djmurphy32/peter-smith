@@ -20,7 +20,7 @@ jest.mock('@/utils/cookieConsent', () => {
   }
 })
 
-describe('CookieConsent.vue', () => {
+describe.skip('CookieConsent.vue', () => {
   let wrapper: Wrapper<any>
   const gtagSpy = jest.fn()
 

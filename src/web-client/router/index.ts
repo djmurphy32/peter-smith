@@ -4,7 +4,7 @@ import HomePage from '@/components/HomePage.vue'
 import Portfolio from '@/components/Portfolio.vue'
 import PrivacyPolicy from '@/components/PrivacyPolicy.vue'
 import { Page } from './Page'
-import { pageView } from '@/utils/tracking'
+// import { pageView } from '@/utils/tracking'
 
 function createRouter(): VueRouter {
   const router = new VueRouter({
@@ -35,7 +35,7 @@ function createRouter(): VueRouter {
   })
 
   router.afterEach(() => {
-    pageView()
+    // pageView()
   })
 
   return router
