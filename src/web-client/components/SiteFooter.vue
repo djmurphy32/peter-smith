@@ -20,6 +20,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .site-footer {
+  font-family: $montserrat;
   margin-top: 20px;
   margin-bottom: 50px;
   text-align: center;

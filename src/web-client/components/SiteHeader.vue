@@ -18,6 +18,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .site-header {
+  font-family: $montserrat;
   margin-bottom: 10px;
 }
 </style>
