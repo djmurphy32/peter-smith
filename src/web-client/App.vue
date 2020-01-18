@@ -27,7 +27,7 @@ export default Vue.extend({
 body {
   margin: 0;
   font-size: $base-font-size;
-  font-family: $open-sans;
+  font-family: $montserrat;
 }
 
 a {
