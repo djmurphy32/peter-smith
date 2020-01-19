@@ -19,7 +19,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      image: require('@/assets/images/home/woman.jpg'),
+      image: require('@/assets/images/home/wkend_soldiers.jpg'),
     }
   },
 })
