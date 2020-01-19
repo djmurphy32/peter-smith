@@ -14,7 +14,6 @@ import SiteHeader from '@/components/SiteHeader.vue'
 export default Vue.extend({
   name: 'App',
   components: {
-    // CookieConsent,
     SiteFooter,
     SiteHeader,
   },
