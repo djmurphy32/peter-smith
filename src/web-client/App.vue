@@ -3,20 +3,18 @@
     <SiteHeader />
     <router-view />
     <SiteFooter />
-    <CookieConsent />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import CookieConsent from '@/components/CookieConsent.vue'
 import SiteFooter from '@/components/SiteFooter.vue'
 import SiteHeader from '@/components/SiteHeader.vue'
 
 export default Vue.extend({
   name: 'App',
   components: {
-    CookieConsent,
+    // CookieConsent,
     SiteFooter,
     SiteHeader,
   },

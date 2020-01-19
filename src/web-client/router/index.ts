@@ -2,9 +2,7 @@ import VueRouter from 'vue-router'
 import NotFound from '@/components/NotFound.vue'
 import HomePage from '@/components/HomePage.vue'
 import Portfolio from '@/components/Portfolio.vue'
-import PrivacyPolicy from '@/components/PrivacyPolicy.vue'
 import { Page } from './Page'
-import { pageView } from '@/utils/tracking'
 
 function createRouter(): VueRouter {
   const router = new VueRouter({
@@ -17,11 +15,6 @@ function createRouter(): VueRouter {
         component: Portfolio,
       },
       {
-        path: '/privacy',
-        name: Page.PrivacyPolicy,
-        component: PrivacyPolicy,
-      },
-      {
         path: '/',
         name: Page.Home,
         component: HomePage,
@@ -32,10 +25,6 @@ function createRouter(): VueRouter {
         component: NotFound,
       },
     ],
-  })
-
-  router.afterEach(() => {
-    pageView()
   })
 
   return router
