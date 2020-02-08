@@ -1,7 +1,6 @@
 <template>
   <div class="contact-container">
     <a class="contact-item contact-email" :href="'mailto:' + email">peter smith</a>
-    <a class="contact-item contact-gram" :href="'https://www.instagram.com/' + igName">@{{ igName }}</a>
   </div>
 </template>
 
@@ -27,10 +26,6 @@ export default Vue.extend({
 
   &-email {
     text-decoration: underline;
-  }
-
-  &-gram {
-    text-decoration: none;
   }
 }
 </style>
