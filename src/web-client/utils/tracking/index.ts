@@ -29,6 +29,7 @@ const processItemsInQueue = () => {
 const pushToGa = (...args: any[]) => {
   if (!gaInitialized) {
     queue.push(args)
+  } else {
+    window.gtag(...args)
   }
-  window.gtag(...args)
 }
