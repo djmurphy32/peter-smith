@@ -2,7 +2,6 @@
   <div class="homepage">
     <div class="homepage-image-container">
       <ImageCarousel imageClass="homepage-image" :images="images" :fullWidth="500" :lazyWidth="200" />
-      <!-- <LazyImage imageClass="homepage-image" :src="image" :fullWidth="500" :lazyWidth="200" alt="Peter Smith" /> -->
     </div>
   </div>
 </template>
@@ -11,6 +10,10 @@
 import Vue from 'vue'
 import ContactDetails from '@/components/ContactDetails.vue'
 import ImageCarousel from '@/components/ImageCarousel.vue'
+import homeContext from '@/utils/webpackContexts/home'
+import importAll from '@/utils/importAll'
+
+const requiredImages = importAll(homeContext)
 
 export default Vue.extend({
   name: 'HomePage',
@@ -20,13 +23,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      image: require('@/assets/images/home/wkend_soldiers.jpg'),
+      images: Object.keys(requiredImages).map((image, i) => ({ src: requiredImages[image], alt: `image_${i}` })),
     }
-  },
-  computed: {
-    images(): Array<{ src: string; alt: string }> {
-      return [{ src: this.image, alt: 'Peter Smith' }]
-    },
   },
 })
 </script>
