@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router'
-import NotFound from '@/components/NotFound.vue'
-import HomePage from '@/components/HomePage.vue'
-import Portfolio from '@/components/Portfolio.vue'
+import NotFound from '@/router/pages/NotFound.vue'
+import HomePage from '@/router/pages/HomePage.vue'
+import Portfolio from '@/router/pages/Portfolio.vue'
 import { Page } from './Page'
 
 function createRouter(): VueRouter {
