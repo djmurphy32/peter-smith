@@ -1,7 +1,7 @@
 <template>
   <div class="homepage">
     <div class="homepage-image-container">
-      <LazyImage imageClass="homepage-image" :src="image" :fullWidth="500" :lazyWidth="200" alt="Peter Smith" />
+      <ImageCarousel imageClass="homepage-image" :images="images" :fullWidth="500" :lazyWidth="200" />
     </div>
   </div>
 </template>
@@ -9,17 +9,21 @@
 <script lang="ts">
 import Vue from 'vue'
 import ContactDetails from '@/components/ContactDetails.vue'
-import LazyImage from '@/components/LazyImage.vue'
+import ImageCarousel from '@/components/ImageCarousel.vue'
+import homeContext from '@/utils/webpackContexts/home'
+import importAll from '@/utils/importAll'
+
+const requiredImages = importAll(homeContext)
 
 export default Vue.extend({
   name: 'HomePage',
   components: {
     ContactDetails,
-    LazyImage,
+    ImageCarousel,
   },
   data() {
     return {
-      image: require('@/assets/images/home/wkend_soldiers.jpg'),
+      images: Object.keys(requiredImages).map((image, i) => ({ src: requiredImages[image], alt: `image_${i}` })),
     }
   },
 })
