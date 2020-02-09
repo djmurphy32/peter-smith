@@ -60,5 +60,33 @@ describe('ImageCarousel', () => {
         })
       })
     })
+
+    describe('WHEN click left on first image', () => {
+      beforeEach(() => {
+        wrapper.find('.image-carousel__image-container').trigger('click', {
+          pageX: -1,
+        })
+      })
+
+      it('THEN updates to the final image', () => {
+        const imageProps = wrapper.find({ name: 'LazyImage' }).props() as any
+        expect(imageProps.src).toBe('image3.png')
+        expect(imageProps.alt).toBe('image3')
+      })
+
+      describe('WHEN click left', () => {
+        beforeEach(() => {
+          wrapper.find('.image-carousel__image-container').trigger('click', {
+            pageX: -1,
+          })
+        })
+
+        it('THEN updates image correctly', () => {
+          const imageProps = wrapper.find({ name: 'LazyImage' }).props() as any
+          expect(imageProps.src).toBe('image2.png')
+          expect(imageProps.alt).toBe('image2')
+        })
+      })
+    })
   })
 })
