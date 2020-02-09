@@ -11,10 +11,11 @@ describe('HomePage.vue', () => {
     })
 
     it('THEN renders the homepage image correctly', () => {
-      const imageProps = wrapper.find({ name: 'LazyImage' }).props()
+      const imageProps = wrapper.find({ name: 'ImageCarousel' }).props()
       expect(imageProps.imageClass).toBe(`homepage-image`)
-      expect(imageProps.src).toBe(`test-file`)
-      expect(imageProps.alt).toBe(`Peter Smith`)
+      expect(imageProps.images.length).toBe(1)
+      expect(imageProps.images[0].src).toBe(`test-file`)
+      expect(imageProps.images[0].alt).toBe(`Peter Smith`)
       expect(imageProps.fullWidth).toBe(500)
       expect(imageProps.lazyWidth).toBe(200)
     })
