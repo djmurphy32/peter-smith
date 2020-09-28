@@ -1,6 +1,9 @@
 <template>
   <div class="contact-container">
     <a class="contact-item contact-email" :href="'mailto:' + email">peter smith</a>
+    <a class="contact-item contact-insta" target="_blank" :href="'https://www.instagram.com/' + igName"
+      >@{{ igName }}</a
+    >
   </div>
 </template>
 
@@ -12,7 +15,7 @@ export default Vue.extend({
   data() {
     return {
       email: 'pjfsmith@gmail.com',
-      igName: 'ptr_smith',
+      igName: 'petersmith',
     }
   },
 })
