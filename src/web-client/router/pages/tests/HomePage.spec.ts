@@ -16,7 +16,7 @@ describe('HomePage.vue', () => {
       expect(imageProps.images.length).toBe(3)
       expect(imageProps.images[0].src).toBe(`image1.jpg`)
       expect(imageProps.images[0].alt).toBe(`image_0`)
-      expect(imageProps.fullWidth).toBe(500)
+      expect(imageProps.fullWidth).toBe(1000)
       expect(imageProps.lazyWidth).toBe(200)
     })
   })

@@ -1,7 +1,7 @@
 <template>
   <div class="homepage">
     <div class="homepage-image-container">
-      <ImageCarousel imageClass="homepage-image" :images="images" :fullWidth="500" :lazyWidth="200" />
+      <ImageCarousel imageClass="homepage-image" :images="images" :fullWidth="1000" :lazyWidth="200" />
     </div>
   </div>
 </template>
