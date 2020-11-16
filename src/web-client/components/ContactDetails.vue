@@ -14,7 +14,7 @@ export default Vue.extend({
   name: 'ContactDetails',
   data() {
     return {
-      email: 'pjfsmith@gmail.com',
+      email: 'ps@petersmith.work',
       igName: 'petersmith',
     }
   },
@@ -29,6 +29,10 @@ export default Vue.extend({
 
   &-email {
     text-decoration: underline;
+  }
+
+  &-insta {
+    display: none;
   }
 }
 </style>
