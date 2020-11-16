@@ -37,7 +37,7 @@ export default Vue.extend({
     display: block;
 
     @include media-query-min($mq-sm) {
-      width: 500px;
+      width: 750px;
     }
 
     &-container {
