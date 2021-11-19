@@ -1,6 +1,7 @@
 <template>
   <div class="contact-container">
-    <a class="contact-item contact-email" :href="'mailto:' + email">peter smith</a>
+    <span>For all enquiries</span>
+    <a class="contact-item contact-email" :href="'mailto:' + email">{{ email }}</a>
     <a class="contact-item contact-insta" target="_blank" :href="'https://www.instagram.com/' + igName"
       >@{{ igName }}</a
     >
@@ -23,8 +24,12 @@ export default Vue.extend({
 
 <style lang="scss">
 .contact {
+  &-container {
+    margin-bottom: 20px;
+  }
+
   &-item {
-    margin: 0 5px;
+    display: block;
   }
 
   &-email {
