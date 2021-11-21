@@ -1,7 +1,14 @@
 <template>
   <div class="little-hills">
     <PortfolioHeading :title="title" :body="body" :footer="footer" />
-    <LazyImage v-for="(img, ix) in images" :key="ix" :src="img.src" :alt="img.alt" :fullWidth="300" :lazyWidth="200" />
+    <LazyImage
+      v-for="(img, ix) in images"
+      :key="ix"
+      :src="img.src"
+      :alt="img.alt"
+      :full-width="300"
+      :lazy-width="200"
+    />
   </div>
 </template>
 

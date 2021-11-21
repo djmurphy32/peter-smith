@@ -8,7 +8,7 @@
       <p v-for="(text, ix) in body" :key="ix">{{ text }}</p>
     </div>
     <div class="portfolio-heading__footer">
-      <span class="portfolio-heading__footer__line" v-for="(text, ix) in footer" :key="ix">{{ text }}</span>
+      <span v-for="(text, ix) in footer" :key="ix" class="portfolio-heading__footer__line">{{ text }}</span>
     </div>
   </div>
 </template>
@@ -24,11 +24,11 @@ export default Vue.extend({
       required: true,
     },
     body: {
-      type: Array as PropType<String[]>,
+      type: Array as PropType<string[]>,
       required: true,
     },
     footer: {
-      type: Array as PropType<String[]>,
+      type: Array as PropType<string[]>,
       required: true,
     },
   },
