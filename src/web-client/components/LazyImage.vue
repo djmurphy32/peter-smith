@@ -4,7 +4,7 @@
       :class="['lazy-image', imageClass, { 'lazy-image--lazy': !inViewport }]"
       :src="imageSource"
       :alt="alt"
-      v-on:load="imageLoad"
+      @load="imageLoad"
     />
   </div>
 </template>
@@ -26,11 +26,11 @@ export default Vue.extend({
     },
     fullWidth: { type: Number, required: true },
     lazyWidth: { type: Number, required: true },
-    imageClass: String,
+    imageClass: { type: String, default: undefined },
   },
   data() {
     return {
-      observer: {} as any,
+      observer: null as IntersectionObserver | null,
       inViewport: false,
       imageLoaded: false,
     }
@@ -50,9 +50,17 @@ export default Vue.extend({
       return `${inputSrc}?${netlifyQs}`
     },
   },
+  mounted() {
+    this.attachObserver()
+  },
+  destroyed() {
+    if ('IntersectionObserver' in window) {
+      this.observer?.disconnect()
+    }
+  },
   methods: {
     attachObserver(): void {
-      this.observer = new IntersectionObserver((entries, observer) => {
+      this.observer = new IntersectionObserver((entries) => {
         const entry = entries[0]
         if (entry.isIntersecting) {
           this.inViewport = true
@@ -61,7 +69,7 @@ export default Vue.extend({
             .replace(/\s+/g, '_')
             .toLowerCase()
           trackPictureImpression(label)
-          this.observer.disconnect()
+          this.observer?.disconnect()
         }
       })
       this.observer.observe(this.$el)
@@ -69,14 +77,6 @@ export default Vue.extend({
     imageLoad(): void {
       this.imageLoaded = true
     },
-  },
-  mounted() {
-    this.attachObserver()
-  },
-  destroyed() {
-    if ('IntersectionObserver' in window) {
-      this.observer.disconnect()
-    }
   },
 })
 </script>

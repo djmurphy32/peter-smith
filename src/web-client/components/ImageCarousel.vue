@@ -1,12 +1,12 @@
 <template>
   <div class="image-carousel">
-    <div class="image-carousel__image-container" ref="imageContiner" @click="imageClick($event)">
+    <div ref="imageContiner" class="image-carousel__image-container" @click="imageClick($event)">
       <LazyImage
-        :imageClass="imageClass"
+        :image-class="imageClass"
         :alt="activeImage.alt"
         :src="activeImage.src"
-        :fullWidth="fullWidth"
-        :lazyWidth="lazyWidth"
+        :full-width="fullWidth"
+        :lazy-width="lazyWidth"
       />
     </div>
   </div>
@@ -21,19 +21,19 @@ export default Vue.extend({
   components: {
     LazyImage,
   },
-  data() {
-    return {
-      currentIndex: 0,
-    }
-  },
   props: {
     images: {
       required: true,
       type: Array as () => Array<{ src: string; alt: string }>,
     },
-    imageClass: String,
-    fullWidth: Number,
-    lazyWidth: Number,
+    imageClass: { type: String, default: undefined },
+    fullWidth: { type: Number, required: true },
+    lazyWidth: { type: Number, required: true },
+  },
+  data() {
+    return {
+      currentIndex: 0,
+    }
   },
   computed: {
     activeImage(): { src: string; alt: string } {
