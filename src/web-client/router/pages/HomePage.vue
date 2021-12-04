@@ -1,20 +1,17 @@
 <template>
   <div class="homepage">
     <LittleHillsPortfolio />
-    <BrightAndYoungPortfolio />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import LittleHillsPortfolio from '@/components/portfolio/LittleHillsPortfolio.vue'
-import BrightAndYoungPortfolio from '@/components/portfolio/BrightAndYoungPortfolio.vue'
 
 export default Vue.extend({
   name: 'HomePage',
   components: {
     LittleHillsPortfolio,
-    BrightAndYoungPortfolio,
   },
 })
 </script>
