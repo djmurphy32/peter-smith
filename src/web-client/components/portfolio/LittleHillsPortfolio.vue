@@ -6,7 +6,7 @@
       :key="ix"
       :src="img.src"
       :alt="img.alt"
-      :full-width="300"
+      :full-width="600"
       :lazy-width="200"
     />
   </div>

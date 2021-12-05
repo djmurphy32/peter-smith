@@ -2,6 +2,7 @@
   <div :class="[{ 'lazy-image--unloaded': !imageLoaded }]">
     <img
       :class="['lazy-image', imageClass, { 'lazy-image--lazy': !inViewport }]"
+      :style="`width: ${fullWidth}px;`"
       :src="imageSource"
       :alt="alt"
       @load="imageLoad"
