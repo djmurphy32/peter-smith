@@ -83,6 +83,8 @@ export default Vue.extend({
 </script>
 <style lang="scss" scoped>
 .lazy-image {
+  max-width: 100%;
+
   &--lazy {
     filter: blur(5px);
   }
