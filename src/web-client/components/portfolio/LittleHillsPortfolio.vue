@@ -32,7 +32,7 @@ export default Vue.extend({
       images: Object.keys(requiredImages).map((image, i) => ({ src: requiredImages[image], alt: `image_${i}` })),
       title: 'Little Hills',
       body: [
-        'A portfolio of pictures made across the towns and villages of the North East of Ireand.',
+        'A portfolio of pictures made across the towns and villages of the North East of Ireland.',
         "Pictures of the landscapes, the events, and the people that influence today's youth.",
       ],
       footer: ['Edition of 200', 'Loose Leaf', '42 Pages'],
