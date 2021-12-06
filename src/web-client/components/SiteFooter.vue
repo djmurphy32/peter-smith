@@ -1,12 +1,18 @@
 <template>
-  <div class="site-footer"></div>
+  <div class="site-footer">
+    <Colophon />
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import Colophon from '@/components/Colophon.vue'
 
 export default Vue.extend({
   name: 'SiteFooter',
+  components: {
+    Colophon,
+  },
 })
 </script>
 
@@ -14,6 +20,5 @@ export default Vue.extend({
 .site-footer {
   margin-top: 20px;
   margin-bottom: 50px;
-  text-align: center;
 }
 </style>

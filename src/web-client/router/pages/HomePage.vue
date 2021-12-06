@@ -1,28 +1,17 @@
 <template>
   <div class="homepage">
-    <div class="homepage-image-container">
-      <ImageCarousel image-class="homepage-image" :images="images" :full-width="1000" :lazy-width="200" />
-    </div>
+    <LittleHillsPortfolio />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import ImageCarousel from '@/components/ImageCarousel.vue'
-import homeContext from '@/utils/webpackContexts/home'
-import importAll from '@/utils/importAll'
-
-const requiredImages = importAll(homeContext)
+import LittleHillsPortfolio from '@/components/portfolio/LittleHillsPortfolio.vue'
 
 export default Vue.extend({
   name: 'HomePage',
   components: {
-    ImageCarousel,
-  },
-  data() {
-    return {
-      images: Object.keys(requiredImages).map((image, i) => ({ src: requiredImages[image], alt: `image_${i}` })),
-    }
+    LittleHillsPortfolio,
   },
 })
 </script>
