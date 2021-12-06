@@ -1,6 +1,6 @@
 <template>
   <div class="contact-container">
-    <span>For all enquiries</span>
+    <span>All enquiries</span>
     <a class="contact-item contact-email" :href="'mailto:' + email">{{ email }}</a>
     <a class="contact-item contact-insta" target="_blank" :href="'https://www.instagram.com/' + igName"
       >@{{ igName }}</a
