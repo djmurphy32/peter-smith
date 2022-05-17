@@ -1,21 +1,10 @@
 <template>
-  <div class="little-hills">
-    <PortfolioHeading :title="title" :body="body" :footer="footer" />
-    <LazyImage
-      v-for="(img, ix) in images"
-      :key="ix"
-      :src="img.src"
-      :alt="img.alt"
-      :full-width="600"
-      :lazy-width="200"
-    />
-  </div>
+  <Portfolio :body="body" :title="title" :footer="footer" :images="images" />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import PortfolioHeading from './PortfolioHeading.vue'
-import LazyImage from '@/components/LazyImage.vue'
+import Portfolio from './Portfolio.vue'
 import LittleHillsCtx from '@/utils/webpackContexts/littleHills'
 import importAll from '@/utils/importAll'
 
@@ -24,8 +13,7 @@ const requiredImages = importAll(LittleHillsCtx)
 export default Vue.extend({
   name: 'LittleHillsPortfolio',
   components: {
-    PortfolioHeading,
-    LazyImage,
+    Portfolio,
   },
   data() {
     return {
