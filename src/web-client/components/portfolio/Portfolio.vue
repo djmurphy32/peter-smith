@@ -32,7 +32,7 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .portfolio {
   margin-bottom: 40px;
 }
