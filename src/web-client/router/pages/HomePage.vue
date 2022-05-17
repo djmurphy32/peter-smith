@@ -1,18 +1,20 @@
 <template>
   <div class="homepage">
+    <HommePortfolio />
+    <ReplicaPortfolio />
     <LittleHillsPortfolio />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import HommePortfolio from '@/components/portfolio/HommePortfolio.vue'
+import ReplicaPortfolio from '@/components/portfolio/ReplicaPortfolio.vue'
 import LittleHillsPortfolio from '@/components/portfolio/LittleHillsPortfolio.vue'
 
 export default Vue.extend({
   name: 'HomePage',
-  components: {
-    LittleHillsPortfolio,
-  },
+  components: { HommePortfolio, ReplicaPortfolio, LittleHillsPortfolio },
 })
 </script>
 

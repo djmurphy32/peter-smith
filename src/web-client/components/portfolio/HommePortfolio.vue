@@ -5,25 +5,24 @@
 <script lang="ts">
 import Vue from 'vue'
 import Portfolio from './Portfolio.vue'
-import LittleHillsCtx from '@/utils/webpackContexts/littleHills'
+import HommeCtx from '@/utils/webpackContexts/homme'
 import importAll from '@/utils/importAll'
 
-const requiredImages = importAll(LittleHillsCtx)
+const requiredImages = importAll(HommeCtx)
 
 export default Vue.extend({
-  name: 'LittleHillsPortfolio',
+  name: 'HommePortfolio',
   components: {
     Portfolio,
   },
   data() {
     return {
       images: Object.keys(requiredImages).map((image, i) => ({ src: requiredImages[image], alt: `image_${i}` })),
-      title: 'Little Hills',
+      title: 'Arena HOMME+ 57',
       body: [
-        'A portfolio of pictures made across the towns and villages of the North East of Ireland.',
-        "Pictures of the landscapes, the events, and the people that influence today's youth.",
+        'LOEWE special with England and Leeds United Midfielder Kalvin Phillips. Photographed in his hometown of Cleckheaton.',
       ],
-      footer: ['Edition of 200', 'Loose Leaf', '42 Pages'],
+      footer: ['Words - James Brown', 'Styling - Charlotte Rubenstein', 'Grooming - James Duggan'],
     }
   },
 })

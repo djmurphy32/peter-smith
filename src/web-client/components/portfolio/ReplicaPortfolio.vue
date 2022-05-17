@@ -5,25 +5,26 @@
 <script lang="ts">
 import Vue from 'vue'
 import Portfolio from './Portfolio.vue'
-import LittleHillsCtx from '@/utils/webpackContexts/littleHills'
+import ReplicaCtx from '@/utils/webpackContexts/replica'
 import importAll from '@/utils/importAll'
 
-const requiredImages = importAll(LittleHillsCtx)
+const requiredImages = importAll(ReplicaCtx)
 
 export default Vue.extend({
-  name: 'LittleHillsPortfolio',
+  name: 'ReplicatePortfolio',
   components: {
     Portfolio,
   },
   data() {
     return {
       images: Object.keys(requiredImages).map((image, i) => ({ src: requiredImages[image], alt: `image_${i}` })),
-      title: 'Little Hills',
-      body: [
-        'A portfolio of pictures made across the towns and villages of the North East of Ireland.',
-        "Pictures of the landscapes, the events, and the people that influence today's youth.",
+      title: 'Replica Magazine',
+      body: ['18 page Men’s fashion story for Replica’s tenth issue - Spring 22'],
+      footer: [
+        'Styling - Louis Prier Tisdall',
+        'Featuring Matej, Donte, Brennan and Eliot',
+        'c/o Anita Bitton - Establishment',
       ],
-      footer: ['Edition of 200', 'Loose Leaf', '42 Pages'],
     }
   },
 })
