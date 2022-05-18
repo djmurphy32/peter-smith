@@ -19,7 +19,7 @@ export default Vue.extend({
     return {
       images: Object.keys(requiredImages).map((image, i) => ({ src: requiredImages[image], alt: `image_${i}` })),
       title: 'Replica Magazine',
-      body: ['18 page Men’s fashion story for Replica’s tenth issue - Spring 22'],
+      body: ['Men’s fashion story for Replica’s tenth issue - Spring 22'],
       footer: [
         'Styling - Louis Prier Tisdall',
         'Featuring Matej, Donte, Brennan and Eliot',

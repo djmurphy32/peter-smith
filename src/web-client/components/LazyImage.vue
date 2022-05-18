@@ -2,7 +2,7 @@
   <div :class="[{ 'lazy-image--unloaded': !imageLoaded }]">
     <img
       :class="['lazy-image', imageClass, { 'lazy-image--lazy': !inViewport }]"
-      :style="`width: ${fullWidth}px;`"
+      :style="`width: ${imageWidth}px;`"
       :src="imageSource"
       :alt="alt"
       @load="imageLoad"
@@ -28,6 +28,7 @@ export default Vue.extend({
     fullWidth: { type: Number, required: true },
     lazyWidth: { type: Number, required: true },
     imageClass: { type: String, default: undefined },
+    cssWidth: { type: Number, default: undefined },
   },
   data() {
     return {
@@ -37,6 +38,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    imageWidth(): number {
+      return this.cssWidth ?? this.fullWidth
+    },
     imageSource(): string {
       const netlifyQs = this.inViewport ? `nf_resize=fit&w=${this.fullWidth}` : `nf_resize=fit&w=${this.lazyWidth}`
       let inputSrc = this.src

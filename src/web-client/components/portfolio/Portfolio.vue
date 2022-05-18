@@ -6,8 +6,9 @@
       :key="ix"
       :src="img.src"
       :alt="img.alt"
-      :full-width="600"
+      :full-width="1200"
       :lazy-width="200"
+      :css-width="600"
     />
   </div>
 </template>
