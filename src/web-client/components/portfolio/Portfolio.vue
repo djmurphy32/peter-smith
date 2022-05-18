@@ -8,6 +8,7 @@
       :alt="img.alt"
       :full-width="1200"
       :lazy-width="200"
+      :css-width="600"
     />
   </div>
 </template>
