@@ -28,11 +28,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'prettier',
     'plugin:vue/recommended',
-    'prettier/vue',
   ],
-  env: {
-    jest: true,
-  },
   globals: {
     page: true,
     browser: true,
@@ -82,8 +78,6 @@ module.exports = {
     'no-template-curly-in-string': 'off',
     'no-case-declarations': 'warn',
     'no-empty': ['error', { allowEmptyCatch: true }],
-    '@typescript-eslint/explicit-member-accessibility': 0,
-    indent: 'off',
     '@typescript-eslint/naming-convention': [
       'error',
       {
