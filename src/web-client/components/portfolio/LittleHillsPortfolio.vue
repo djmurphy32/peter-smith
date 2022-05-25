@@ -5,10 +5,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import Portfolio from './Portfolio.vue'
-import LittleHillsCtx from '@/utils/webpackContexts/littleHills'
-import importAll from '@/utils/importAll'
 
-const requiredImages = importAll(LittleHillsCtx)
+const requiredImages = import.meta.globEager('../../assets/images/portfolio/littleHills/*.jpg')
+const imagesPaths = Object.values(requiredImages).map((module) => module.default)
 
 export default Vue.extend({
   name: 'LittleHillsPortfolio',
@@ -17,7 +16,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      images: Object.keys(requiredImages).map((image, i) => ({ src: requiredImages[image], alt: `image_${i}` })),
+      images: imagesPaths.map((image, i) => ({ src: image, alt: `image_${i}` })),
       title: 'Little Hills',
       body: [
         'A portfolio of pictures made across the towns and villages of the North East of Ireland.',

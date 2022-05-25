@@ -5,10 +5,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import Portfolio from './Portfolio.vue'
-import ReplicaCtx from '@/utils/webpackContexts/replica'
-import importAll from '@/utils/importAll'
 
-const requiredImages = importAll(ReplicaCtx)
+const requiredImages = import.meta.globEager('../../assets/images/portfolio/replica/*.jpg')
+const imagesPaths = Object.values(requiredImages).map((module) => module.default)
 
 export default Vue.extend({
   name: 'ReplicatePortfolio',
@@ -17,7 +16,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      images: Object.keys(requiredImages).map((image, i) => ({ src: requiredImages[image], alt: `image_${i}` })),
+      images: imagesPaths.map((image, i) => ({ src: image, alt: `image_${i}` })),
       title: 'Replica Magazine',
       body: ['Men’s fashion story for Replica’s tenth issue - Spring 22'],
       footer: [

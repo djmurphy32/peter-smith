@@ -5,10 +5,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import Portfolio from './Portfolio.vue'
-import HommeCtx from '@/utils/webpackContexts/homme'
-import importAll from '@/utils/importAll'
 
-const requiredImages = importAll(HommeCtx)
+const requiredImages = import.meta.globEager('../../assets/images/portfolio/homme/*.jpg')
+const imagesPaths = Object.values(requiredImages).map((module) => module.default)
 
 export default Vue.extend({
   name: 'HommePortfolio',
@@ -17,7 +16,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      images: Object.keys(requiredImages).map((image, i) => ({ src: requiredImages[image], alt: `image_${i}` })),
+      images: imagesPaths.map((image, i) => ({ src: image, alt: `image_${i}` })),
       title: 'Arena HOMME+ 57',
       body: [
         'LOEWE special with England and Leeds United Midfielder Kalvin Phillips. Photographed in his hometown of Cleckheaton.',

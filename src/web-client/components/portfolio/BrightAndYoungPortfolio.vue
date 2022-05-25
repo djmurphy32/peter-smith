@@ -5,10 +5,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import Portfolio from './Portfolio.vue'
-import BrightAndYoungCtx from '@/utils/webpackContexts/brightAndYoung'
-import importAll from '@/utils/importAll'
 
-const requiredImages = importAll(BrightAndYoungCtx)
+const requiredImages = import.meta.globEager('../../assets/images/portfolio/brightAndYoung/*.jpg')
+const imagesPaths = Object.values(requiredImages).map((module) => module.default)
 
 export default Vue.extend({
   name: 'BrightAndYoungPortfolio',
@@ -17,7 +16,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      images: Object.keys(requiredImages).map((image, i) => ({ src: requiredImages[image], alt: `image_${i}` })),
+      images: imagesPaths.map((image, i) => ({ src: image, alt: `image_${i}` })),
       title: 'Bright and young and here forever',
       body: [
         'Pictures of youth involved in camping out and protesting for immediate government action in climate change mitigation.',
