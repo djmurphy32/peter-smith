@@ -69,10 +69,7 @@ export default Vue.extend({
         const entry = entries[0]
         if (entry.isIntersecting) {
           this.inViewport = true
-          const label = `${this.$route.name}_${this.alt}`
-            .trim()
-            .replace(/\s+/g, '_')
-            .toLowerCase()
+          const label = `${this.$route.name}_${this.alt}`.trim().replace(/\s+/g, '_').toLowerCase()
           trackPictureImpression(label)
           this.observer?.disconnect()
         }
