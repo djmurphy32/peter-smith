@@ -24,6 +24,8 @@ const images2 = import.meta.glob('../../assets/images/portfolio/homme/*.jpg') as
 const x: string[] = []
 
 for (const image in images2) {
+  // eslint-disable-next-line no-console
+  console.log(image)
   const imageUrl = new URL(image, import.meta.url).href
   x.push(imageUrl)
 }
