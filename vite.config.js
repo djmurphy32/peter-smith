@@ -4,7 +4,7 @@ import { createVuePlugin } from 'vite-plugin-vue2'
 export default defineConfig({
   plugins: [createVuePlugin()],
   esbuild: {
-    target: 'es2020',
+    target: 'esnext',
   },
   css: {
     preprocessorOptions: {
