@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite'
 import { createVuePlugin } from 'vite-plugin-vue2'
+import { ViteFaviconsPlugin } from 'vite-plugin-favicon2'
 
 export default defineConfig({
-  plugins: [createVuePlugin()],
+  plugins: [createVuePlugin(), ViteFaviconsPlugin({ logo: './src/web-client/assets/favicon.png' })],
   build: {
     target: 'esnext',
     assetsInlineLimit: 0,
