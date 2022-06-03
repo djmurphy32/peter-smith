@@ -27,8 +27,8 @@ module.exports = {
     'standard',
     'prettier',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
     'plugin:vue/recommended',
+    'prettier',
   ],
   globals: {
     page: true,
