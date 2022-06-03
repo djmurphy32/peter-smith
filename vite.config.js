@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [createVuePlugin()],
   optimizeDeps: {
     esbuildOptions: {
-      target: 'es2020',
+      target: 'esnext',
     },
   },
   esbuild: {
