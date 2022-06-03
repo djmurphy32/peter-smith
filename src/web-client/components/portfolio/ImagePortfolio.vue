@@ -42,6 +42,8 @@ export default Vue.extend({
       return res
     },
     images(): { src: string; alt: string }[] {
+      // eslint-disable-next-line no-console
+      console.log('imagepaths', this.imagePaths)
       return this.imageUrls.map((image, i) => ({ src: image.toString(), alt: `image_${i}` }))
     },
   },
