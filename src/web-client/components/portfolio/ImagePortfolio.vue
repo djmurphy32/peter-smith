@@ -30,7 +30,7 @@ for (const image in images2) {
   images2[image]().then(() => {
     const p = new URL(image, import.meta.url).href
     // eslint-disable-next-line no-console
-    console.log(p)
+    console.log(p, x)
     x.push(p)
   })
 }
