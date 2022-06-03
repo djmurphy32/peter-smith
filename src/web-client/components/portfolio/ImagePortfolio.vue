@@ -19,16 +19,20 @@ import Vue, { PropType } from 'vue'
 import PortfolioHeading from './PortfolioHeading.vue'
 import LazyImage from '@/components/LazyImage.vue'
 
-const images2 = import.meta.glob('../../assets/images/portfolio/homme/*.jpg') as Record<string, string>
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const images2 = import.meta.glob('../../assets/images/portfolio/homme/*.jpg') as any
 // eslint-disable-next-line no-console
 console.log(images2)
 const x: string[] = []
 
 for (const image in images2) {
   // eslint-disable-next-line no-console
-  console.log(image)
-  const imageUrl = new URL(image, import.meta.url).href
-  x.push(imageUrl)
+  images2[image]().then(() => {
+    const p = new URL(image, import.meta.url).href
+    // eslint-disable-next-line no-console
+    console.log(p)
+    x.push(p)
+  })
 }
 
 export default Vue.extend({
