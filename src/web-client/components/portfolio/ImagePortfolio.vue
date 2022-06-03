@@ -36,8 +36,6 @@ export default Vue.extend({
       const res: string[] = []
 
       for (const i in this.imagePaths) {
-        // eslint-disable-next-line no-console
-        console.log('imagepaths', i, import.meta.url, import.meta)
         const p = new URL(i, import.meta.url).href
         res.push(p)
       }
