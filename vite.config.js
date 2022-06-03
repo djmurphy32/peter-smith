@@ -3,6 +3,9 @@ import { createVuePlugin } from 'vite-plugin-vue2'
 
 export default defineConfig({
   plugins: [createVuePlugin()],
+  build: {
+    target: 'esnext',
+  },
   optimizeDeps: {
     esbuildOptions: {
       target: 'esnext',
