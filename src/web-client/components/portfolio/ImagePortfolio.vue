@@ -36,14 +36,14 @@ export default Vue.extend({
       const res: URL[] = []
 
       for (const i in this.imagePaths) {
+        // eslint-disable-next-line no-console
+        console.log('imagepaths', i, import.meta.url)
         const p = new URL(i, import.meta.url)
         res.push(p)
       }
       return res
     },
     images(): { src: string; alt: string }[] {
-      // eslint-disable-next-line no-console
-      console.log('imagepaths', this.imagePaths)
       return this.imageUrls.map((image, i) => ({ src: image.toString(), alt: `image_${i}` }))
     },
   },
