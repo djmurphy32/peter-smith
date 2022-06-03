@@ -19,6 +19,15 @@ import Vue, { PropType } from 'vue'
 import PortfolioHeading from './PortfolioHeading.vue'
 import LazyImage from '@/components/LazyImage.vue'
 
+const images2 = import.meta.glob('../../assets/images/portfolio/homme/*.jpg') as Record<string, string>
+
+const x: string[] = []
+
+for (const image in images2) {
+  const imageUrl = new URL(image, import.meta.url).href
+  x.push(imageUrl)
+}
+
 export default Vue.extend({
   name: 'ImagePortfolio',
   components: {
@@ -35,14 +44,15 @@ export default Vue.extend({
     imageUrls(): string[] {
       const res: string[] = []
 
-      for (const i in this.imagePaths) {
-        const p = new URL(i, import.meta.url).href
-        res.push(p)
+      for (const image in this.imagePaths) {
+        const imageUrl = new URL(image, import.meta.url).href
+        res.push(imageUrl)
       }
       return res
     },
     images(): { src: string; alt: string }[] {
-      return this.imageUrls.map((image, i) => ({ src: image, alt: `image_${i}` }))
+      return x.map((image, i) => ({ src: image, alt: `image_${i}` }))
+      // return this.imageUrls.map((image, i) => ({ src: image, alt: `image_${i}` }))
     },
   },
 })
