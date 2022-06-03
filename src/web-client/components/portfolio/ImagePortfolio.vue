@@ -19,8 +19,6 @@ import Vue, { PropType } from 'vue'
 import PortfolioHeading from './PortfolioHeading.vue'
 import LazyImage from '@/components/LazyImage.vue'
 
-const metaUrl = import.meta.url
-
 export default Vue.extend({
   name: 'ImagePortfolio',
   components: {
@@ -34,19 +32,19 @@ export default Vue.extend({
     imagePaths: { type: Object as PropType<Record<string, string>>, required: true },
   },
   computed: {
-    imageUrls(): URL[] {
-      const res: URL[] = []
+    imageUrls(): string[] {
+      const res: string[] = []
 
       for (const i in this.imagePaths) {
         // eslint-disable-next-line no-console
-        console.log('imagepaths', i, metaUrl)
-        const p = new URL(i, metaUrl)
+        console.log('imagepaths', i, import.meta.url)
+        const p = new URL(i, import.meta.url).href
         res.push(p)
       }
       return res
     },
     images(): { src: string; alt: string }[] {
-      return this.imageUrls.map((image, i) => ({ src: image.toString(), alt: `image_${i}` }))
+      return this.imageUrls.map((image, i) => ({ src: image, alt: `image_${i}` }))
     },
   },
 })
