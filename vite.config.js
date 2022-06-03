@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [createVuePlugin()],
   build: {
     target: 'esnext',
+    assetsInlineLimit: 0,
   },
   optimizeDeps: {
     esbuildOptions: {
