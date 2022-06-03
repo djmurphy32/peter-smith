@@ -20,7 +20,8 @@ import PortfolioHeading from './PortfolioHeading.vue'
 import LazyImage from '@/components/LazyImage.vue'
 
 const images2 = import.meta.glob('../../assets/images/portfolio/homme/*.jpg') as Record<string, string>
-
+// eslint-disable-next-line no-console
+console.log(images2)
 const x: string[] = []
 
 for (const image in images2) {
