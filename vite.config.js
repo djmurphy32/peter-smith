@@ -7,11 +7,6 @@ export default defineConfig({
     target: 'esnext',
     assetsInlineLimit: 0,
   },
-  optimizeDeps: {
-    esbuildOptions: {
-      target: 'esnext',
-    },
-  },
   esbuild: {
     target: 'esnext',
   },
