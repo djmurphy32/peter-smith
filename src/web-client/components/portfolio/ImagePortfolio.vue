@@ -18,23 +18,7 @@
 import Vue, { PropType } from 'vue'
 import PortfolioHeading from './PortfolioHeading.vue'
 import LazyImage from '@/components/LazyImage.vue'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-// const images2 = import.meta.glob('../../assets/images/portfolio/homme/*.jpg') as any
-const images3 = import.meta.globEager('../../assets/images/portfolio/homme/*.jpg') as { default: string }[]
-// eslint-disable-next-line no-console
-console.log(images3)
-const x = Object.values(images3).map((module) => module.default)
-
-// for (const image in images2) {
-//   // eslint-disable-next-line no-console
-//   images2[image]().then(() => {
-//     const p = new URL(image, import.meta.url).href
-//     // eslint-disable-next-line no-console
-//     console.log(p, x)
-//     x.push(p)
-//   })
-// }
+import { GlobEagerImport } from '@/typings/globImport'
 
 export default Vue.extend({
   name: 'ImagePortfolio',
@@ -46,26 +30,13 @@ export default Vue.extend({
     title: { type: String, required: true },
     body: { type: Array as PropType<string[]>, required: true },
     footer: { type: Array as PropType<string[]>, required: true },
-    imagePaths: { type: Object as PropType<Record<string, string>>, required: true },
-  },
-  data() {
-    return {
-      x,
-    }
+    importedImages: { type: Object as PropType<GlobEagerImport>, required: true },
   },
   computed: {
-    imageUrls(): string[] {
-      const res: string[] = []
-
-      for (const image in this.imagePaths) {
-        const imageUrl = new URL(image, import.meta.url).href
-        res.push(imageUrl)
-      }
-      return res
-    },
     images(): { src: string; alt: string }[] {
-      return this.x.map((image, i) => ({ src: image, alt: `image_${i}` }))
-      // return this.imageUrls.map((image, i) => ({ src: image, alt: `image_${i}` }))
+      const paths = Object.values(this.importedImages).map((module) => module.default)
+
+      return paths.map((image, i) => ({ src: image, alt: `image_${i}` }))
     },
   },
 })

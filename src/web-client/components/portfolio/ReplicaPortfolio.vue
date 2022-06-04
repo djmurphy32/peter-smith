@@ -1,11 +1,12 @@
 <template>
-  <Portfolio :body="body" :image-paths="images" :title="title" :footer="footer" />
+  <Portfolio :body="body" :imported-images="images" :title="title" :footer="footer" />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import Portfolio from './ImagePortfolio.vue'
-const images = import.meta.globEager('../../assets/images/portfolio/replica/*.jpg') as { default: string }[]
+import { GlobEagerImport } from '@/typings/globImport'
+const images = import.meta.globEager('../../assets/images/portfolio/replica/*.jpg') as GlobEagerImport
 
 export default Vue.extend({
   name: 'ReplicatePortfolio',

@@ -1,5 +1,5 @@
 <template>
-  <Portfolio :body="body" :image-paths="images" :title="title" :footer="footer" />
+  <Portfolio :body="body" :imported-images="images" :title="title" :footer="footer" />
 </template>
 
 <script lang="ts">

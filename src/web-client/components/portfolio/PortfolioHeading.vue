@@ -14,6 +14,7 @@
 </template>
 
 <script lang="ts">
+// eslint-disable-next-line import/named
 import Vue, { PropType } from 'vue'
 
 export default Vue.extend({
