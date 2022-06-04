@@ -2,7 +2,7 @@ import ImageCarousel from '../ImageCarousel.vue'
 import { Wrapper, shallowMount } from '@vue/test-utils'
 
 describe('ImageCarousel', () => {
-  let wrapper: Wrapper<any>
+  let wrapper: Wrapper<ImageCarousel>
   describe('GIVEN multiple images', () => {
     const images = [
       { src: 'image1.png', alt: 'image1' },
@@ -22,7 +22,7 @@ describe('ImageCarousel', () => {
     })
 
     it('THEN mounts the component correctly', () => {
-      const imageProps = wrapper.find({ name: 'LazyImage' }).props() as any
+      const imageProps = wrapper.findComponent({ name: 'LazyImage' }).props()
       expect(imageProps.src).toBe('image1.png')
       expect(imageProps.alt).toBe('image1')
       expect(imageProps.fullWidth).toBe(500)
@@ -38,7 +38,7 @@ describe('ImageCarousel', () => {
       })
 
       it('THEN updates the rendered image correctly', () => {
-        const imageProps = wrapper.find({ name: 'LazyImage' }).props() as any
+        const imageProps = wrapper.findComponent({ name: 'LazyImage' }).props()
         expect(imageProps.src).toBe('image2.png')
         expect(imageProps.alt).toBe('image2')
       })
@@ -54,7 +54,7 @@ describe('ImageCarousel', () => {
         })
 
         it('THEN returns to first image', () => {
-          const imageProps = wrapper.find({ name: 'LazyImage' }).props() as any
+          const imageProps = wrapper.findComponent({ name: 'LazyImage' }).props()
           expect(imageProps.src).toBe('image1.png')
           expect(imageProps.alt).toBe('image1')
         })
@@ -69,7 +69,7 @@ describe('ImageCarousel', () => {
       })
 
       it('THEN updates to the final image', () => {
-        const imageProps = wrapper.find({ name: 'LazyImage' }).props() as any
+        const imageProps = wrapper.findComponent({ name: 'LazyImage' }).props()
         expect(imageProps.src).toBe('image3.png')
         expect(imageProps.alt).toBe('image3')
       })
@@ -82,7 +82,7 @@ describe('ImageCarousel', () => {
         })
 
         it('THEN updates image correctly', () => {
-          const imageProps = wrapper.find({ name: 'LazyImage' }).props() as any
+          const imageProps = wrapper.findComponent({ name: 'LazyImage' }).props()
           expect(imageProps.src).toBe('image2.png')
           expect(imageProps.alt).toBe('image2')
         })

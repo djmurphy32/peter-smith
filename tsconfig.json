@@ -1,19 +1,15 @@
 {
   "compilerOptions": {
-    /* Basic Options */
-    "target": "es5",
+    "target": "esnext",
     "allowJs": false,
     "sourceMap": true,
     "pretty": true,
-    /* Strict Type-Checking Options */
     "strict": true,
     "alwaysStrict": true,
-    /* Additional Checks */
     "noUnusedParameters": false,
     "noUnusedLocals": true,
     "removeComments": false,
     "noFallthroughCasesInSwitch": true,
-    /* Module Resolution Options */
     "module": "esnext",
     "moduleResolution": "node",
     "baseUrl": ".",
