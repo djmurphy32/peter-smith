@@ -14,12 +14,14 @@
 </template>
 
 <script lang="ts">
+// eslint-disable-next-line import/named
 import Vue, { PropType } from 'vue'
 import PortfolioHeading from './PortfolioHeading.vue'
 import LazyImage from '@/components/LazyImage.vue'
+import { GlobEagerImport } from '@/typings/globImport'
 
 export default Vue.extend({
-  name: 'Portfolio',
+  name: 'ImagePortfolio',
   components: {
     PortfolioHeading,
     LazyImage,
@@ -28,7 +30,14 @@ export default Vue.extend({
     title: { type: String, required: true },
     body: { type: Array as PropType<string[]>, required: true },
     footer: { type: Array as PropType<string[]>, required: true },
-    images: { type: Array as PropType<{ src: string; alt: string }[]>, required: true },
+    importedImages: { type: Object as PropType<GlobEagerImport>, required: true },
+  },
+  computed: {
+    images(): { src: string; alt: string }[] {
+      const paths = Object.values(this.importedImages).map((module) => module.default)
+
+      return paths.map((image, i) => ({ src: image, alt: `image_${i}` }))
+    },
   },
 })
 </script>

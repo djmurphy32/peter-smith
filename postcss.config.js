@@ -1,3 +1,3 @@
 module.exports = {
-  plugins: [require('autoprefixer'), require('css-mqpacker')({ sort: require('./webpack/cssMqPackerSort') })],
+  plugins: [require('autoprefixer'), require('css-mqpacker')({ sort: require('./postcss/cssMqPackerSort') })],
 }

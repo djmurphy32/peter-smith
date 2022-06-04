@@ -1,17 +1,18 @@
 <template>
   <div class="site-footer">
-    <Colophon />
+    <span>&copy; all images Peter Smith {{ year }}</span>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import Colophon from '@/components/Colophon.vue'
 
 export default Vue.extend({
   name: 'SiteFooter',
-  components: {
-    Colophon,
+  computed: {
+    year(): string {
+      return new Date().getFullYear().toString()
+    },
   },
 })
 </script>

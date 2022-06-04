@@ -1,14 +1,13 @@
 <template>
-  <Portfolio :body="body" :title="title" :footer="footer" :images="images" />
+  <Portfolio :body="body" :imported-images="images" :title="title" :footer="footer" />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import Portfolio from './Portfolio.vue'
-import LittleHillsCtx from '@/utils/webpackContexts/littleHills'
-import importAll from '@/utils/importAll'
+import Portfolio from './ImagePortfolio.vue'
+import { GlobEagerImport } from '@/typings/globImport'
 
-const requiredImages = importAll(LittleHillsCtx)
+const images = import.meta.globEager('../../assets/images/portfolio/littleHills/*.jpg') as GlobEagerImport
 
 export default Vue.extend({
   name: 'LittleHillsPortfolio',
@@ -17,7 +16,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      images: Object.keys(requiredImages).map((image, i) => ({ src: requiredImages[image], alt: `image_${i}` })),
+      images,
       title: 'Little Hills',
       body: [
         'A portfolio of pictures made across the towns and villages of the North East of Ireland.',

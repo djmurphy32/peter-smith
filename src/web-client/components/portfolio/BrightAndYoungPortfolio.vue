@@ -1,14 +1,12 @@
 <template>
-  <Portfolio :body="body" :title="title" :footer="footer" :images="images" />
+  <Portfolio :body="body" :imported-images="images" :title="title" :footer="footer" />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import Portfolio from './Portfolio.vue'
-import BrightAndYoungCtx from '@/utils/webpackContexts/brightAndYoung'
-import importAll from '@/utils/importAll'
-
-const requiredImages = importAll(BrightAndYoungCtx)
+import Portfolio from './ImagePortfolio.vue'
+import { GlobEagerImport } from '@/typings/globImport'
+const images = import.meta.globEager('../../assets/images/portfolio/brightAndYoung/*.jpg') as GlobEagerImport
 
 export default Vue.extend({
   name: 'BrightAndYoungPortfolio',
@@ -17,7 +15,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      images: Object.keys(requiredImages).map((image, i) => ({ src: requiredImages[image], alt: `image_${i}` })),
+      images,
       title: 'Bright and young and here forever',
       body: [
         'Pictures of youth involved in camping out and protesting for immediate government action in climate change mitigation.',

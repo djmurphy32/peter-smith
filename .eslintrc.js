@@ -19,6 +19,7 @@ module.exports = {
     sourceType: 'module',
     extraFileExtensions: ['.vue'],
   },
+
   extends: [
     'eslint:recommended',
     'plugin:import/errors',
@@ -26,8 +27,8 @@ module.exports = {
     'standard',
     'prettier',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
     'plugin:vue/recommended',
+    'prettier',
   ],
   globals: {
     page: true,
@@ -36,6 +37,7 @@ module.exports = {
     jestPuppeteer: true,
   },
   rules: {
+    'vue/html-self-closing': 0,
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'error',
     indent: ['error', 2, { SwitchCase: 1 }],
