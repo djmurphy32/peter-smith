@@ -2,7 +2,7 @@
   <div class="homepage">
     <HommePortfolio />
     <ReplicaPortfolio />
-    <!-- <LittleHillsPortfolio /> -->
+    <LittleHillsPortfolio />
   </div>
 </template>
 
@@ -10,11 +10,11 @@
 import Vue from 'vue'
 import HommePortfolio from '@/components/portfolio/HommePortfolio.vue'
 import ReplicaPortfolio from '@/components/portfolio/ReplicaPortfolio.vue'
-// import LittleHillsPortfolio from '@/components/portfolio/LittleHillsPortfolio.vue'
+import LittleHillsPortfolio from '@/components/portfolio/LittleHillsPortfolio.vue'
 
 export default Vue.extend({
   name: 'HomePage',
-  components: { HommePortfolio, ReplicaPortfolio },
+  components: { HommePortfolio, ReplicaPortfolio, LittleHillsPortfolio },
 })
 </script>
 
