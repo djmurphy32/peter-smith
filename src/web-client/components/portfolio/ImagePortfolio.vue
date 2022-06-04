@@ -20,20 +20,21 @@ import PortfolioHeading from './PortfolioHeading.vue'
 import LazyImage from '@/components/LazyImage.vue'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const images2 = import.meta.glob('../../assets/images/portfolio/homme/*.jpg') as any
+// const images2 = import.meta.glob('../../assets/images/portfolio/homme/*.jpg') as any
+const images3 = import.meta.globEager('../../assets/images/portfolio/homme/*.jpg') as { default: string }[]
 // eslint-disable-next-line no-console
-console.log(images2)
-const x: string[] = []
+console.log(images3)
+const x = Object.values(images3).map((module) => module.default)
 
-for (const image in images2) {
-  // eslint-disable-next-line no-console
-  images2[image]().then(() => {
-    const p = new URL(image, import.meta.url).href
-    // eslint-disable-next-line no-console
-    console.log(p, x)
-    x.push(p)
-  })
-}
+// for (const image in images2) {
+//   // eslint-disable-next-line no-console
+//   images2[image]().then(() => {
+//     const p = new URL(image, import.meta.url).href
+//     // eslint-disable-next-line no-console
+//     console.log(p, x)
+//     x.push(p)
+//   })
+// }
 
 export default Vue.extend({
   name: 'ImagePortfolio',
@@ -47,6 +48,11 @@ export default Vue.extend({
     footer: { type: Array as PropType<string[]>, required: true },
     imagePaths: { type: Object as PropType<Record<string, string>>, required: true },
   },
+  data() {
+    return {
+      x,
+    }
+  },
   computed: {
     imageUrls(): string[] {
       const res: string[] = []
@@ -58,7 +64,7 @@ export default Vue.extend({
       return res
     },
     images(): { src: string; alt: string }[] {
-      return x.map((image, i) => ({ src: image, alt: `image_${i}` }))
+      return this.x.map((image, i) => ({ src: image, alt: `image_${i}` }))
       // return this.imageUrls.map((image, i) => ({ src: image, alt: `image_${i}` }))
     },
   },

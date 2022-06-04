@@ -5,7 +5,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Portfolio from './ImagePortfolio.vue'
-const images = import.meta.glob('../../assets/images/portfolio/brightAndYoung/*.jpg') as Record<string, string>
+const images = import.meta.globEager('../../assets/images/portfolio/brightAndYoung/*.jpg') as { default: string }[]
 
 export default Vue.extend({
   name: 'BrightAndYoungPortfolio',
