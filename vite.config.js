@@ -25,10 +25,6 @@ export default defineConfig({
         find: '@',
         replacement: '/src/web-client',
       },
-      {
-        find: 'vue',
-        replacement: '@vue/compat',
-      },
     ],
   },
 })
