@@ -8,18 +8,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script setup lang="ts">
+import { ref } from 'vue'
 
-export default Vue.extend({
-  name: 'ContactDetails',
-  data() {
-    return {
-      email: 'ps@petersmith.work',
-      igName: 'petersmith',
-    }
-  },
-})
+const email = ref('ps@petersmith.work')
+const igName = ref('petersmith')
 </script>
 
 <style lang="scss">

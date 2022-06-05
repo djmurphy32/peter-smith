@@ -1,6 +1,6 @@
 <template>
   <div class="portfolio">
-    <PortfolioHeading :title="title" :body="body" :footer="footer" />
+    <PortfolioHeading :title="props.title" :body="props.body" :footer="props.footer" />
     <LazyImage
       v-for="(img, ix) in images"
       :key="ix"
@@ -13,32 +13,24 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 // eslint-disable-next-line import/named
-import Vue, { PropType } from 'vue'
+import { computed, PropType } from 'vue'
 import PortfolioHeading from './PortfolioHeading.vue'
 import LazyImage from '@/components/LazyImage.vue'
 import { GlobEagerImport } from '@/typings/globImport'
 
-export default Vue.extend({
-  name: 'ImagePortfolio',
-  components: {
-    PortfolioHeading,
-    LazyImage,
-  },
-  props: {
-    title: { type: String, required: true },
-    body: { type: Array as PropType<string[]>, required: true },
-    footer: { type: Array as PropType<string[]>, required: true },
-    importedImages: { type: Object as PropType<GlobEagerImport>, required: true },
-  },
-  computed: {
-    images(): { src: string; alt: string }[] {
-      const paths = Object.values(this.importedImages).map((module) => module.default)
+const props = defineProps({
+  title: { type: String, required: true },
+  body: { type: Array as PropType<string[]>, required: true },
+  footer: { type: Array as PropType<string[]>, required: true },
+  importedImages: { type: Object as PropType<GlobEagerImport>, required: true },
+})
 
-      return paths.map((image, i) => ({ src: image, alt: `image_${i}` }))
-    },
-  },
+const images = computed((): { src: string; alt: string }[] => {
+  const paths = Object.values(props.importedImages).map((module) => module.default)
+
+  return paths.map((image, i) => ({ src: image, alt: `image_${i}` }))
 })
 </script>
 

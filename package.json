@@ -15,14 +15,17 @@
   "license": "ISC",
   "dependencies": {
     "intersection-observer": "0.12.0",
-    "vue": "2.6.11",
-    "vue-router": "3.0.7"
+    "vue": "3.2.36",
+    "vue-router": "4.0.15"
   },
   "devDependencies": {
-    "@types/jest": "28.1.0",
+    "@types/jest": "27.4.1",
     "@typescript-eslint/eslint-plugin": "5.27.0",
     "@typescript-eslint/parser": "5.27.0",
-    "@vue/test-utils": "1.0.5",
+    "@vitejs/plugin-vue": "2.3.3",
+    "@vue/compiler-sfc": "3.2.36",
+    "@vue/test-utils": "2.0.0",
+    "@vue/vue3-jest": "27.0.0",
     "autoprefixer": "10.4.7",
     "css-mqpacker": "7.0.0",
     "esbuild": "0.14.42",
@@ -38,19 +41,19 @@
     "eslint-plugin-promise": "6.0.0",
     "eslint-plugin-vue": "9.0.1",
     "husky": "8.0.1",
-    "jest-environment-jsdom": "28.1.0",
+    "jest-environment-jsdom": "27.5.1",
     "lint-staged": "13.0.0",
     "postcss": "8.4.14",
     "prettier": "2.6.2",
     "sass": "1.52.2",
     "stylelint": "14.8.5",
+    "stylelint-config-prettier": "9.0.3",
+    "stylelint-config-recommended-vue": "1.4.0",
     "stylelint-config-sass-guidelines": "9.0.1",
-    "ts-jest": "28.0.4",
+    "stylelint-config-standard-scss": "4.0.0",
+    "ts-jest": "27.1.5",
     "typescript": "4.6.4",
     "vite": "2.9.9",
-    "vite-plugin-favicon2": "1.1.4",
-    "vite-plugin-vue2": "2.0.1",
-    "vue-jest": "3.0.7",
-    "vue-template-compiler": "2.6.11"
+    "vite-plugin-favicon2": "1.1.4"
   }
 }

@@ -1,7 +1,7 @@
 {
-  "*.js": ["prettier --write", "eslint --color --fix", "git add"],
-  "{*.json,.!(browserslist|npm)*rc}": ["prettier --parser json --write", "git add"],
-  "*.ts": ["prettier --write", "eslint --color --fix", "git add"],
-  "*.vue": ["prettier --write", "stylelint --fix", "eslint --color --fix", "git add"],
-  "*.scss": ["prettier --write", "stylelint --syntax=scss --fix", "git add"]
+  "*.js": ["prettier --write", "eslint --color --fix"],
+  "{*.json,.!(browserslist|npm)*rc}": ["prettier --parser json --write"],
+  "*.ts": ["prettier --write", "eslint --color --fix"],
+  "*.vue": ["prettier --write", "stylelint --fix", "eslint --color --fix"],
+  "*.scss": ["prettier --write", "stylelint --syntax=scss --fix"]
 }

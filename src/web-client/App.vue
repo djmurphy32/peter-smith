@@ -6,18 +6,9 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script setup lang="ts">
 import SiteFooter from '@/components/SiteFooter.vue'
 import SiteHeader from '@/components/SiteHeader.vue'
-
-export default Vue.extend({
-  name: 'App',
-  components: {
-    SiteFooter,
-    SiteHeader,
-  },
-})
 </script>
 
 <style lang="scss">

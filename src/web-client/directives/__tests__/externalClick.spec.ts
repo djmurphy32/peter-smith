@@ -1,10 +1,11 @@
 import externalClick from '../externalClick'
-import { VNodeDirective, VNode } from 'vue/types/umd'
+// eslint-disable-next-line import/named
+import { VNode } from 'vue'
 
-describe('Directive - externlClick', () => {
+describe('Directive - externalClick', () => {
   let el: HTMLElement
-  let binding: VNodeDirective
-  let vnode: VNode
+  let binding: any
+  let vNode: VNode
 
   afterEach(() => {
     jest.clearAllMocks()
@@ -19,9 +20,9 @@ describe('Directive - externlClick', () => {
       binding = {
         name: 'binding',
       }
-      vnode = { isRootInsert: true, isComment: false }
+      vNode = {} as any
       // @ts-ignore
-      externalClick.bind(el, binding, vnode)
+      externalClick.beforeMount(el, binding, vNode)
     })
 
     it('THEN binds to document', () => {
@@ -37,7 +38,7 @@ describe('Directive - externlClick', () => {
         removeEventListenerSpy = jest.spyOn(document, 'removeEventListener')
 
         // @ts-ignore
-        externalClick.unbind(el)
+        externalClick.unmounted(el)
       })
 
       it('THEN removes event listener from document', () => {

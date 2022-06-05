@@ -4,14 +4,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script setup lang="ts">
 import ContactDetails from '@/components/ContactDetails.vue'
-
-export default Vue.extend({
-  name: 'SiteHeader',
-  components: { ContactDetails },
-})
 </script>
 
 <style lang="scss">

@@ -12,6 +12,12 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 'error',
       },
     },
+    {
+      files: ['*.spec.ts'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'off',
+      },
+    },
   ],
   parserOptions: {
     parser: '@typescript-eslint/parser',
@@ -27,7 +33,7 @@ module.exports = {
     'standard',
     'prettier',
     'plugin:@typescript-eslint/recommended',
-    'plugin:vue/recommended',
+    'plugin:vue/vue3-recommended',
     'prettier',
   ],
   globals: {

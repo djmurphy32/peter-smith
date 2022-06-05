@@ -2,28 +2,17 @@
   <Portfolio :body="body" :imported-images="images" :title="title" :footer="footer" />
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script setup lang="ts">
+import { ref } from 'vue'
 import Portfolio from './ImagePortfolio.vue'
 import { GlobEagerImport } from '@/typings/globImport'
+const importedImages = import.meta.globEager('../../assets/images/portfolio/littleHills/*.jpg') as GlobEagerImport
 
-const images = import.meta.globEager('../../assets/images/portfolio/littleHills/*.jpg') as GlobEagerImport
-
-export default Vue.extend({
-  name: 'LittleHillsPortfolio',
-  components: {
-    Portfolio,
-  },
-  data() {
-    return {
-      images,
-      title: 'Little Hills',
-      body: [
-        'A portfolio of pictures made across the towns and villages of the North East of Ireland.',
-        "Pictures of the landscapes, the events, and the people that influence today's youth.",
-      ],
-      footer: ['Edition of 200', 'Loose Leaf', '42 Pages'],
-    }
-  },
-})
+const images = ref(importedImages)
+const title = ref('Little Hills')
+const body = ref([
+  'A portfolio of pictures made across the towns and villages of the North East of Ireland.',
+  "Pictures of the landscapes, the events, and the people that influence today's youth.",
+])
+const footer = ref(['Edition of 200', 'Loose Leaf', '42 Pages'])
 </script>
