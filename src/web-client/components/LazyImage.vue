@@ -58,7 +58,7 @@ export default defineComponent({
   mounted() {
     this.attachObserver()
   },
-  destroyed() {
+  unmounted() {
     if ('IntersectionObserver' in window) {
       this.observer?.disconnect()
     }
