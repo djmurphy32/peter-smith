@@ -15,12 +15,12 @@
 
 <script lang="ts">
 // eslint-disable-next-line import/named
-import Vue, { PropType } from 'vue'
+import { defineComponent, PropType } from 'vue'
 import PortfolioHeading from './PortfolioHeading.vue'
 import LazyImage from '@/components/LazyImage.vue'
 import { GlobEagerImport } from '@/typings/globImport'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'ImagePortfolio',
   components: {
     PortfolioHeading,

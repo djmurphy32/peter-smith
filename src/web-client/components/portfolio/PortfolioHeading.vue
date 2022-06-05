@@ -15,9 +15,9 @@
 
 <script lang="ts">
 // eslint-disable-next-line import/named
-import Vue, { PropType } from 'vue'
+import { defineComponent, PropType } from 'vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'PortfolioHeading',
   props: {
     title: {

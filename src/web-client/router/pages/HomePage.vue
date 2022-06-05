@@ -7,12 +7,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import HommePortfolio from '@/components/portfolio/HommePortfolio.vue'
 import ReplicaPortfolio from '@/components/portfolio/ReplicaPortfolio.vue'
 import LittleHillsPortfolio from '@/components/portfolio/LittleHillsPortfolio.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'HomePage',
   components: { HommePortfolio, ReplicaPortfolio, LittleHillsPortfolio },
 })

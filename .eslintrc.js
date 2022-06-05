@@ -33,7 +33,7 @@ module.exports = {
     'standard',
     'prettier',
     'plugin:@typescript-eslint/recommended',
-    'plugin:vue/recommended',
+    'plugin:vue/vue3-recommended',
     'prettier',
   ],
   globals: {

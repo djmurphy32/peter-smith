@@ -3,12 +3,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import Portfolio from './ImagePortfolio.vue'
 import { GlobEagerImport } from '@/typings/globImport'
 const images = import.meta.globEager('../../assets/images/portfolio/brightAndYoung/*.jpg') as GlobEagerImport
 
-export default Vue.extend({
+export default defineComponent({
   name: 'BrightAndYoungPortfolio',
   components: {
     Portfolio,

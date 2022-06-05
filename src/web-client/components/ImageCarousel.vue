@@ -13,10 +13,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import LazyImage from './LazyImage.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'ImageCarousel',
   components: {
     LazyImage,

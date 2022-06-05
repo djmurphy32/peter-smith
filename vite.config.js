@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
-import { createVuePlugin } from 'vite-plugin-vue2'
+import vue from '@vitejs/plugin-vue'
 import { ViteFaviconsPlugin } from 'vite-plugin-favicon2'
 
 export default defineConfig({
-  plugins: [createVuePlugin(), ViteFaviconsPlugin({ logo: './src/web-client/assets/favicon.png' })],
+  plugins: [vue(), ViteFaviconsPlugin({ logo: './src/web-client/assets/favicon.png' })],
   build: {
     target: 'esnext',
     assetsInlineLimit: 0,
@@ -24,6 +24,10 @@ export default defineConfig({
       {
         find: '@',
         replacement: '/src/web-client',
+      },
+      {
+        find: 'vue',
+        replacement: '@vue/compat',
       },
     ],
   },

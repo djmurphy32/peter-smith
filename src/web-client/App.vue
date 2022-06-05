@@ -7,11 +7,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import SiteFooter from '@/components/SiteFooter.vue'
 import SiteHeader from '@/components/SiteHeader.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'App',
   components: {
     SiteFooter,

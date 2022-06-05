@@ -11,10 +11,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 import { trackPictureImpression } from '@/utils/tracking'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'LazyImage',
   props: {
     src: {
