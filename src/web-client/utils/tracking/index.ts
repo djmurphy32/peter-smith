@@ -1,14 +1,14 @@
 let gaInitialized = false
-const queue: any[] = []
+const queue: unknown[] = []
 
-export const trackPictureImpression = (label: string) => {
+export const trackPictureImpression = (label: string): void => {
   pushToGa('event', 'impression', {
     event_category: 'picture',
     event_label: label,
   })
 }
 
-export const initGa = () => {
+export const initGa = (): void => {
   gaInitialized = true
   window.gtag('js', new Date())
 
@@ -16,7 +16,7 @@ export const initGa = () => {
   processItemsInQueue()
 }
 
-export const pageView = () => {
+export const pageView = (): void => {
   pushToGa('pageview')
 }
 
@@ -26,7 +26,7 @@ const processItemsInQueue = () => {
   })
 }
 
-const pushToGa = (...args: any[]) => {
+const pushToGa = (...args: unknown[]) => {
   if (!gaInitialized) {
     queue.push(args)
   } else {

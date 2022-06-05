@@ -1,10 +1,11 @@
 import externalClick from '../externalClick'
-import { VNodeDirective, VNode } from 'vue/types/umd'
+// eslint-disable-next-line import/named
+import { VNodeDirective, VNode } from 'vue'
 
-describe('Directive - externlClick', () => {
+describe('Directive - externalClick', () => {
   let el: HTMLElement
   let binding: VNodeDirective
-  let vnode: VNode
+  let vNode: VNode
 
   afterEach(() => {
     jest.clearAllMocks()
@@ -19,9 +20,9 @@ describe('Directive - externlClick', () => {
       binding = {
         name: 'binding',
       }
-      vnode = { isRootInsert: true, isComment: false }
+      vNode = { isRootInsert: true, isComment: false }
       // @ts-ignore
-      externalClick.bind(el, binding, vnode)
+      externalClick.bind(el, binding, vNode)
     })
 
     it('THEN binds to document', () => {

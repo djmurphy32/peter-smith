@@ -12,6 +12,12 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 'error',
       },
     },
+    {
+      files: ['*.spec.ts'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'off',
+      },
+    },
   ],
   parserOptions: {
     parser: '@typescript-eslint/parser',
