@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 // eslint-disable-next-line import/named
 import { PropType } from 'vue'
 

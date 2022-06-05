@@ -2,7 +2,7 @@
   <Portfolio :body="body" :imported-images="images" :title="title" :footer="footer" />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import Portfolio from './ImagePortfolio.vue'
 const importedImages = import.meta.globEager('../../assets/images/portfolio/homme/*.jpg') as { default: string }[]
