@@ -1,8 +1,12 @@
 // eslint-disable-next-line import/named
-import { VNode, DirectiveOptions, VNodeDirective } from 'vue'
+import { VNode, DirectiveBinding, Directive } from 'vue'
 
-const directive: DirectiveOptions = {
-  bind(element: unknown, binding: VNodeDirective, vNode: VNode) {
+type ExternalClickElement = HTMLElement & {
+  onClickExternal?: (event: Event) => void
+}
+
+const directive: Directive = {
+  beforeMount(element: ExternalClickElement, binding: DirectiveBinding, vNode: VNode) {
     element.onClickExternal = (event: Event) => {
       if (!(element === (event.target as HTMLElement) || element.contains(event.target as HTMLElement))) {
         if (typeof binding.value !== 'function') {
@@ -15,9 +19,12 @@ const directive: DirectiveOptions = {
     }
     document.addEventListener('click', element.onClickExternal)
   },
-  unbind(element: unknown) {
-    document.removeEventListener('click', element.onClickExternal)
-    delete element.onClickExternal
+
+  unmounted(element: ExternalClickElement) {
+    if (element.onClickExternal) {
+      document.removeEventListener('click', element.onClickExternal)
+      delete element.onClickExternal
+    }
   },
 }
 

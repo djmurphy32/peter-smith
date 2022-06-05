@@ -1,8 +1,9 @@
 import ImageCarousel from '../ImageCarousel.vue'
-import { Wrapper, shallowMount } from '@vue/test-utils'
+import { VueWrapper, shallowMount } from '@vue/test-utils'
 
 describe('ImageCarousel', () => {
-  let wrapper: Wrapper<ImageCarousel>
+  let wrapper: VueWrapper
+
   describe('GIVEN multiple images', () => {
     const images = [
       { src: 'image1.png', alt: 'image1' },

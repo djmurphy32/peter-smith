@@ -1,18 +1,27 @@
-import { Wrapper, mount } from '@vue/test-utils'
+import { VueWrapper, mount } from '@vue/test-utils'
 import LazyImage from '../LazyImage.vue'
 import { trackPictureImpression } from '@/utils/tracking'
 
+const currentRoute = {
+  name: 'test Page',
+}
+
 jest.mock('@/utils/tracking')
 
+jest.mock('vue-router', () => {
+  return {
+    useRoute: () => {
+      return currentRoute
+    },
+  }
+})
+
 describe('LazyImage.vue', () => {
-  let wrapper: Wrapper<any>
+  let wrapper: VueWrapper
   const observeSpy = jest.fn()
   const disconnectSpy = jest.fn()
-  const currentRoute = {
-    name: 'test Page',
-  }
 
-  const propsData = {
+  const props = {
     src: 'testImage.png',
     alt: 'Test Image',
     fullWidth: 500,
@@ -34,10 +43,7 @@ describe('LazyImage.vue', () => {
   describe('GIVEN initial state', () => {
     beforeEach(() => {
       wrapper = mount(LazyImage, {
-        propsData,
-        mocks: {
-          $route: currentRoute,
-        },
+        props,
       })
     })
 
@@ -102,9 +108,9 @@ describe('LazyImage.vue', () => {
         })
       })
 
-      describe('WHEN component destroyed', () => {
+      describe('WHEN component unmounted', () => {
         beforeEach(() => {
-          wrapper.destroy()
+          wrapper.unmount()
         })
 
         it('THEN stops observing', () => {
@@ -116,13 +122,10 @@ describe('LazyImage.vue', () => {
 
   describe('WHEN image has query string and url fragment', () => {
     beforeEach(() => {
-      propsData.src = 'testimg.png?foo=bar#testfragment'
+      props.src = 'testimg.png?foo=bar#testfragment'
 
       wrapper = mount(LazyImage, {
-        propsData,
-        mocks: {
-          $route: currentRoute,
-        },
+        propsData: props,
       })
     })
     it('THEN correctly renders the image with correct query string', () => {
