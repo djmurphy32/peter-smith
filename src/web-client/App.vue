@@ -6,18 +6,9 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import SiteFooter from '@/components/SiteFooter.vue'
 import SiteHeader from '@/components/SiteHeader.vue'
-
-export default defineComponent({
-  name: 'App',
-  components: {
-    SiteFooter,
-    SiteHeader,
-  },
-})
 </script>
 
 <style lang="scss">

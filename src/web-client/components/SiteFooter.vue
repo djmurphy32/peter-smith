@@ -4,17 +4,9 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'SiteFooter',
-  computed: {
-    year(): string {
-      return new Date().getFullYear().toString()
-    },
-  },
-})
+<script lang="ts" setup>
+import { ref } from 'vue'
+const year = ref(new Date().getFullYear().toString())
 </script>
 
 <style lang="scss">

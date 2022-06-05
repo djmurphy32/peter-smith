@@ -4,14 +4,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import ContactDetails from '@/components/ContactDetails.vue'
-
-export default defineComponent({
-  name: 'SiteHeader',
-  components: { ContactDetails },
-})
 </script>
 
 <style lang="scss">
