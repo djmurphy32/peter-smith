@@ -1,5 +1,5 @@
 <template>
-  <div :class="[{ 'lazy-image--unloaded': !imageLoaded }]">
+  <div ref="rootEl" :class="[{ 'lazy-image--unloaded': !imageLoaded }]">
     <img
       :class="['lazy-image', imageClass, { 'lazy-image--lazy': !inViewport }]"
       :style="`width: ${imageWidth}px;`"
@@ -10,77 +10,76 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { trackPictureImpression } from '@/utils/tracking'
 
-export default defineComponent({
-  name: 'LazyImage',
-  props: {
-    src: {
-      type: String,
-      required: true,
-    },
-    alt: {
-      type: String,
-      required: true,
-    },
-    fullWidth: { type: Number, required: true },
-    lazyWidth: { type: Number, required: true },
-    imageClass: { type: String, default: undefined },
-    cssWidth: { type: Number, default: undefined },
+const props = defineProps({
+  src: {
+    type: String,
+    required: true,
   },
-  data() {
-    return {
-      observer: null as IntersectionObserver | null,
-      inViewport: false,
-      imageLoaded: false,
-    }
+  alt: {
+    type: String,
+    required: true,
   },
-  computed: {
-    imageWidth(): number {
-      return this.cssWidth ?? this.fullWidth
-    },
-    imageSource(): string {
-      const netlifyQs = this.inViewport ? `nf_resize=fit&w=${this.fullWidth}` : `nf_resize=fit&w=${this.lazyWidth}`
-      let inputSrc = this.src
-
-      if (inputSrc.indexOf('#') > -1) {
-        inputSrc = inputSrc.substring(0, inputSrc.indexOf('#'))
-      }
-      if (inputSrc.indexOf('?') > -1) {
-        return `${inputSrc}&${netlifyQs}`
-      }
-
-      return `${inputSrc}?${netlifyQs}`
-    },
-  },
-  mounted() {
-    this.attachObserver()
-  },
-  unmounted() {
-    if ('IntersectionObserver' in window) {
-      this.observer?.disconnect()
-    }
-  },
-  methods: {
-    attachObserver(): void {
-      this.observer = new IntersectionObserver((entries) => {
-        const entry = entries[0]
-        if (entry.isIntersecting) {
-          this.inViewport = true
-          const label = `${this.$route.name}_${this.alt}`.trim().replace(/\s+/g, '_').toLowerCase()
-          trackPictureImpression(label)
-          this.observer?.disconnect()
-        }
-      })
-      this.observer.observe(this.$el)
-    },
-    imageLoad(): void {
-      this.imageLoaded = true
-    },
-  },
+  fullWidth: { type: Number, required: true },
+  lazyWidth: { type: Number, required: true },
+  imageClass: { type: String, default: undefined },
+  cssWidth: { type: Number, default: undefined },
 })
+
+const rootEl = ref<Element | null>(null)
+const route = useRoute()
+const observer = ref<IntersectionObserver | null>(null)
+const inViewport = ref(false)
+const imageLoaded = ref(false)
+
+const imageWidth = computed((): number => {
+  return props.cssWidth ?? props.fullWidth
+})
+
+const imageSource = computed((): string => {
+  const netlifyQs = inViewport.value ? `nf_resize=fit&w=${props.fullWidth}` : `nf_resize=fit&w=${props.lazyWidth}`
+  let inputSrc = props.src
+
+  if (inputSrc.indexOf('#') > -1) {
+    inputSrc = inputSrc.substring(0, inputSrc.indexOf('#'))
+  }
+  if (inputSrc.indexOf('?') > -1) {
+    return `${inputSrc}&${netlifyQs}`
+  }
+
+  return `${inputSrc}?${netlifyQs}`
+})
+
+onMounted(() => {
+  attachObserver()
+})
+onUnmounted(() => {
+  if ('IntersectionObserver' in window) {
+    observer.value?.disconnect()
+  }
+})
+
+const attachObserver = (): void => {
+  if (rootEl.value) {
+    observer.value = new IntersectionObserver((entries) => {
+      const entry = entries[0]
+      if (entry.isIntersecting) {
+        inViewport.value = true
+        const label = `${route.name?.toString()}_${props.alt}`.trim().replace(/\s+/g, '_').toLowerCase()
+        trackPictureImpression(label)
+        observer.value?.disconnect()
+      }
+    })
+    observer.value.observe(rootEl.value)
+  }
+}
+const imageLoad = (): void => {
+  imageLoaded.value = true
+}
 </script>
 <style lang="scss" scoped>
 .lazy-image {
