@@ -8,18 +8,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
 
-export default defineComponent({
-  name: 'ContactDetails',
-  data() {
-    return {
-      email: 'ps@petersmith.work',
-      igName: 'petersmith',
-    }
-  },
-})
+const email = ref('ps@petersmith.work')
+const igName = ref('petersmith')
 </script>
 
 <style lang="scss">

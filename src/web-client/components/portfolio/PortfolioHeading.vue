@@ -1,37 +1,34 @@
 <template>
   <div class="portfolio-heading">
     <div class="portfolio-heading__title">
-      <span>{{ title }}</span>
+      <span>{{ props.title }}</span>
     </div>
 
     <div class="portfolio-heading__body">
-      <p v-for="(text, ix) in body" :key="ix">{{ text }}</p>
+      <p v-for="(text, ix) in props.body" :key="ix">{{ text }}</p>
     </div>
     <div class="portfolio-heading__footer">
-      <span v-for="(text, ix) in footer" :key="ix" class="portfolio-heading__footer__line">{{ text }}</span>
+      <span v-for="(text, ix) in props.footer" :key="ix" class="portfolio-heading__footer__line">{{ text }}</span>
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 // eslint-disable-next-line import/named
-import { defineComponent, PropType } from 'vue'
+import { PropType } from 'vue'
 
-export default defineComponent({
-  name: 'PortfolioHeading',
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    body: {
-      type: Array as PropType<string[]>,
-      required: true,
-    },
-    footer: {
-      type: Array as PropType<string[]>,
-      required: true,
-    },
+const props = defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+  body: {
+    type: Array as PropType<string[]>,
+    required: true,
+  },
+  footer: {
+    type: Array as PropType<string[]>,
+    required: true,
   },
 })
 </script>
