@@ -54,7 +54,6 @@
     "typescript": "4.6.4",
     "vite": "2.9.9",
     "vite-plugin-favicon2": "1.1.4",
-    "vue-jest": "3.0.7",
-    "vue-template-compiler": "2.6.11"
+    "vue-jest": "3.0.7"
   }
 }
