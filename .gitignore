@@ -2,3 +2,5 @@ dist
 node_modules
 *.orig
 debug.log
+# Local Netlify folder
+.netlify
