@@ -12,8 +12,6 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { useRoute } from 'vue-router'
-import { trackPictureImpression } from '@/utils/tracking'
 
 const props = defineProps({
   src: {
@@ -31,7 +29,6 @@ const props = defineProps({
 })
 
 const rootEl = ref<Element | null>(null)
-const route = useRoute()
 const observer = ref<IntersectionObserver | null>(null)
 const inViewport = ref(false)
 const imageLoaded = ref(false)
@@ -69,8 +66,6 @@ const attachObserver = (): void => {
       const entry = entries[0]
       if (entry.isIntersecting) {
         inViewport.value = true
-        const label = `${route.name?.toString()}_${props.alt}`.trim().replace(/\s+/g, '_').toLowerCase()
-        trackPictureImpression(label)
         observer.value?.disconnect()
       }
     })

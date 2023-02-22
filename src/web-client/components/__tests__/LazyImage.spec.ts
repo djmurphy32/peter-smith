@@ -1,12 +1,9 @@
 import { VueWrapper, mount } from '@vue/test-utils'
 import LazyImage from '../LazyImage.vue'
-import { trackPictureImpression } from '@/utils/tracking'
 
 const currentRoute = {
   name: 'test Page',
 }
-
-jest.mock('@/utils/tracking')
 
 jest.mock('vue-router', () => {
   return {
@@ -100,11 +97,6 @@ describe('LazyImage.vue', () => {
 
         it('THEN does not have the lazy class', () => {
           expect(wrapper.find('.lazy-image--lazy').exists()).toBe(false)
-        })
-
-        it('THEN correctly tracks the impression on the picture', () => {
-          expect(trackPictureImpression).toBeCalledTimes(1)
-          expect(trackPictureImpression).toBeCalledWith('test_page_test_image')
         })
       })
 
