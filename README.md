@@ -8,6 +8,10 @@ Hosted on netlify using build service for CI/CD. Also making use of their [Large
 
 To run the site locally netlify CLI is required to manage the images
 
+1. Download and install git lfs from https://git-lfs.com/
+1. Setup git lfs on you machine using `git-lfs install`
 1. Install netlify CLI using `npm i netlify -g`
 1. Login to netlify using `netlify login` and complete the login through you browser
-1. 
+1. Run `netlify lm:setup`
+1. Pull the images locally using `git lfs pull`
+1. Undo any changes made to husky files
