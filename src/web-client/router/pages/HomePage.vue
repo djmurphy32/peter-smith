@@ -1,14 +1,14 @@
 <template>
   <div class="homepage">
+    <AH60TheCollections />
+    <AH60AnCatDubh />
+    <PopMowalola />
+    <AH59TheCollections />
+    <AH58CaliforniaBoys />
+    <AH58TheCollections />
+    <PopStellaRose />
     <IDSpring23 />
     <IDFall22 />
-    <PopStellaRose />
-    <AH58TheCollections />
-    <AH58CaliforniaBoys />
-    <AH59TheCollections />
-    <PopMowalola />
-    <AH60AnCatDubh />
-    <AH60TheCollections />
   </div>
 </template>
 
