@@ -1,15 +1,15 @@
 <template>
   <div class="homepage">
-    <HommePortfolio />
-    <ReplicaPortfolio />
-    <LittleHillsPortfolio />
+    <IDSpring23 />
+    <IDFall22 />
+    <PopStellaRose />
   </div>
 </template>
 
 <script setup lang="ts">
-import HommePortfolio from '@/components/portfolio/HommePortfolio.vue'
-import ReplicaPortfolio from '@/components/portfolio/ReplicaPortfolio.vue'
-import LittleHillsPortfolio from '@/components/portfolio/LittleHillsPortfolio.vue'
+import IDFall22 from '@/components/portfolio/IDFall22.vue'
+import IDSpring23 from '@/components/portfolio/IDSpring23.vue'
+import PopStellaRose from '@/components/portfolio/PopStellaRose.vue'
 </script>
 
 <style lang="scss">

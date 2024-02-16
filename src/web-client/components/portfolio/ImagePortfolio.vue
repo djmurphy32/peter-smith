@@ -23,7 +23,7 @@ import { GlobEagerImport } from '@/typings/globImport'
 const props = defineProps({
   title: { type: String, required: true },
   body: { type: Array as PropType<string[]>, required: true },
-  footer: { type: Array as PropType<string[]>, required: true },
+  footer: { type: Array as PropType<string[]>, required: false, default: () => [] },
   importedImages: { type: Object as PropType<GlobEagerImport>, required: true },
 })
 

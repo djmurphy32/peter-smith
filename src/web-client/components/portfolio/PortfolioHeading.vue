@@ -28,7 +28,8 @@ const props = defineProps({
   },
   footer: {
     type: Array as PropType<string[]>,
-    required: true,
+    required: false,
+    default: () => [],
   },
 })
 </script>
