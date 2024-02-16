@@ -3,6 +3,12 @@
     <IDSpring23 />
     <IDFall22 />
     <PopStellaRose />
+    <AH58TheCollections />
+    <AH58CaliforniaBoys />
+    <AH59TheCollections />
+    <PopMowalola />
+    <AH60AnCatDubh />
+    <AH60TheCollections />
   </div>
 </template>
 
@@ -10,6 +16,12 @@
 import IDFall22 from '@/components/portfolio/IDFall22.vue'
 import IDSpring23 from '@/components/portfolio/IDSpring23.vue'
 import PopStellaRose from '@/components/portfolio/PopStellaRose.vue'
+import AH58TheCollections from '@/components/portfolio/AH58TheCollections.vue'
+import AH58CaliforniaBoys from '@/components/portfolio/AH58CaliforniaBoys.vue'
+import AH59TheCollections from '@/components/portfolio/AH59TheCollections.vue'
+import PopMowalola from '@/components/portfolio/PopMowalola.vue'
+import AH60AnCatDubh from '@/components/portfolio/AH60AnCatDubh.vue'
+import AH60TheCollections from '@/components/portfolio/AH60TheCollections.vue'
 </script>
 
 <style lang="scss">
