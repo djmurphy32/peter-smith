@@ -5,7 +5,7 @@
     </div>
 
     <div class="portfolio-heading__body">
-      <p v-for="(text, ix) in props.body" :key="ix">{{ text }}</p>
+      <p v-for="(text, ix) in props.body" :key="ix" class="portfolio-heading__body__p">{{ text }}</p>
     </div>
     <div class="portfolio-heading__footer">
       <span v-for="(text, ix) in props.footer" :key="ix" class="portfolio-heading__footer__line">{{ text }}</span>
@@ -40,6 +40,15 @@ const props = defineProps({
 
   &__title {
     font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  &__body {
+    &__p {
+      margin: 0;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
   }
 
   &__footer {
