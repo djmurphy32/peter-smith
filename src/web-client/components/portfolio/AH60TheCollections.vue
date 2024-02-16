@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import Portfolio from './ImagePortfolio.vue'
+import Portfolio from '../ImagePortfolio.vue'
 import { GlobEagerImport } from '@/typings/globImport'
 const importedImages = import.meta.globEager(
   '../../assets/images/portfolio/AH60_TheCollections/*.jpg'

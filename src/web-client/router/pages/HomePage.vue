@@ -9,6 +9,9 @@
     <PopStellaRose />
     <IDSpring23 />
     <IDFall22 />
+    <AH57KalvinPhillips />
+    <ReplicaSpring22 />
+    <LittleHills />
   </div>
 </template>
 
@@ -22,6 +25,9 @@ import AH59TheCollections from '@/components/portfolio/AH59TheCollections.vue'
 import PopMowalola from '@/components/portfolio/PopMowalola.vue'
 import AH60AnCatDubh from '@/components/portfolio/AH60AnCatDubh.vue'
 import AH60TheCollections from '@/components/portfolio/AH60TheCollections.vue'
+import AH57KalvinPhillips from '@/components/portfolio/AH57KalvinPhillips.vue'
+import ReplicaSpring22 from '@/components/portfolio/ReplicaSpring22.vue'
+import LittleHills from '@/components/portfolio/LittleHills.vue'
 </script>
 
 <style lang="scss">
