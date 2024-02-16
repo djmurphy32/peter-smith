@@ -6,7 +6,7 @@
 import { ref } from 'vue'
 import Portfolio from './ImagePortfolio.vue'
 import { GlobEagerImport } from '@/typings/globImport'
-const importedImages = import.meta.globEager('../../assets/images/portfolio/Pop_stellaRose/*.jpg') as GlobEagerImport
+const importedImages = import.meta.globEager('../../assets/images/portfolio/Pop_StellaRose/*.jpg') as GlobEagerImport
 
 const images = ref(importedImages)
 const title = ref('POP Magazine 48')
