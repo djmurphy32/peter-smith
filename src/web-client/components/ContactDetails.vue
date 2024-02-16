@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const email = ref('ps@petersmith.work')
+const email = ref('pjs@peterjosephsmith.co.uk')
 const igName = ref('petersmith')
 </script>
 
