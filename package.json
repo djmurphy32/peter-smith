@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "prod": "vite build",
+    "build": "vite build",
     "dev": "vite",
     "vite": "vite",
-    "netlify": "npm run prod",
+    "netlify": "npm run build",
     "preview": "npm run vite build && npm run vite preview",
     "test": "vitest",
     "prepare": "husky install"
