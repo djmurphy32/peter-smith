@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [Vue()],
   test: {
     globals: true,
-    environment: 'node',
+    environment: 'jsdom',
   },
 })
