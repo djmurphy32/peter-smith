@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/named
-import { VNode, DirectiveBinding, Directive } from 'vue'
+import { VNode, DirectiveBinding, Directive } from 'vue';
 
 type ExternalClickElement = HTMLElement & {
-  onClickExternal?: (event: Event) => void
-}
+  onClickExternal?: (event: Event) => void;
+};
 
 const directive: Directive = {
   beforeMount(element: ExternalClickElement, binding: DirectiveBinding, vNode: VNode) {
@@ -11,21 +11,21 @@ const directive: Directive = {
       if (!(element === (event.target as HTMLElement) || element.contains(event.target as HTMLElement))) {
         if (typeof binding.value !== 'function') {
           // eslint-disable-next-line no-console
-          console.warn('v-external-click directive used without a handler') // tslint:disable-line no-console
-          return
+          console.warn('v-external-click directive used without a handler'); // tslint:disable-line no-console
+          return;
         }
-        binding.value.call(vNode, event)
+        binding.value.call(vNode, event);
       }
-    }
-    document.addEventListener('click', element.onClickExternal)
+    };
+    document.addEventListener('click', element.onClickExternal);
   },
 
   unmounted(element: ExternalClickElement) {
     if (element.onClickExternal) {
-      document.removeEventListener('click', element.onClickExternal)
-      delete element.onClickExternal
+      document.removeEventListener('click', element.onClickExternal);
+      delete element.onClickExternal;
     }
   },
-}
+};
 
-export default directive
+export default directive;

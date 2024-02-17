@@ -1,8 +1,8 @@
-export {}
+export {};
 
 declare global {
   interface Window {
-    gtag: (...args: unknown[]) => void
-    [key: string]: unknown
+    gtag: (...args: unknown[]) => void;
+    [key: string]: unknown;
   }
 }

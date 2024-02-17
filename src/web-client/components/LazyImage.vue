@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 
 const props = defineProps({
   src: {
@@ -26,55 +26,55 @@ const props = defineProps({
   lazyWidth: { type: Number, required: true },
   imageClass: { type: String, default: undefined },
   cssWidth: { type: Number, default: undefined },
-})
+});
 
-const rootEl = ref<Element | null>(null)
-const observer = ref<IntersectionObserver | null>(null)
-const inViewport = ref(false)
-const imageLoaded = ref(false)
+const rootEl = ref<Element | null>(null);
+const observer = ref<IntersectionObserver | null>(null);
+const inViewport = ref(false);
+const imageLoaded = ref(false);
 
 const imageWidth = computed((): number => {
-  return props.cssWidth ?? props.fullWidth
-})
+  return props.cssWidth ?? props.fullWidth;
+});
 
 const imageSource = computed((): string => {
-  const netlifyQs = inViewport.value ? `nf_resize=fit&w=${props.fullWidth}` : `nf_resize=fit&w=${props.lazyWidth}`
-  let inputSrc = props.src
+  const netlifyQs = inViewport.value ? `nf_resize=fit&w=${props.fullWidth}` : `nf_resize=fit&w=${props.lazyWidth}`;
+  let inputSrc = props.src;
 
   if (inputSrc.indexOf('#') > -1) {
-    inputSrc = inputSrc.substring(0, inputSrc.indexOf('#'))
+    inputSrc = inputSrc.substring(0, inputSrc.indexOf('#'));
   }
   if (inputSrc.indexOf('?') > -1) {
-    return `${inputSrc}&${netlifyQs}`
+    return `${inputSrc}&${netlifyQs}`;
   }
 
-  return `${inputSrc}?${netlifyQs}`
-})
+  return `${inputSrc}?${netlifyQs}`;
+});
 
 onMounted(() => {
-  attachObserver()
-})
+  attachObserver();
+});
 onUnmounted(() => {
   if ('IntersectionObserver' in window) {
-    observer.value?.disconnect()
+    observer.value?.disconnect();
   }
-})
+});
 
 const attachObserver = (): void => {
   if (rootEl.value) {
     observer.value = new IntersectionObserver((entries) => {
-      const entry = entries[0]
+      const entry = entries[0];
       if (entry.isIntersecting) {
-        inViewport.value = true
-        observer.value?.disconnect()
+        inViewport.value = true;
+        observer.value?.disconnect();
       }
-    })
-    observer.value.observe(rootEl.value)
+    });
+    observer.value.observe(rootEl.value);
   }
-}
+};
 const imageLoad = (): void => {
-  imageLoaded.value = true
-}
+  imageLoaded.value = true;
+};
 </script>
 <style lang="scss" scoped>
 .lazy-image {

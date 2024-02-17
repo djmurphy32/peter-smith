@@ -1,45 +1,29 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "allowJs": false,
-    "sourceMap": true,
-    "pretty": true,
-    "strict": true,
-    "alwaysStrict": true,
-    "noUnusedParameters": false,
-    "noUnusedLocals": true,
-    "removeComments": false,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+
     "moduleResolution": "node",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "types": ["vite/client"],
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/web-client/*"
-      ]
-    },
-    "typeRoots": [
-      "./src/web-client/typings/",
-      "./node_modules/@types"
-    ],
-    "allowSyntheticDefaultImports": true,
-    /* Experimental Options  */
-    "experimentalDecorators": false,
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ],
-    "esModuleInterop": true
+      "@/*": ["src/web-client/*"]
+    }
   },
-  "vueCompilerOptions": {
-    "experimentalDisableTemplateSupport": true
-  },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
