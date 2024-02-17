@@ -9,10 +9,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-const email = ref('pjs@peterjosephsmith.co.uk')
-const igName = ref('petersmith')
+const email = ref('pjs@peterjosephsmith.co.uk');
+const igName = ref('petersmith');
 </script>
 
 <style lang="scss">

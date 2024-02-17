@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 // eslint-disable-next-line import/named
-import { PropType } from 'vue'
+import { PropType } from 'vue';
 
 const props = defineProps({
   title: {
@@ -31,7 +31,7 @@ const props = defineProps({
     required: false,
     default: () => [],
   },
-})
+});
 </script>
 
 <style lang="scss">

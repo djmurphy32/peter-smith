@@ -60,4 +60,4 @@ function cssMqPackerSort(a, b) {
   return -1;
 }
 
-module.exports = cssMqPackerSort;
+export default cssMqPackerSort;

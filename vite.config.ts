@@ -12,7 +12,7 @@ export default defineConfig({
     target: 'esnext',
   },
   css: {
-    postcss: '.postcss.config.js',
+    postcss: './postcss.config.js',
     preprocessorOptions: {
       scss: {
         additionalData: `@import "./src/web-client/styles/functions/_layout";@import "./src/web-client/styles/variables/_all"; `,

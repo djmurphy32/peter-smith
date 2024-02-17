@@ -1,15 +1,9 @@
 {
-  "extends": [
-    "stylelint-config-sass-guidelines",
-    "stylelint-config-standard-scss",
-    "stylelint-config-recommended-vue",
-    "stylelint-config-prettier"
-  ],
+  "extends": ["stylelint-config-sass-guidelines", "stylelint-config-standard-scss", "stylelint-config-recommended-vue"],
 
   "rules": {
     "max-nesting-depth": 3,
-    "order/properties-alphabetical-order": null,
     "selector-class-pattern": null,
-    "at-rule-no-unknown": [true, { "ignoreAtRules": ["include"] }]
+    "at-rule-no-unknown": [true, { "ignoreAtRules": ["include", "mixin"] }]
   }
 }
