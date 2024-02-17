@@ -1,3 +1,3 @@
 export interface GlobEagerImport {
-  [key: string]: { default: string }
+  [key: string]: { default: string };
 }

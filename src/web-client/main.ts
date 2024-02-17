@@ -1,11 +1,11 @@
-import 'intersection-observer'
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from '@/router'
-import externalClick from '@/directives/externalClick'
+import 'intersection-observer';
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from '@/router';
+import externalClick from '@/directives/externalClick';
 
-const app = createApp(App)
-app.use(router)
-app.directive('external-click', externalClick)
+const app = createApp(App);
+app.use(router);
+app.directive('external-click', externalClick);
 
-app.mount('#app')
+app.mount('#app');

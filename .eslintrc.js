@@ -43,6 +43,7 @@ module.exports = {
     jestPuppeteer: true,
   },
   rules: {
+    semi: [2, 'always'],
     'vue/html-self-closing': 0,
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'error',
@@ -106,4 +107,4 @@ module.exports = {
     browser: true,
     node: true,
   },
-}
+};

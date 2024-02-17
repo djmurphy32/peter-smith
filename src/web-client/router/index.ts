@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import NotFound from '@/router/pages/NotFound.vue'
-import HomePage from '@/router/pages/HomePage.vue'
-import { Page } from './Page'
+import { createRouter, createWebHistory } from 'vue-router';
+import NotFound from '@/router/pages/NotFound.vue';
+import HomePage from '@/router/pages/HomePage.vue';
+import { Page } from './Page';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -23,6 +23,6 @@ const router = createRouter({
       component: NotFound,
     },
   ],
-})
+});
 
-export default router
+export default router;
