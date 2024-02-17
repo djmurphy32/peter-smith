@@ -1,3 +1,20 @@
 {
-  "siteId": "754e2281-6fec-4c6e-bdf6-9719477882b2"
+  "siteId": "754e2281-6fec-4c6e-bdf6-9719477882b2",
+  "geolocation": {
+    "data": {
+      "city": "Islington",
+      "country": {
+        "code": "GB",
+        "name": "United Kingdom"
+      },
+      "subdivision": {
+        "code": "ENG",
+        "name": "England"
+      },
+      "timezone": "Europe/London",
+      "latitude": 51.5507,
+      "longitude": -0.0998
+    },
+    "timestamp": 1708162550854
+  }
 }

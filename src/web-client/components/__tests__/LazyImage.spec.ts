@@ -79,12 +79,11 @@ describe('LazyImage.vue', () => {
           wrapper.find('.lazy-image__img').trigger('load');
         });
 
-        it('THEN renders the image correctly', () => {
-          const qs = '?nf_resize=fit&w=';
-          const imageAttrs = wrapper.find('.lazy-image__img').attributes();
-          expect(imageAttrs.src).toBe(`testImage.png${qs}300`);
-          expect(imageAttrs.alt).toBe('Test Image');
-        });
+      it('THEN renders the image correctly', () => {
+        const imageAttrs = wrapper.find('.lazy-image__img').attributes();
+        expect(imageAttrs.src).toBe(`/.netlify/images?url=testImage.png&w=300`);
+        expect(imageAttrs.alt).toBe('Test Image');
+      });
 
         it('THEN has the lazy class', () => {
           expect(wrapper.find('.lazy-image__img--lazy').exists()).toBe(true);
@@ -105,12 +104,11 @@ describe('LazyImage.vue', () => {
             expect(disconnectSpy).toBeCalledTimes(2);
           });
 
-          it('THEN renders the image correctly', () => {
-            const qs = '?nf_resize=fit&w=';
-            const imageAttrs = wrapper.find('.lazy-image__img').attributes();
-            expect(imageAttrs.src).toBe(`testImage.png${qs}500`);
-            expect(imageAttrs.alt).toBe('Test Image');
-          });
+        it('THEN renders the image correctly', () => {
+          const imageAttrs = wrapper.find('.lazy-image__img').attributes();
+          expect(imageAttrs.src).toBe(`/.netlify/images?url=testImage.png&w=500`);
+          expect(imageAttrs.alt).toBe('Test Image');
+        });
 
           it('THEN does not have the lazy class', () => {
             expect(wrapper.find('.lazy-image__root--lazy').exists()).toBe(false);
