@@ -8,7 +8,7 @@
     "vite": "vite",
     "netlify": "npm run test && npm run prod",
     "preview": "npm run vite build && npm run vite preview",
-    "test": "jest",
+    "test": "vitest",
     "prepare": "husky install"
   },
   "author": "",
@@ -19,13 +19,11 @@
     "vue-router": "4.0.15"
   },
   "devDependencies": {
-    "@types/jest": "27.4.1",
     "@typescript-eslint/eslint-plugin": "5.27.0",
     "@typescript-eslint/parser": "5.27.0",
-    "@vitejs/plugin-vue": "2.3.3",
+    "@vitejs/plugin-vue": "^2.3.3",
     "@vue/compiler-sfc": "3.2.36",
-    "@vue/test-utils": "2.0.0",
-    "@vue/vue3-jest": "27.0.0",
+    "@vue/test-utils": "^2.0.0",
     "autoprefixer": "10.4.7",
     "css-mqpacker": "7.0.0",
     "esbuild": "0.14.42",
@@ -41,7 +39,7 @@
     "eslint-plugin-promise": "6.0.0",
     "eslint-plugin-vue": "9.0.1",
     "husky": "8.0.1",
-    "jest-environment-jsdom": "27.5.1",
+    "jsdom": "^24.0.0",
     "lint-staged": "13.0.0",
     "postcss": "8.4.14",
     "prettier": "2.6.2",
@@ -51,9 +49,9 @@
     "stylelint-config-recommended-vue": "1.4.0",
     "stylelint-config-sass-guidelines": "9.0.1",
     "stylelint-config-standard-scss": "4.0.0",
-    "ts-jest": "27.1.5",
     "typescript": "4.6.4",
     "vite": "2.9.9",
-    "vite-plugin-favicon2": "1.1.4"
+    "vite-plugin-favicon2": "1.1.4",
+    "vitest": "^1.3.0"
   }
 }

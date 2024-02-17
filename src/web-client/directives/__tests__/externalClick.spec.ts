@@ -1,6 +1,7 @@
 import externalClick from '../externalClick'
 // eslint-disable-next-line import/named
 import { VNode } from 'vue'
+import { describe, beforeEach, it, expect, afterEach, vi } from 'vitest'
 
 describe('Directive - externalClick', () => {
   let el: HTMLElement
@@ -8,14 +9,14 @@ describe('Directive - externalClick', () => {
   let vNode: VNode
 
   afterEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   describe('bind', () => {
-    let docEventListenerSpy: jest.SpyInstance
+    let docEventListenerSpy: any
 
     beforeEach(() => {
-      docEventListenerSpy = jest.spyOn(document, 'addEventListener')
+      docEventListenerSpy = vi.spyOn(document, 'addEventListener')
       el = document.createElement('div')
       binding = {
         name: 'binding',
@@ -30,12 +31,12 @@ describe('Directive - externalClick', () => {
     })
 
     describe('unbind', () => {
-      let removeEventListenerSpy: jest.SpyInstance
+      let removeEventListenerSpy: any
       const elExternalClick = { foo: 'bar' }
 
       beforeEach(() => {
         ;(el as any).onClickExternal = elExternalClick
-        removeEventListenerSpy = jest.spyOn(document, 'removeEventListener')
+        removeEventListenerSpy = vi.spyOn(document, 'removeEventListener')
 
         // @ts-ignore
         externalClick.unmounted(el)
