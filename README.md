@@ -2,7 +2,7 @@
 
 Portfolio photography site for friend hosted at [https://peterjosephsmith.co.uk](https://peterjosephsmith.co.uk). Built using VueJs with typescript.
 
-Hosted on netlify using build service for CI/CD. Also making use of their [Large media service](https://docs.netlify.com/large-media/overview/) for image hosting, along with their [image transformation api](https://docs.netlify.com/large-media/transform-images/#request-transformations) for lazy loading images.
+Hosted on netlify using build service for CI/CD. Using with their [image CDN](https://docs.netlify.com/image-cdn/overview/) for lazy loading images.
 
 ## Set up
 
