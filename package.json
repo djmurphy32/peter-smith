@@ -6,7 +6,7 @@
     "prod": "vite build",
     "dev": "vite",
     "vite": "vite",
-    "netlify": "npm run test && npm run prod",
+    "netlify": "npm run prod",
     "preview": "npm run vite build && npm run vite preview",
     "test": "vitest",
     "prepare": "husky install"
