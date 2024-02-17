@@ -3,16 +3,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import Portfolio from '../ImagePortfolio.vue'
-import { GlobEagerImport } from '@/typings/globImport'
-const importedImages = import.meta.globEager('../../assets/images/portfolio/BrightAndYoung/*.jpg') as GlobEagerImport
+import { ref } from 'vue';
+import Portfolio from '../ImagePortfolio.vue';
+import { GlobEagerImport } from '@/typings/globImport';
+const importedImages = import.meta.glob('../../assets/images/portfolio/BrightAndYoung/*.jpg', {
+  eager: true,
+}) as GlobEagerImport;
 
-const images = ref(importedImages)
-const title = ref('Bright and young and here forever')
+const images = ref(importedImages);
+const title = ref('Bright and young and here forever');
 const body = ref([
   'Pictures of youth involved in camping out and protesting for immediate government action in climate change mitigation.',
   "Photographed over a period of two years at various protests in London's Marble Arch and Piccadilly Circus",
-])
-const footer = ref(['Edition of 100', 'Recycled New Print', '32 Pages'])
+]);
+const footer = ref(['Edition of 100', 'Recycled New Print', '32 Pages']);
 </script>

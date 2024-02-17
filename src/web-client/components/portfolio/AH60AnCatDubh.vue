@@ -3,12 +3,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import Portfolio from '../ImagePortfolio.vue'
-import { GlobEagerImport } from '@/typings/globImport'
-const importedImages = import.meta.globEager('../../assets/images/portfolio/AH60_AnCatDubh/*.jpg') as GlobEagerImport
+import { ref } from 'vue';
+import Portfolio from '../ImagePortfolio.vue';
+import { GlobEagerImport } from '@/typings/globImport';
+const importedImages = import.meta.glob('../../assets/images/portfolio/AH60_AnCatDubh/*.jpg', {
+  eager: true,
+}) as GlobEagerImport;
 
-const images = ref(importedImages)
-const title = ref('Arena Homme+ 60')
-const body = ref(['An Cat Dubh', 'with Natasha Arnold'])
+const images = ref(importedImages);
+const title = ref('Arena Homme+ 60');
+const body = ref(['An Cat Dubh', 'with Natasha Arnold']);
 </script>
