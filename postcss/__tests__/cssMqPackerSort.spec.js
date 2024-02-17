@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
-
-const cssMqPackerSort = require('../cssMqPackerSort');
+import cssMqPackerSort from '../cssMqPackerSort';
 describe('cssMqPackerSort', () => {
   it('SHOULD sort "min-width" queries in ascending order', () => {
     // Arrange
