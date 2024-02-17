@@ -1,11 +1,12 @@
 import { VueWrapper, mount } from '@vue/test-utils'
 import LazyImage from '../LazyImage.vue'
+import { describe, beforeEach, it, expect, vi, afterEach } from 'vitest'
 
 const currentRoute = {
   name: 'test Page',
 }
 
-jest.mock('vue-router', () => {
+vi.mock('vue-router', () => {
   return {
     useRoute: () => {
       return currentRoute
@@ -15,8 +16,8 @@ jest.mock('vue-router', () => {
 
 describe('LazyImage.vue', () => {
   let wrapper: VueWrapper
-  const observeSpy = jest.fn()
-  const disconnectSpy = jest.fn()
+  const observeSpy = vi.fn()
+  const disconnectSpy = vi.fn()
 
   const props = {
     src: 'testImage.png',
@@ -27,11 +28,11 @@ describe('LazyImage.vue', () => {
   }
 
   afterEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   beforeEach(() => {
-    ;(window as any).IntersectionObserver = jest.fn().mockImplementation(() => ({
+    ;(window as any).IntersectionObserver = vi.fn().mockImplementation(() => ({
       observe: observeSpy,
       disconnect: disconnectSpy,
     }))
