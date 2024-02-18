@@ -27,8 +27,8 @@
 </template>
 
 <script setup lang="ts">
-// eslint-disable-next-line import/named
-import { computed, PropType } from 'vue';
+import { computed } from 'vue';
+import type { PropType } from 'vue';
 import PortfolioHeading from './PortfolioHeading.vue';
 import LazyImage from '@/components/LazyImage.vue';
 import { GlobEagerImport } from '@/typings/globImport';

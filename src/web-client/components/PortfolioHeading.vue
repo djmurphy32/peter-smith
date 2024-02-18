@@ -14,8 +14,7 @@
 </template>
 
 <script setup lang="ts">
-// eslint-disable-next-line import/named
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
 
 const props = defineProps({
   title: {
