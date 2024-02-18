@@ -1,8 +1,5 @@
 <template>
   <div class="contact__container">
-    <div class="contact__heading">
-      <span> All enquiries</span>
-    </div>
     <div class="contact__email">
       <a v-for="email in emails" :key="email" class="contact__item" :href="'mailto:' + email">{{ email }}</a>
     </div>
@@ -20,10 +17,6 @@ const emails = ['pjs@peterjosephsmith.co.uk', 'chris@minititle.com'];
 .contact {
   &__container {
     margin-bottom: 20px;
-  }
-
-  &__heading {
-    margin-bottom: 7px;
   }
 
   &__item {
