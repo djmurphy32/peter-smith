@@ -1,5 +1,5 @@
 <template>
-  <div class="≈">
+  <div class="portfolio">
     <PortfolioHeading :title="props.title" :body="props.body" :footer="props.footer" />
 
     <div v-if="props.videoLink" class="portfolio__video" :style="`width:${contentWidth}px;`">
@@ -27,8 +27,8 @@
 </template>
 
 <script setup lang="ts">
-// eslint-disable-next-line import/named
-import { computed, PropType } from 'vue';
+import { computed } from 'vue';
+import type { PropType } from 'vue';
 import PortfolioHeading from './PortfolioHeading.vue';
 import LazyImage from '@/components/LazyImage.vue';
 import { GlobEagerImport } from '@/typings/globImport';
@@ -38,7 +38,7 @@ const props = defineProps({
   body: { type: Array as PropType<string[]>, required: true },
   footer: { type: Array as PropType<string[]>, required: false, default: () => [] },
   importedImages: { type: Object as PropType<GlobEagerImport>, required: true },
-  videoLink: { type: String || null, required: false },
+  videoLink: { type: String || null, required: false, default: null },
 });
 
 const images = computed((): { src: string; alt: string }[] => {

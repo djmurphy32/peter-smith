@@ -1,11 +1,11 @@
 <template>
   <div class="homepage">
-    <SinglePortfolio />
+    <PortfoliosWrapper />
   </div>
 </template>
 
 <script setup lang="ts">
-import SinglePortfolio from '@/components/SinglePortfolio.vue';
+import PortfoliosWrapper from '@/components/PortfoliosWrapper.vue';
 </script>
 
 <style lang="scss">

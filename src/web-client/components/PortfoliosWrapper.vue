@@ -1,5 +1,5 @@
 <template>
-  <Portfolio
+  <PortfolioContent
     v-for="config in configs"
     :key="config.title"
     :body="config.body"
@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import Portfolio from './ImagePortfolio.vue';
+import PortfolioContent from './PortfolioContent.vue';
 import { GlobEagerImport } from '@/typings/globImport';
 
 type PortfolioConfig = {

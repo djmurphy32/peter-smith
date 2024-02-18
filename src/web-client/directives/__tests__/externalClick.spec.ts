@@ -1,6 +1,5 @@
 import externalClick from '../externalClick';
-// eslint-disable-next-line import/named
-import { VNode } from 'vue';
+import type { VNode } from 'vue';
 import { describe, beforeEach, it, expect, afterEach, vi } from 'vitest';
 
 describe('Directive - externalClick', () => {

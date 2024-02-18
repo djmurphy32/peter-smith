@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/named
-import { VNode, DirectiveBinding, Directive } from 'vue';
+import type { VNode, DirectiveBinding, Directive } from 'vue';
 
 type ExternalClickElement = HTMLElement & {
   onClickExternal?: (event: Event) => void;
