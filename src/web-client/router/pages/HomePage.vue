@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import SinglePortfolio from '@/components/portfolio/SinglePortfolio.vue';
+import SinglePortfolio from '@/components/SinglePortfolio.vue';
 </script>
 
 <style lang="scss">
