@@ -46,6 +46,13 @@ const configs: PortfolioConfig[] = [
     }) as GlobEagerImport,
   },
   {
+    title: 'Arena Homme+ 59',
+    body: ['The Collections'],
+    images: import.meta.glob('../../assets/images/portfolio/AH59_TheCollections/*.jpg', {
+      eager: true,
+    }) as GlobEagerImport,
+  },
+  {
     title: 'Arena Homme+ 58',
     body: ['Wish We Could All Be (California Boys)'],
     images: import.meta.glob('../assets/images/portfolio/AH58_CaliforniaBoys/*.jpg', {
