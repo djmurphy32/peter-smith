@@ -2,7 +2,7 @@
   <div class="portfolio">
     <PortfolioHeading :title="props.title" :body="props.body" :footer="props.footer" />
     <div v-if="props.videoLink" :style="`width:${contentWidth}px;`">
-      <div style="padding: 350px 0 0; position: relative">
+      <div style="padding: 350px 600px 0; position: relative">
         <iframe
           :src="props.videoLink"
           frameborder="0"
