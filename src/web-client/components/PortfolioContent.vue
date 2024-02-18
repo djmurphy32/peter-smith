@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="portfolio">
     <PortfolioHeading :title="props.title" :body="props.body" :footer="props.footer" />
 
     <div v-if="props.videoLink" class="portfolio__video" :style="`width:${contentWidth}px;`">
