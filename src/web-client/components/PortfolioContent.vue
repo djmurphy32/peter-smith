@@ -1,5 +1,5 @@
 <template>
-  <div class="≈">
+  <div>
     <PortfolioHeading :title="props.title" :body="props.body" :footer="props.footer" />
 
     <div v-if="props.videoLink" class="portfolio__video" :style="`width:${contentWidth}px;`">
@@ -38,7 +38,7 @@ const props = defineProps({
   body: { type: Array as PropType<string[]>, required: true },
   footer: { type: Array as PropType<string[]>, required: false, default: () => [] },
   importedImages: { type: Object as PropType<GlobEagerImport>, required: true },
-  videoLink: { type: String || null, required: false },
+  videoLink: { type: String || null, required: false, default: null },
 });
 
 const images = computed((): { src: string; alt: string }[] => {
