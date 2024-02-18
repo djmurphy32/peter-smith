@@ -1,16 +1,14 @@
 <template>
-  <Portfolio :body="body" :imported-images="images" :title="title" />
+  <Portfolio :body="body" :imported-images="importedImages" :title="title" />
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import Portfolio from '../ImagePortfolio.vue';
 import { GlobEagerImport } from '@/typings/globImport';
 const importedImages = import.meta.glob('../../assets/images/portfolio/AH60_AnCatDubh/*.jpg', {
   eager: true,
 }) as GlobEagerImport;
 
-const images = ref(importedImages);
-const title = ref('Arena Homme+ 60');
-const body = ref(['An Cat Dubh', 'with Natasha Arnold']);
+const title = 'Arena Homme+ 60';
+const body = ['An Cat Dubh', 'with Natasha Arnold'];
 </script>
