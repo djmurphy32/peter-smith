@@ -48,7 +48,7 @@ const configs: PortfolioConfig[] = [
   {
     title: 'Arena Homme+ 59',
     body: ['The Collections'],
-    images: import.meta.glob('../../assets/images/portfolio/AH59_TheCollections/*.jpg', {
+    images: import.meta.glob('../assets/images/portfolio/AH59_TheCollections/*.jpg', {
       eager: true,
     }) as GlobEagerImport,
   },
