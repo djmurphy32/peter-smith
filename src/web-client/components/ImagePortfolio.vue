@@ -1,14 +1,14 @@
 <template>
-  <div class="portfolio">
+  <div class="≈">
     <PortfolioHeading :title="props.title" :body="props.body" :footer="props.footer" />
-    <div v-if="props.videoLink" :style="`width:${contentWidth}px;`">
-      <div style="padding: 350px 600px 0; position: relative">
+
+    <div v-if="props.videoLink" class="portfolio__video" :style="`width:${contentWidth}px;`">
+      <div class="portfolio__video__player">
         <iframe
           :src="props.videoLink"
           frameborder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
-          title="4. POP - Mowalola"
         >
         </iframe>
       </div>
@@ -53,5 +53,15 @@ const contentWidth = 600;
 <style scoped lang="scss">
 .portfolio {
   margin-bottom: 40px;
+
+  &__video {
+    max-width: 100%;
+    margin-bottom: 7px;
+
+    &__player {
+      position: relative;
+      padding: 56.25% 0 0;
+    }
+  }
 }
 </style>
