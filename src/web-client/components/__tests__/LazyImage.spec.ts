@@ -46,7 +46,7 @@ describe('LazyImage.vue', () => {
     });
 
     it('THEN has the unloaded class', () => {
-      expect(wrapper.find('.lazy-image--unloaded').exists()).toBe(true);
+      expect(wrapper.find('.lazy-image__root--unloaded').exists()).toBe(true);
     });
 
     it('THEN binds the image class correctly', () => {
@@ -55,22 +55,22 @@ describe('LazyImage.vue', () => {
 
     describe('WHEN image loaded', () => {
       beforeEach(() => {
-        wrapper.find('.lazy-image').trigger('load');
+        wrapper.find('.lazy-image__img').trigger('load');
       });
 
       it('THEN renders the image correctly', () => {
         const qs = '?nf_resize=fit&w=';
-        const imageAttrs = wrapper.find('.lazy-image').attributes();
+        const imageAttrs = wrapper.find('.lazy-image__img').attributes();
         expect(imageAttrs.src).toBe(`testImage.png${qs}300`);
         expect(imageAttrs.alt).toBe('Test Image');
       });
 
       it('THEN has the lazy class', () => {
-        expect(wrapper.find('.lazy-image--lazy').exists()).toBe(true);
+        expect(wrapper.find('.lazy-image__img--lazy').exists()).toBe(true);
       });
 
       it('THEN does not have the unloaded class', () => {
-        expect(wrapper.find('.lazy-image--unloaded').exists()).toBe(false);
+        expect(wrapper.find('.lazy-image__root--unloaded').exists()).toBe(false);
       });
 
       it('THEN observes the element', () => {
@@ -91,13 +91,13 @@ describe('LazyImage.vue', () => {
 
         it('THEN renders the image correctly', () => {
           const qs = '?nf_resize=fit&w=';
-          const imageAttrs = wrapper.find('.lazy-image').attributes();
+          const imageAttrs = wrapper.find('.lazy-image__img').attributes();
           expect(imageAttrs.src).toBe(`testImage.png${qs}500`);
           expect(imageAttrs.alt).toBe('Test Image');
         });
 
         it('THEN does not have the lazy class', () => {
-          expect(wrapper.find('.lazy-image--lazy').exists()).toBe(false);
+          expect(wrapper.find('.lazy-image__root--lazy').exists()).toBe(false);
         });
       });
 
@@ -122,7 +122,7 @@ describe('LazyImage.vue', () => {
       });
     });
     it('THEN correctly renders the image with correct query string', () => {
-      expect(wrapper.find('.lazy-image').attributes().src).toBe(`testimg.png?foo=bar&nf_resize=fit&w=300`);
+      expect(wrapper.find('.lazy-image__img').attributes().src).toBe(`testimg.png?foo=bar&nf_resize=fit&w=300`);
     });
     describe('WHEN image enters viewport', () => {
       beforeEach(() => {
@@ -132,7 +132,7 @@ describe('LazyImage.vue', () => {
       });
 
       it('THEN correctly renders the image with correct query string', () => {
-        expect(wrapper.find('.lazy-image').attributes().src).toBe(`testimg.png?foo=bar&nf_resize=fit&w=500`);
+        expect(wrapper.find('.lazy-image__img').attributes().src).toBe(`testimg.png?foo=bar&nf_resize=fit&w=500`);
       });
     });
   });

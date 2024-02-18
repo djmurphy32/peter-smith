@@ -1,7 +1,7 @@
 <template>
-  <div ref="rootEl" :class="[{ 'lazy-image--unloaded': !imageLoaded }]">
+  <div ref="rootEl" :class="['lazy-image__root', { 'lazy-image__root--unloaded': !imageLoaded }]">
     <img
-      :class="['lazy-image', imageClass, { 'lazy-image--lazy': !inViewport }]"
+      :class="['lazy-image__img', imageClass, { 'lazy-image__img--lazy': !inViewport }]"
       :style="`width: ${imageWidth}px;`"
       :src="imageSource"
       :alt="alt"
@@ -78,14 +78,21 @@ const imageLoad = (): void => {
 </script>
 <style lang="scss" scoped>
 .lazy-image {
-  max-width: 100%;
+  &__root {
+    display: grid;
+    margin-bottom: 7px;
 
-  &--lazy {
-    filter: blur(5px);
+    &--unloaded {
+      height: 350px;
+    }
   }
 
-  &--unloaded {
-    height: 350px;
+  &__img {
+    max-width: 100%;
+
+    &--lazy {
+      filter: blur(5px);
+    }
   }
 }
 </style>
