@@ -82,7 +82,7 @@ const attachObservers = (): void => {
           nearViewPortObs.value?.disconnect();
         }
       },
-      { rootMargin: '1000px' }
+      { rootMargin: '2000px' }
     );
     nearViewPortObs.value.observe(rootEl.value);
   }
