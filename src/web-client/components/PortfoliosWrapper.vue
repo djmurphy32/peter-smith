@@ -98,18 +98,18 @@ const configs: PortfolioConfig[] = [
   //     eager: true,
   //   }) as GlobEagerImport,
   // },
-  {
-    title: 'Replica Magazine',
-    body: ['Men’s fashion story for Replica’s tenth issue - Spring 22'],
-    footer: [
-      'Styling - Louis Prier Tisdall',
-      'Featuring Matej, Donte, Brennan and Eliot',
-      'c/o Anita Bitton - Establishment',
-    ],
-    images: import.meta.glob('../assets/images/portfolio/Replica_Spring22/*.jpg', {
-      eager: true,
-    }) as GlobEagerImport,
-  },
+  // {
+  //   title: 'Replica Magazine',
+  //   body: ['Men’s fashion story for Replica’s tenth issue - Spring 22'],
+  //   footer: [
+  //     'Styling - Louis Prier Tisdall',
+  //     'Featuring Matej, Donte, Brennan and Eliot',
+  //     'c/o Anita Bitton - Establishment',
+  //   ],
+  //   images: import.meta.glob('../assets/images/portfolio/Replica_Spring22/*.jpg', {
+  //     eager: true,
+  //   }) as GlobEagerImport,
+  // },
   {
     title: 'Little Hills',
     body: [
