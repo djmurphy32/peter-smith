@@ -88,16 +88,16 @@ const configs: PortfolioConfig[] = [
       eager: true,
     }) as GlobEagerImport,
   },
-  {
-    title: 'Arena HOMME+ 57',
-    body: [
-      'LOEWE special with England and Man City Midfielder Kalvin Phillips. Photographed in his hometown of Cleckheaton.',
-    ],
-    footer: ['Words - James Brown', 'Styling - Charlotte Rubenstein', 'Grooming - James Duggan'],
-    images: import.meta.glob('../assets/images/portfolio/AH57_KalvinPhillips/*.jpg', {
-      eager: true,
-    }) as GlobEagerImport,
-  },
+  // {
+  //   title: 'Arena HOMME+ 57',
+  //   body: [
+  //     'LOEWE special with England and Man City Midfielder Kalvin Phillips. Photographed in his hometown of Cleckheaton.',
+  //   ],
+  //   footer: ['Words - James Brown', 'Styling - Charlotte Rubenstein', 'Grooming - James Duggan'],
+  //   images: import.meta.glob('../assets/images/portfolio/AH57_KalvinPhillips/*.jpg', {
+  //     eager: true,
+  //   }) as GlobEagerImport,
+  // },
   {
     title: 'Replica Magazine',
     body: ['Men’s fashion story for Replica’s tenth issue - Spring 22'],
