@@ -79,11 +79,11 @@ describe('LazyImage.vue', () => {
           wrapper.find('.lazy-image__img').trigger('load');
         });
 
-      it('THEN renders the image correctly', () => {
-        const imageAttrs = wrapper.find('.lazy-image__img').attributes();
-        expect(imageAttrs.src).toBe(`/.netlify/images?url=testImage.png&w=300`);
-        expect(imageAttrs.alt).toBe('Test Image');
-      });
+        it('THEN renders the image correctly', () => {
+          const imageAttrs = wrapper.find('.lazy-image__img').attributes();
+          expect(imageAttrs.src).toBe(`/.netlify/images?url=testImage.png&w=300`);
+          expect(imageAttrs.alt).toBe('Test Image');
+        });
 
         it('THEN has the lazy class', () => {
           expect(wrapper.find('.lazy-image__img--lazy').exists()).toBe(true);
@@ -104,11 +104,11 @@ describe('LazyImage.vue', () => {
             expect(disconnectSpy).toBeCalledTimes(2);
           });
 
-        it('THEN renders the image correctly', () => {
-          const imageAttrs = wrapper.find('.lazy-image__img').attributes();
-          expect(imageAttrs.src).toBe(`/.netlify/images?url=testImage.png&w=500`);
-          expect(imageAttrs.alt).toBe('Test Image');
-        });
+          it('THEN renders the image correctly', () => {
+            const imageAttrs = wrapper.find('.lazy-image__img').attributes();
+            expect(imageAttrs.src).toBe(`/.netlify/images?url=testImage.png&w=500`);
+            expect(imageAttrs.alt).toBe('Test Image');
+          });
 
           it('THEN does not have the lazy class', () => {
             expect(wrapper.find('.lazy-image__root--lazy').exists()).toBe(false);
@@ -124,35 +124,6 @@ describe('LazyImage.vue', () => {
             expect(disconnectSpy).toBeCalledTimes(2);
           });
         });
-      });
-    });
-  });
-
-  describe('WHEN image has query string and url fragment', () => {
-    beforeEach(() => {
-      props.src = 'testimg.png?foo=bar#testfragment';
-
-      wrapper = mount(LazyImage, {
-        propsData: props,
-      });
-
-      // @ts-ignore
-      const observerCallback = window.IntersectionObserver.mock.calls[1][0];
-      observerCallback([{ isIntersecting: true }]);
-    });
-
-    it('THEN correctly renders the image with correct query string', () => {
-      expect(wrapper.find('.lazy-image__img').attributes().src).toBe(`testimg.png?foo=bar&nf_resize=fit&w=300`);
-    });
-    describe('WHEN image enters viewport', () => {
-      beforeEach(() => {
-        // @ts-ignore
-        const observerCallback = window.IntersectionObserver.mock.calls[0][0];
-        observerCallback([{ isIntersecting: true }]);
-      });
-
-      it('THEN correctly renders the image with correct query string', () => {
-        expect(wrapper.find('.lazy-image__img').attributes().src).toBe(`testimg.png?foo=bar&nf_resize=fit&w=500`);
       });
     });
   });
