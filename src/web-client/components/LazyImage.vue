@@ -41,18 +41,10 @@ const imageWidth = computed((): number => {
 });
 
 const imageSource = computed((): string => {
-  const netlifyQs = inViewport.value ? `nf_resize=fit&w=${props.fullWidth}` : `nf_resize=fit&w=${props.lazyWidth}`;
-  let inputSrc = props.src;
+  const widthParam = inViewport.value ? `w=${props.fullWidth}` : `w=${props.lazyWidth}`;
 
-  if (inputSrc.indexOf('#') > -1) {
-    inputSrc = inputSrc.substring(0, inputSrc.indexOf('#'));
-  }
-  if (inputSrc.indexOf('?') > -1) {
-    return `${inputSrc}&${netlifyQs}`;
-  }
-
-  return `${inputSrc}?${netlifyQs}`;
-});
+  return `/.netlify/images?url=${props.src}&${widthParam}`;
+})
 
 onMounted(() => {
   attachObservers();

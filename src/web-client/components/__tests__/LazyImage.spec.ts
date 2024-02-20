@@ -80,9 +80,8 @@ describe('LazyImage.vue', () => {
         });
 
         it('THEN renders the image correctly', () => {
-          const qs = '?nf_resize=fit&w=';
           const imageAttrs = wrapper.find('.lazy-image__img').attributes();
-          expect(imageAttrs.src).toBe(`testImage.png${qs}300`);
+          expect(imageAttrs.src).toBe(`/.netlify/images?url=testImage.png&w=300`);
           expect(imageAttrs.alt).toBe('Test Image');
         });
 
@@ -106,9 +105,8 @@ describe('LazyImage.vue', () => {
           });
 
           it('THEN renders the image correctly', () => {
-            const qs = '?nf_resize=fit&w=';
             const imageAttrs = wrapper.find('.lazy-image__img').attributes();
-            expect(imageAttrs.src).toBe(`testImage.png${qs}500`);
+            expect(imageAttrs.src).toBe(`/.netlify/images?url=testImage.png&w=500`);
             expect(imageAttrs.alt).toBe('Test Image');
           });
 
@@ -126,35 +124,6 @@ describe('LazyImage.vue', () => {
             expect(disconnectSpy).toBeCalledTimes(2);
           });
         });
-      });
-    });
-  });
-
-  describe('WHEN image has query string and url fragment', () => {
-    beforeEach(() => {
-      props.src = 'testimg.png?foo=bar#testfragment';
-
-      wrapper = mount(LazyImage, {
-        propsData: props,
-      });
-
-      // @ts-ignore
-      const observerCallback = window.IntersectionObserver.mock.calls[1][0];
-      observerCallback([{ isIntersecting: true }]);
-    });
-
-    it('THEN correctly renders the image with correct query string', () => {
-      expect(wrapper.find('.lazy-image__img').attributes().src).toBe(`testimg.png?foo=bar&nf_resize=fit&w=300`);
-    });
-    describe('WHEN image enters viewport', () => {
-      beforeEach(() => {
-        // @ts-ignore
-        const observerCallback = window.IntersectionObserver.mock.calls[0][0];
-        observerCallback([{ isIntersecting: true }]);
-      });
-
-      it('THEN correctly renders the image with correct query string', () => {
-        expect(wrapper.find('.lazy-image__img').attributes().src).toBe(`testimg.png?foo=bar&nf_resize=fit&w=500`);
       });
     });
   });

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
+    "start": "netlify dev --no-open",
     "dev": "vite",
     "netlify": "npm run build",
     "preview": "npm run vite build && npm run vite preview",
