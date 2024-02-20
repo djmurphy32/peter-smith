@@ -29,7 +29,7 @@ const props = defineProps({
 });
 
 const rootEl = ref<Element | null>(null);
-const observer = ref<IntersectionObserver | null>(null);
+const observers = ref<IntersectionObserver[]>([]);
 const inViewport = ref(false);
 const imageLoaded = ref(false);
 
@@ -52,24 +52,28 @@ const imageSource = computed((): string => {
 });
 
 onMounted(() => {
-  attachObserver();
+  attachObservers();
 });
 onUnmounted(() => {
   if ('IntersectionObserver' in window) {
-    observer.value?.disconnect();
+    observers.value.forEach((obs) => {
+      obs.disconnect();
+    });
   }
 });
 
-const attachObserver = (): void => {
+const attachObservers = (): void => {
   if (rootEl.value) {
-    observer.value = new IntersectionObserver((entries) => {
+    const inViewportObs = new IntersectionObserver((entries) => {
       const entry = entries[0];
       if (entry.isIntersecting) {
         inViewport.value = true;
-        observer.value?.disconnect();
+        inViewportObs.disconnect();
       }
     });
-    observer.value.observe(rootEl.value);
+    inViewportObs.observe(rootEl.value);
+
+    observers.value = [inViewportObs];
   }
 };
 const imageLoad = (): void => {
