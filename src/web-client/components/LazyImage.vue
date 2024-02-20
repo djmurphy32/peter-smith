@@ -1,6 +1,7 @@
 <template>
   <div ref="rootEl" :class="['lazy-image__root', { 'lazy-image__root--unloaded': !imageLoaded }]">
     <img
+      v-if="renderImg"
       :class="['lazy-image__img', imageClass, { 'lazy-image__img--lazy': !inViewport }]"
       :style="`width: ${imageWidth}px;`"
       :src="imageSource"
@@ -29,8 +30,10 @@ const props = defineProps({
 });
 
 const rootEl = ref<Element | null>(null);
-const observer = ref<IntersectionObserver | null>(null);
+const inViewPortObs = ref<IntersectionObserver | null>(null);
+const nearViewPortObs = ref<IntersectionObserver | null>(null);
 const inViewport = ref(false);
+const renderImg = ref(false);
 const imageLoaded = ref(false);
 
 const imageWidth = computed((): number => {
@@ -52,24 +55,36 @@ const imageSource = computed((): string => {
 });
 
 onMounted(() => {
-  attachObserver();
+  attachObservers();
 });
 onUnmounted(() => {
   if ('IntersectionObserver' in window) {
-    observer.value?.disconnect();
+    inViewPortObs.value?.disconnect();
   }
 });
 
-const attachObserver = (): void => {
+const attachObservers = (): void => {
   if (rootEl.value) {
-    observer.value = new IntersectionObserver((entries) => {
+    inViewPortObs.value = new IntersectionObserver((entries) => {
       const entry = entries[0];
       if (entry.isIntersecting) {
         inViewport.value = true;
-        observer.value?.disconnect();
+        inViewPortObs.value?.disconnect();
       }
     });
-    observer.value.observe(rootEl.value);
+    inViewPortObs.value.observe(rootEl.value);
+
+    nearViewPortObs.value = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          renderImg.value = true;
+          nearViewPortObs.value?.disconnect();
+        }
+      },
+      { rootMargin: '2000px' }
+    );
+    nearViewPortObs.value.observe(rootEl.value);
   }
 };
 const imageLoad = (): void => {
