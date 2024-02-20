@@ -66,13 +66,13 @@ const configs: PortfolioConfig[] = [
       eager: true,
     }) as GlobEagerImport,
   },
-  // {
-  //   title: 'POP Magazine 48',
-  //   body: ['Stella Rose Gahan'],
-  //   images: import.meta.glob('../assets/images/portfolio/Pop_StellaRose/*.jpg', {
-  //     eager: true,
-  //   }) as GlobEagerImport,
-  // },
+  {
+    title: 'POP Magazine 48',
+    body: ['Stella Rose Gahan'],
+    images: import.meta.glob('../assets/images/portfolio/Pop_StellaRose/*.jpg', {
+      eager: true,
+    }) as GlobEagerImport,
+  },
   {
     title: 'i-D Magazine Spring 23',
     body: ['Three'],
@@ -88,38 +88,38 @@ const configs: PortfolioConfig[] = [
       eager: true,
     }) as GlobEagerImport,
   },
-  // {
-  //   title: 'Arena HOMME+ 57',
-  //   body: [
-  //     'LOEWE special with England and Man City Midfielder Kalvin Phillips. Photographed in his hometown of Cleckheaton.',
-  //   ],
-  //   footer: ['Words - James Brown', 'Styling - Charlotte Rubenstein', 'Grooming - James Duggan'],
-  //   images: import.meta.glob('../assets/images/portfolio/AH57_KalvinPhillips/*.jpg', {
-  //     eager: true,
-  //   }) as GlobEagerImport,
-  // },
-  // {
-  //   title: 'Replica Magazine',
-  //   body: ['Men’s fashion story for Replica’s tenth issue - Spring 22'],
-  //   footer: [
-  //     'Styling - Louis Prier Tisdall',
-  //     'Featuring Matej, Donte, Brennan and Eliot',
-  //     'c/o Anita Bitton - Establishment',
-  //   ],
-  //   images: import.meta.glob('../assets/images/portfolio/Replica_Spring22/*.jpg', {
-  //     eager: true,
-  //   }) as GlobEagerImport,
-  // },
-  // {
-  //   title: 'Little Hills',
-  //   body: [
-  //     'A portfolio of pictures made across the towns and villages of the North East of Ireland.',
-  //     "Pictures of the landscapes, the events, and the people that influence today's youth.",
-  //   ],
-  //   footer: ['Edition of 200', 'Loose Leaf', '42 Pages'],
-  //   images: import.meta.glob('../assets/images/portfolio/littleHills/*.jpg', {
-  //     eager: true,
-  //   }) as GlobEagerImport,
-  // },
+  {
+    title: 'Arena HOMME+ 57',
+    body: [
+      'LOEWE special with England and Man City Midfielder Kalvin Phillips. Photographed in his hometown of Cleckheaton.',
+    ],
+    footer: ['Words - James Brown', 'Styling - Charlotte Rubenstein', 'Grooming - James Duggan'],
+    images: import.meta.glob('../assets/images/portfolio/AH57_KalvinPhillips/*.jpg', {
+      eager: true,
+    }) as GlobEagerImport,
+  },
+  {
+    title: 'Replica Magazine',
+    body: ['Men’s fashion story for Replica’s tenth issue - Spring 22'],
+    footer: [
+      'Styling - Louis Prier Tisdall',
+      'Featuring Matej, Donte, Brennan and Eliot',
+      'c/o Anita Bitton - Establishment',
+    ],
+    images: import.meta.glob('../assets/images/portfolio/Replica_Spring22/*.jpg', {
+      eager: true,
+    }) as GlobEagerImport,
+  },
+  {
+    title: 'Little Hills',
+    body: [
+      'A portfolio of pictures made across the towns and villages of the North East of Ireland.',
+      "Pictures of the landscapes, the events, and the people that influence today's youth.",
+    ],
+    footer: ['Edition of 200', 'Loose Leaf', '42 Pages'],
+    images: import.meta.glob('../assets/images/portfolio/littleHills/*.jpg', {
+      eager: true,
+    }) as GlobEagerImport,
+  },
 ];
 </script>
