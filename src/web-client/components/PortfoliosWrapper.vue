@@ -66,13 +66,13 @@ const configs: PortfolioConfig[] = [
       eager: true,
     }) as GlobEagerImport,
   },
-  {
-    title: 'POP Magazine 48',
-    body: ['Stella Rose Gahan'],
-    images: import.meta.glob('../assets/images/portfolio/Pop_StellaRose/*.jpg', {
-      eager: true,
-    }) as GlobEagerImport,
-  },
+  // {
+  //   title: 'POP Magazine 48',
+  //   body: ['Stella Rose Gahan'],
+  //   images: import.meta.glob('../assets/images/portfolio/Pop_StellaRose/*.jpg', {
+  //     eager: true,
+  //   }) as GlobEagerImport,
+  // },
   {
     title: 'i-D Magazine Spring 23',
     body: ['Three'],
