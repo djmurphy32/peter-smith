@@ -44,7 +44,7 @@ const imageSource = computed((): string => {
   const widthParam = inViewport.value ? `w=${props.fullWidth}` : `w=${props.lazyWidth}`;
 
   return `/.netlify/images?url=${props.src}&${widthParam}`;
-})
+});
 
 onMounted(() => {
   attachObservers();
@@ -57,13 +57,16 @@ onUnmounted(() => {
 
 const attachObservers = (): void => {
   if (rootEl.value) {
-    inViewPortObs.value = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      if (entry.isIntersecting) {
-        inViewport.value = true;
-        inViewPortObs.value?.disconnect();
-      }
-    });
+    inViewPortObs.value = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          inViewport.value = true;
+          inViewPortObs.value?.disconnect();
+        }
+      },
+      { rootMargin: '400px' }
+    );
     inViewPortObs.value.observe(rootEl.value);
 
     nearViewPortObs.value = new IntersectionObserver(
