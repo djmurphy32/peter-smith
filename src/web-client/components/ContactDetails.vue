@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-const emails = ['pjs@peterjosephsmith.co.uk', 'chris@minititle.com'];
+const emails = ['pjs@peterjosephsmith.co.uk'];
 </script>
 
 <style lang="scss" scoped>
