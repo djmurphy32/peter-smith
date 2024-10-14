@@ -1,0 +1,25 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    registries:
+      - npm-github
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      vue:
+        patterns:
+          - "vue"
+          - "vue-*"
+          - "@vue/*"
+      eslint:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@typescript-eslint/*"
+      stylelint:
+        patterns:
+          - "stylelint"
+          - "stylelint-*"
+      
