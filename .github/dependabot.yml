@@ -2,8 +2,6 @@ version: 2
 
 updates:
   - package-ecosystem: npm
-    registries:
-      - npm-github
     directory: /
     schedule:
       interval: weekly
