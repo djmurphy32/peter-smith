@@ -44,7 +44,7 @@
     "lint-staged": "^15.2.2",
     "postcss": "^8.4.35",
     "prettier": "^3.3.3",
-    "sass": "^1.71.0",
+    "sass": "^1.80.3",
     "stylelint": "^16.10.0",
     "stylelint-config-recommended-vue": "1.5.0",
     "stylelint-config-sass-guidelines": "12.1.0",
