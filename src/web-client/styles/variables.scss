@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --white: #fff;
+    --black: #000;
+
+    --font-family: "Open Sans";
+    --font-size: 13px;
+  }
+}
