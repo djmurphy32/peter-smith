@@ -15,7 +15,7 @@ import PortfoliosWrapper from "@/components/PortfoliosWrapper.vue";
     margin: auto;
     display: block;
 
-    @include media-query-min($mq-sm) {
+    @media (min-width: 640px) {
       width: 750px;
     }
 
