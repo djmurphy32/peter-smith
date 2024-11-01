@@ -1,18 +1,21 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import { ViteFaviconsPlugin } from 'vite-plugin-favicon2';
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import { ViteFaviconsPlugin } from "vite-plugin-favicon2";
 
 export default defineConfig({
-  plugins: [vue(), ViteFaviconsPlugin({ logo: './src/web-client/assets/favicon.png' })],
+  plugins: [
+    vue(),
+    ViteFaviconsPlugin({ logo: "./src/web-client/assets/favicon.png" }),
+  ],
   build: {
-    target: 'esnext',
+    target: "esnext",
     assetsInlineLimit: 0,
   },
   esbuild: {
-    target: 'esnext',
+    target: "esnext",
   },
   css: {
-    postcss: './postcss.config.js',
+    postcss: "./postcss.config.js",
     preprocessorOptions: {
       scss: {
         additionalData: `@import "./src/web-client/styles/functions/_layout";@import "./src/web-client/styles/variables/_all"; `,
@@ -22,8 +25,8 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: '@',
-        replacement: '/src/web-client',
+        find: "@",
+        replacement: "/src/web-client",
       },
     ],
   },

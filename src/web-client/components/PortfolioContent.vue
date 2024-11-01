@@ -1,8 +1,16 @@
 <template>
   <div class="portfolio">
-    <PortfolioHeading :title="props.title" :body="props.body" :footer="props.footer" />
+    <PortfolioHeading
+      :title="props.title"
+      :body="props.body"
+      :footer="props.footer"
+    />
 
-    <div v-if="props.videoLink" class="portfolio__video" :style="`width:${contentWidth}px;`">
+    <div
+      v-if="props.videoLink"
+      class="portfolio__video"
+      :style="`width:${contentWidth}px;`"
+    >
       <div class="portfolio__video__player">
         <iframe
           :src="props.videoLink"
@@ -27,22 +35,28 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { PropType } from 'vue';
-import PortfolioHeading from './PortfolioHeading.vue';
-import LazyImage from '@/components/LazyImage.vue';
-import { GlobEagerImport } from '@/typings/globImport';
+import { computed } from "vue";
+import type { PropType } from "vue";
+import PortfolioHeading from "./PortfolioHeading.vue";
+import LazyImage from "@/components/LazyImage.vue";
+import { GlobEagerImport } from "@/typings/globImport";
 
 const props = defineProps({
   title: { type: String, required: true },
   body: { type: Array as PropType<string[]>, required: true },
-  footer: { type: Array as PropType<string[]>, required: false, default: () => [] },
+  footer: {
+    type: Array as PropType<string[]>,
+    required: false,
+    default: () => [],
+  },
   importedImages: { type: Object as PropType<GlobEagerImport>, required: true },
   videoLink: { type: String || null, required: false, default: null },
 });
 
 const images = computed((): { src: string; alt: string }[] => {
-  const paths = Object.values(props.importedImages).map((module) => module.default);
+  const paths = Object.values(props.importedImages).map(
+    (module) => module.default,
+  );
 
   return paths.map((image, i) => ({ src: image, alt: `image_${i}` }));
 });
