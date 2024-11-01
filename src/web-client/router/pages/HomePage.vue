@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import PortfoliosWrapper from '@/components/PortfoliosWrapper.vue';
+import PortfoliosWrapper from "@/components/PortfoliosWrapper.vue";
 </script>
 
 <style lang="scss">

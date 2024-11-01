@@ -5,16 +5,27 @@
     </div>
 
     <div class="portfolio-heading__body">
-      <p v-for="(text, ix) in props.body" :key="ix" class="portfolio-heading__body__p">{{ text }}</p>
+      <p
+        v-for="(text, ix) in props.body"
+        :key="ix"
+        class="portfolio-heading__body__p"
+      >
+        {{ text }}
+      </p>
     </div>
     <div class="portfolio-heading__footer">
-      <span v-for="(text, ix) in props.footer" :key="ix" class="portfolio-heading__footer__line">{{ text }}</span>
+      <span
+        v-for="(text, ix) in props.footer"
+        :key="ix"
+        class="portfolio-heading__footer__line"
+        >{{ text }}</span
+      >
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { PropType } from 'vue';
+import type { PropType } from "vue";
 
 const props = defineProps({
   title: {

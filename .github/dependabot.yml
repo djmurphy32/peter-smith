@@ -3,6 +3,7 @@ version: 2
 updates:
   - package-ecosystem: npm
     directory: /
+    versioning-strategy: increase
     schedule:
       interval: weekly
     groups:
@@ -14,8 +15,10 @@ updates:
       eslint:
         patterns:
           - "eslint"
+          - "@eslint/*"
           - "eslint-*"
-          - "@typescript-eslint/*"
+          - "typescript-eslint"
+          - "@vue/eslint*"
       stylelint:
         patterns:
           - "stylelint"

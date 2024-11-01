@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import ContactDetails from '@/components/ContactDetails.vue';
+import ContactDetails from "@/components/ContactDetails.vue";
 </script>
 
 <style lang="scss">

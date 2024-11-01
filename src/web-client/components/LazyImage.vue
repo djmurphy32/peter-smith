@@ -1,8 +1,18 @@
 <template>
-  <div ref="rootEl" :class="['lazy-image__root', { 'lazy-image__root--unloaded': !imageLoaded }]">
+  <div
+    ref="rootEl"
+    :class="[
+      'lazy-image__root',
+      { 'lazy-image__root--unloaded': !imageLoaded },
+    ]"
+  >
     <img
       v-if="renderImg"
-      :class="['lazy-image__img', imageClass, { 'lazy-image__img--lazy': !inViewport }]"
+      :class="[
+        'lazy-image__img',
+        imageClass,
+        { 'lazy-image__img--lazy': !inViewport },
+      ]"
       :style="`width: ${imageWidth}px;`"
       :src="imageSource"
       :alt="alt"
@@ -12,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from "vue";
 
 const props = defineProps({
   src: {
@@ -41,7 +51,9 @@ const imageWidth = computed((): number => {
 });
 
 const imageSource = computed((): string => {
-  const widthParam = inViewport.value ? `w=${props.fullWidth}` : `w=${props.lazyWidth}`;
+  const widthParam = inViewport.value
+    ? `w=${props.fullWidth}`
+    : `w=${props.lazyWidth}`;
 
   return `/.netlify/images?url=${props.src}&${widthParam}`;
 });
@@ -50,7 +62,7 @@ onMounted(() => {
   attachObservers();
 });
 onUnmounted(() => {
-  if ('IntersectionObserver' in window) {
+  if ("IntersectionObserver" in window) {
     inViewPortObs.value?.disconnect();
   }
 });
@@ -65,7 +77,7 @@ const attachObservers = (): void => {
           inViewPortObs.value?.disconnect();
         }
       },
-      { rootMargin: '400px' }
+      { rootMargin: "400px" },
     );
     inViewPortObs.value.observe(rootEl.value);
 
@@ -77,7 +89,7 @@ const attachObservers = (): void => {
           nearViewPortObs.value?.disconnect();
         }
       },
-      { rootMargin: '2000px' }
+      { rootMargin: "2000px" },
     );
     nearViewPortObs.value.observe(rootEl.value);
   }

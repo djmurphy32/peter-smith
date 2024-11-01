@@ -1,12 +1,12 @@
-import { VueWrapper, mount } from '@vue/test-utils';
-import LazyImage from '../LazyImage.vue';
-import { describe, beforeEach, it, expect, vi, afterEach } from 'vitest';
+import { VueWrapper, mount } from "@vue/test-utils";
+import LazyImage from "../LazyImage.vue";
+import { describe, beforeEach, it, expect, vi, afterEach } from "vitest";
 
 const currentRoute = {
-  name: 'test Page',
+  name: "test Page",
 };
 
-vi.mock('vue-router', () => {
+vi.mock("vue-router", () => {
   return {
     useRoute: () => {
       return currentRoute;
@@ -14,17 +14,17 @@ vi.mock('vue-router', () => {
   };
 });
 
-describe('LazyImage.vue', () => {
+describe("LazyImage.vue", () => {
   let wrapper: VueWrapper;
   const observeSpy = vi.fn();
   const disconnectSpy = vi.fn();
 
   const props = {
-    src: 'testImage.png',
-    alt: 'Test Image',
+    src: "testImage.png",
+    alt: "Test Image",
     fullWidth: 500,
     lazyWidth: 300,
-    imageClass: 'test-class',
+    imageClass: "test-class",
   };
 
   afterEach(() => {
@@ -38,89 +38,98 @@ describe('LazyImage.vue', () => {
     }));
   });
 
-  describe('GIVEN component outside viewport', () => {
+  describe("GIVEN component outside viewport", () => {
     beforeEach(() => {
       wrapper = mount(LazyImage, {
         props,
       });
     });
 
-    it('THEN observes the element', () => {
+    it("THEN observes the element", () => {
       expect(observeSpy).toBeCalledTimes(2);
       expect(observeSpy).toHaveBeenNthCalledWith(1, wrapper.element);
       expect(observeSpy).toHaveBeenNthCalledWith(2, wrapper.element);
     });
 
-    it('THEN has the unloaded class', () => {
-      expect(wrapper.find('.lazy-image__root--unloaded').exists()).toBe(true);
+    it("THEN has the unloaded class", () => {
+      expect(wrapper.find(".lazy-image__root--unloaded").exists()).toBe(true);
     });
 
-    it('THEN does not render the image', () => {
-      expect(wrapper.find('img.test-class').exists()).toBe(false);
+    it("THEN does not render the image", () => {
+      expect(wrapper.find("img.test-class").exists()).toBe(false);
     });
 
-    describe('WHEN image enters viewport', () => {
+    describe("WHEN image enters viewport", () => {
       beforeEach(() => {
-        // @ts-ignore
+        // @ts-expect-error mock not defined
         const observerCallback = window.IntersectionObserver.mock.calls[1][0];
         observerCallback([{ isIntersecting: true }]);
       });
 
-      it('THEN stops tracking element', () => {
+      it("THEN stops tracking element", () => {
         expect(disconnectSpy).toBeCalledTimes(1);
       });
 
-      it('THEN binds the image class correctly', () => {
-        expect(wrapper.find('img.test-class').exists()).toBe(true);
+      it("THEN binds the image class correctly", () => {
+        expect(wrapper.find("img.test-class").exists()).toBe(true);
       });
 
-      describe('WHEN image loaded', () => {
+      describe("WHEN image loaded", () => {
         beforeEach(() => {
-          wrapper.find('.lazy-image__img').trigger('load');
+          wrapper.find(".lazy-image__img").trigger("load");
         });
 
-        it('THEN renders the image correctly', () => {
-          const imageAttrs = wrapper.find('.lazy-image__img').attributes();
-          expect(imageAttrs.src).toBe(`/.netlify/images?url=testImage.png&w=300`);
-          expect(imageAttrs.alt).toBe('Test Image');
+        it("THEN renders the image correctly", () => {
+          const imageAttrs = wrapper.find(".lazy-image__img").attributes();
+          expect(imageAttrs.src).toBe(
+            `/.netlify/images?url=testImage.png&w=300`,
+          );
+          expect(imageAttrs.alt).toBe("Test Image");
         });
 
-        it('THEN has the lazy class', () => {
-          expect(wrapper.find('.lazy-image__img--lazy').exists()).toBe(true);
+        it("THEN has the lazy class", () => {
+          expect(wrapper.find(".lazy-image__img--lazy").exists()).toBe(true);
         });
 
-        it('THEN does not have the unloaded class', () => {
-          expect(wrapper.find('.lazy-image__root--unloaded').exists()).toBe(false);
+        it("THEN does not have the unloaded class", () => {
+          expect(wrapper.find(".lazy-image__root--unloaded").exists()).toBe(
+            false,
+          );
         });
 
-        describe('WHEN image enters viewport', () => {
+        describe("WHEN image enters viewport", () => {
           beforeEach(() => {
-            // @ts-ignore
-            const observerCallback = window.IntersectionObserver.mock.calls[0][0];
+            const observerCallback =
+              // @ts-expect-error mock not defined
+              window.IntersectionObserver.mock.calls[0][0];
             observerCallback([{ isIntersecting: true }]);
           });
 
-          it('THEN stops tracking element', () => {
+          it("THEN stops tracking element", () => {
             expect(disconnectSpy).toBeCalledTimes(2);
           });
 
-          it('THEN renders the image correctly', () => {
-            const imageAttrs = wrapper.find('.lazy-image__img').attributes();
-            expect(imageAttrs.src).toBe(`/.netlify/images?url=testImage.png&w=500`);
-            expect(imageAttrs.alt).toBe('Test Image');
+          it("THEN renders the image correctly", () => {
+            const imageAttrs = wrapper.find(".lazy-image__img").attributes();
+            expect(imageAttrs.src).toBe(
+              `/.netlify/images?url=testImage.png&w=500`,
+            );
+            expect(imageAttrs.alt).toBe("Test Image");
           });
 
-          it('THEN does not have the lazy class', () => {
-            expect(wrapper.find('.lazy-image__root--lazy').exists()).toBe(false);
+          it("THEN does not have the lazy class", () => {
+            expect(wrapper.find(".lazy-image__root--lazy").exists()).toBe(
+              false,
+            );
           });
         });
 
-        describe('WHEN component unmounted', () => {
+        describe("WHEN component unmounted", () => {
           beforeEach(() => {
             wrapper.unmount();
           });
 
-          it('THEN stops observing', () => {
+          it("THEN stops observing", () => {
             expect(disconnectSpy).toBeCalledTimes(2);
           });
         });
