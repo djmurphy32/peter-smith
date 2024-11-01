@@ -14,3 +14,4 @@ To run the site locally netlify CLI is required to manage the images
 1. Login to netlify using `netlify login` and complete the login through you browser
 1. Pull the images locally using `git lfs pull`
 1. Start the app using `npm start`
+ 

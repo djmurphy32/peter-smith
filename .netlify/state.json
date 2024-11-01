@@ -1,3 +1,21 @@
 {
-  "siteId": "754e2281-6fec-4c6e-bdf6-9719477882b2"
+	"siteId": "754e2281-6fec-4c6e-bdf6-9719477882b2",
+	"geolocation": {
+		"data": {
+			"city": "Hackney",
+			"country": {
+				"code": "GB",
+				"name": "United Kingdom"
+			},
+			"subdivision": {
+				"code": "ENG",
+				"name": "England"
+			},
+			"timezone": "Europe/London",
+			"latitude": 51.5384,
+			"longitude": -0.039,
+			"postalCode": "E9"
+		},
+		"timestamp": 1730476777850
+	}
 }
