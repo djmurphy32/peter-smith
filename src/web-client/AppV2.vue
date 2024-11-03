@@ -5,10 +5,12 @@ import SiteFooter from "@/components/v2/SiteFooter.vue";
 
 <template>
   <main class="bg-neutral h-screen grid grid-rows-[1fr,auto] gap-4">
-    <div class="grid grid-cols-[1fr,auto,1fr] gap-4">
+    <div class="grid grid-cols-[200px,auto,200px] gap-4">
       <Sidebar />
 
-      <router-view />
+      <div class="flex justify-center">
+        <router-view />
+      </div>
     </div>
     <SiteFooter />
   </main>

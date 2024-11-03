@@ -8,7 +8,7 @@ import { Page } from "@/router/Page";
       <RouterLink :to="{ name: Page.HomeV2 }">Work</RouterLink>
     </div>
     <div>
-      <RouterLink :to="{ name: Page.HomeV2 }">Information</RouterLink>
+      <RouterLink :to="{ name: Page.InformationV2 }">Information</RouterLink>
     </div>
   </div>
 </template>

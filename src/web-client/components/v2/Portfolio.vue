@@ -8,6 +8,6 @@ import LazyImage from "@/components/LazyImage.vue";
     alt="alt"
     :full-width="1200"
     :lazy-width="200"
-    :css-width="600"
+    :css-width="400"
   />
 </template>

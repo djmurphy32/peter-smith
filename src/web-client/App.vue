@@ -6,7 +6,8 @@ import { Page } from "./router/Page";
 import { computed } from "vue";
 
 const route = useRoute();
-const isV2Route = computed(() => route.name === Page.HomeV2);
+const v2Routes = [Page.HomeV2.toString(), Page.InformationV2.toString()];
+const isV2Route = computed(() => v2Routes.includes(route.name as string));
 </script>
 
 <template>
