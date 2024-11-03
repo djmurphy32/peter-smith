@@ -9,6 +9,7 @@ module.exports = {
     colors: {
       black: "#000",
       white: "#fff",
+      neutral: "#DCDCDC",
     },
     container: {
       center: true,
