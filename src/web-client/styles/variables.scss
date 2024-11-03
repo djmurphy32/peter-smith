@@ -4,10 +4,17 @@
 
 @layer base {
   :root {
+    --background: #fff;
+
     --white: #fff;
     --black: #000;
 
     --font-family: "Open Sans";
     --font-size: 13px;
+  }
+}
+@layer base {
+  body {
+    @apply bg-background;
   }
 }

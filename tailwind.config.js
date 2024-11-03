@@ -9,6 +9,7 @@ module.exports = {
     colors: {
       black: "#000",
       white: "#fff",
+      neutral: "#DCDCDC",
     },
     container: {
       center: true,
@@ -17,5 +18,10 @@ module.exports = {
         "2xl": "1400px",
       },
     },
-  }
+    extend: {
+      colors: {
+        background: "var(--background)",
+      },
+    },
+  },
 };

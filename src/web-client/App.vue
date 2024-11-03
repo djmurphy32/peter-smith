@@ -1,22 +1,16 @@
-<template>
-  <div class="site site-trunk">
-    <SiteHeader />
-    <router-view />
-    <SiteFooter />
-  </div>
-</template>
-
 <script setup lang="ts">
-import SiteFooter from "@/components/SiteFooter.vue";
-import SiteHeader from "@/components/SiteHeader.vue";
+import { useRoute } from "vue-router";
+import AppV1 from "@/AppV1.vue";
+import AppV2 from "@/AppV2.vue";
+import { Page } from "./router/Page";
+import { computed } from "vue";
+
+const route = useRoute();
+const v2Routes = [Page.HomeV2.toString(), Page.InformationV2.toString()];
+const isV2Route = computed(() => v2Routes.includes(route.name as string));
 </script>
 
-<style lang="scss">
-.site-trunk {
-  margin: 30px;
-
-  @media (min-width: 640px) {
-    margin: 30px 60px;
-  }
-}
-</style>
+<template>
+  <AppV1 v-if="!isV2Route" />
+  <AppV2 v-else />
+</template>
