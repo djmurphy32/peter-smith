@@ -2,7 +2,7 @@
 
 <template>
   <div class="flex flex-col justify-center max-w-80 gap-8">
-    <div class="space-y-4 capitalize">
+    <div class="space-y-4 uppercase">
       <p>
         Peter draws inspiration from the popular culture he consumed. The
         traditions of storytelling and the landscapes that surrounded him
