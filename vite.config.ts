@@ -3,7 +3,10 @@ import vue from "@vitejs/plugin-vue";
 import favicons from "@peterek/vite-plugin-favicons";
 
 export default defineConfig({
-  plugins: [vue(), favicons("./src/web-client/assets/favicon.png")],
+  plugins: [
+    vue(),
+    favicons("./src/web-client/assets/favicon.png")
+  ],
   build: {
     target: "esnext",
     assetsInlineLimit: 0,
