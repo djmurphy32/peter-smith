@@ -9,7 +9,8 @@
     --white: #fff;
     --black: #000;
 
-    --font-family: "Open Sans";
+    --font-family: "Nitti", sans-serif;
+    // --font-family: "Open Sans";
     --font-size: 13px;
   }
 }
@@ -17,4 +18,11 @@
   body {
     @apply bg-background;
   }
+}
+
+@font-face {
+  font-family: "Nitti";
+  src: url("@/assets/fonts/Nitti-Normal.ttf") format("truetype");
+  font-weight: 400;
+  font-display: block;
 }
