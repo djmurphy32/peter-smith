@@ -20,6 +20,7 @@ import SiteFooter from "@/components/v2/SiteFooter.vue";
 
 <style scoped>
 main {
+  font-family: var(--nitti-font-family);
   display: grid;
   min-height: 100vh;
   max-width: 100vw;

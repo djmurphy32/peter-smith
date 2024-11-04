@@ -12,6 +12,9 @@ import SiteHeader from "@/components/SiteHeader.vue";
 </template>
 
 <style lang="scss">
+main {
+  font-family: var(--open-sans-font-family);
+}
 .site-trunk {
   margin: 30px;
 
