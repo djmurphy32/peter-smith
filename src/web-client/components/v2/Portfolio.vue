@@ -6,7 +6,7 @@ import { computed, ref, watch } from "vue";
 import { watchOnce } from "@vueuse/core";
 
 const importedImgs = import.meta.glob(
-  "../../assets/images/portfolio/AH60_TheCollections/*.jpg",
+  "../../assets/images/portfolio/AH_Magazine/*.jpg",
   {
     eager: true,
   }
@@ -84,7 +84,7 @@ const images = computed<{ src: string; key: string }[]>(() => {
       <CarouselItem
         v-for="img in images"
         :key="img.key"
-        class="pl-1"
+        class="px-0.5 content-center"
         :class="{
           'animate-nudge': !hasInteractedWithCarousel,
         }"
