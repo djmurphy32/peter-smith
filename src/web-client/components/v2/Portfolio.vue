@@ -22,6 +22,7 @@ function setApi(val: CarouselApi) {
 }
 
 const currentCarouselItem = ref(0);
+const hasInteractedWithCarousel = ref(false);
 watchOnce(api, (api) => {
   if (!api) {
     return;
@@ -29,6 +30,7 @@ watchOnce(api, (api) => {
   currentCarouselItem.value = api.selectedScrollSnap();
 
   api.on("select", () => {
+    hasInteractedWithCarousel.value = true;
     currentCarouselItem.value = api.selectedScrollSnap();
   });
 });
@@ -79,8 +81,15 @@ const images = computed<{ src: string; key: string }[]>(() => {
     class="relative w-full max-w-xl"
   >
     <CarouselContent>
-      <CarouselItem v-for="img in images" :key="img.key">
-        <div class="p-1 relative">
+      <CarouselItem
+        v-for="img in images"
+        :key="img.key"
+        class="pl-1"
+        :class="{
+          'animate-nudge': !hasInteractedWithCarousel,
+        }"
+      >
+        <div class="relative">
           <div
             v-if="canScrollPrev"
             @click="api?.scrollPrev()"
@@ -97,3 +106,22 @@ const images = computed<{ src: string; key: string }[]>(() => {
     </CarouselContent>
   </Carousel>
 </template>
+
+<style scoped>
+@keyframes nudge {
+  0%,
+  30%,
+  70%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+}
+
+.animate-nudge {
+  animation: nudge 5s ease-in-out 3;
+  animation-delay: 2s;
+}
+</style>
