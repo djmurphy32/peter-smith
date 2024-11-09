@@ -14,11 +14,6 @@
     --font-size: 13px;
   }
 }
-@layer base {
-  body {
-    @apply bg-background;
-  }
-}
 
 @font-face {
   font-family: "Nitti";
