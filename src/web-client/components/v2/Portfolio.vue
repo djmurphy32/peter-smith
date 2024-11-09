@@ -84,7 +84,7 @@ const images = computed<{ src: string; key: string }[]>(() => {
       <CarouselItem
         v-for="img in images"
         :key="img.key"
-        class="pl-1"
+        class="px-0.5 content-center"
         :class="{
           'animate-nudge': !hasInteractedWithCarousel,
         }"
