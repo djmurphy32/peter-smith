@@ -3,7 +3,7 @@ import { Page } from "@/router/Page";
 </script>
 
 <template>
-  <div class="flex justify-center gap-x-20 m-4 md:mb-12">
+  <div class="flex justify-center gap-x-20 mb-12 mt-8">
     <div>
       <RouterLink :to="{ name: Page.HomeV2 }">Work</RouterLink>
     </div>

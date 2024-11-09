@@ -66,7 +66,10 @@ const images = computed<{ src: string; key: string }[]>(() => {
     if (!isViewed) {
       return { src: "", key: origSrc };
     }
-    return { src: `/.netlify/images?url=${origSrc}&w=1200`, key: origSrc };
+    return {
+      src: `/.netlify/images?url=${origSrc}&w=1200`,
+      key: origSrc,
+    };
   });
 });
 </script>
@@ -89,7 +92,7 @@ const images = computed<{ src: string; key: string }[]>(() => {
           'animate-nudge': !hasInteractedWithCarousel,
         }"
       >
-        <div class="relative">
+        <div class="relative flex content-center">
           <div
             v-if="canScrollPrev"
             @click="api?.scrollPrev()"
@@ -100,7 +103,9 @@ const images = computed<{ src: string; key: string }[]>(() => {
             @click="api?.scrollNext()"
             class="absolute top-0 right-0 w-1/2 h-full bg-black bg-opacity-50 z-10"
           ></div>
-          <img v-if="img.src" :src="img.src" />
+          <div class="w-full flex justify-center">
+            <img v-if="img.src" :src="img.src" class="max-h-[600px]" />
+          </div>
         </div>
       </CarouselItem>
     </CarouselContent>

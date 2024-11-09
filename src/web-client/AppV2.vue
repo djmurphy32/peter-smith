@@ -4,13 +4,13 @@ import SiteFooter from "@/components/v2/SiteFooter.vue";
 </script>
 
 <template>
-  <main class="bg-neutral h-screen grid grid-rows-[1fr,auto] gap-4">
+  <main class="bg-neutral min-h-screen grid grid-rows-[1fr,auto] gap-4">
     <div
       class="flex flex-col m-4 md:m-0 md:grid md:grid-cols-[200px,auto,200px] gap-4"
     >
       <Sidebar />
 
-      <div class="flex justify-center">
+      <div class="flex justify-center pt-16">
         <router-view />
       </div>
     </div>
