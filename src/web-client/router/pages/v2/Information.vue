@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="flex flex-col justify-center max-w-80 gap-8">
+  <div class="flex flex-col justify-center max-w-[430px] gap-8">
     <div class="space-y-4 uppercase">
       <p>
         Peter draws inspiration from the popular culture he consumed. The
@@ -15,10 +15,12 @@
       <p>
         Peter's work has been featured in publications such as ARENA HOMME +.,
         Pop Replica, Reedition, 1-D, Vogue, and Harper's Bazaar. Peter currently
-        lies in London.
+        lives in London.
       </p>
     </div>
-    <div class="flex justify-between">
+    <div
+      class="flex flex-col gap-4 items-center md:flex-row md:justify-between"
+    >
       <div>
         <a href="https://www.instagram.com/peter_josephsmith"
           >@peter_josephsmith</a
