@@ -9,11 +9,11 @@ const importedImgs = import.meta.glob(
   "../../assets/images/portfolio/AH_Magazine/*.jpg",
   {
     eager: true,
-  }
+  },
 ) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] =>
-  Object.values(importedImgs).map((module) => module.default)
+  Object.values(importedImgs).map((module) => module.default),
 );
 
 const api = ref<CarouselApi>();
