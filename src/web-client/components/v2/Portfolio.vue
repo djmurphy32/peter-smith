@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { GlobEagerImport } from "@/typings/globImport";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/carousel";
 import type { CarouselApi } from "@/components/carousel";
 import { computed, ref, watch } from "vue";
 import { watchOnce } from "@vueuse/core";
@@ -38,7 +32,6 @@ watchOnce(api, (api) => {
     currentCarouselItem.value = api.selectedScrollSnap();
   });
 });
-
 const viewedCarouselItems = ref<number[]>([
   currentCarouselItem.value,
   currentCarouselItem.value + 1,
@@ -78,7 +71,7 @@ const images = computed<{ src: string; key: string }[]>(() => {
 
 <template>
   <Carousel
-    v-slot="{ canScrollNext }"
+    v-slot="{ canScrollPrev, canScrollNext }"
     @init-api="setApi"
     :opts="{
       loop: true,
@@ -87,12 +80,20 @@ const images = computed<{ src: string; key: string }[]>(() => {
   >
     <CarouselContent>
       <CarouselItem v-for="img in images" :key="img.key">
-        <div class="p-1">
-          <img v-if="img.src" :src="img.src" class="w-[600px]" />
+        <div class="p-1 relative">
+          <div
+            v-if="canScrollPrev"
+            @click="api?.scrollPrev()"
+            class="absolute top-0 left-0 w-1/2 h-full bg-black bg-opacity-50 z-10"
+          ></div>
+          <div
+            v-if="canScrollNext"
+            @click="api?.scrollNext()"
+            class="absolute top-0 right-0 w-1/2 h-full bg-black bg-opacity-50 z-10"
+          ></div>
+          <img v-if="img.src" :src="img.src" />
         </div>
       </CarouselItem>
     </CarouselContent>
-    <CarouselPrevious />
-    <CarouselNext v-if="canScrollNext" />
   </Carousel>
 </template>
