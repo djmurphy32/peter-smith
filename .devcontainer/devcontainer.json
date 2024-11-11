@@ -7,6 +7,10 @@
   "remoteUser": "root",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/nils-geistmann/devcontainers-features/zsh": {
+      "ohMyZsh": true,
+      "plugins": ["git", "docker", "zsh-autosuggestions", "zsh-syntax-highlighting"]
+    },
   },
   "forwardPorts": [3005],
   "postCreateCommand": "npm i"
