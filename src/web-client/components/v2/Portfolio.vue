@@ -110,7 +110,7 @@ const images = computed<{ src: string; key: string }[]>(() => {
             class="max-h-[600px] flex justify-center"
             :style="{ maxWidth: 'calc(100vw - 1rem)' }"
           >
-            <img v-if="img.src" :src="img.src" />
+            <img v-if="img.src" :src="img.src" class="object-contain" />
           </div>
         </div>
       </CarouselItem>
