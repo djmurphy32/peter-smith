@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed } from "vue";
+
+const year = computed(() => new Date().getFullYear().toString());
+</script>
 
 <template>
   <div class="flex flex-col justify-center max-w-[430px] gap-8">
@@ -34,6 +38,9 @@
           >studio@peterjosephsmith.co.uk</a
         >
       </div>
+    </div>
+    <div class="flex justify-center mt-10 md:mt-20">
+      <span>All images &copy; peter joseph smith {{ year }}</span>
     </div>
   </div>
 </template>
