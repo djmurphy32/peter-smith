@@ -13,7 +13,9 @@ const importedImgs = import.meta.glob(
 ) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] => {
-  const srcs = Object.values(importedImgs).map((module) => module.default);
+  const srcs = Object.values(importedImgs).map((module) =>
+    encodeURIComponent(module.default)
+  );
   return srcs.sort();
 });
 
