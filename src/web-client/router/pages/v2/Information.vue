@@ -4,19 +4,22 @@
   <div class="flex flex-col justify-center max-w-[430px] gap-8">
     <div class="space-y-4 uppercase">
       <p>
-        Peter draws inspiration from the popular culture he consumed. The
-        traditions of storytelling and the landscapes that surrounded him
-        growing up in the North East of Ireland
+        Continuosly inspired by the pop culture he consumed growing up and the
+        tradition of story telling that surrounded him in the North East of
+        Ireland, Peter focuses on drawing character and narrative in his work.
       </p>
       <p>
-        Today his tender approach to photography and image making engaged in a
-        conversation of cultural, sexual and personal identity.
+        With all of Peter's imagery comes a personal connection that clearly
+        communicates a conversation on sexuality and identity.
       </p>
       <p>
-        Peter's work has been featured in publications such as ARENA HOMME +.,
-        Pop Replica, Reedition, 1-D, Vogue, and Harper's Bazaar. Peter currently
-        lives in London.
+        Having begun his career as a full time assistant to one of the
+        industry's most prominent photographers he is now a regular contributor
+        within the pages of some of the world's leading fashion, art and culture
+        magazines. Editorial clients include Arena Homme+ , Vogue, Re-Edition,
+        Harper's Bazaar US, POP Magazine, Replica Magazine and i-D Magazine.
       </p>
+      <p>Peter is now based in London.</p>
     </div>
     <div
       class="flex flex-col gap-4 items-center md:flex-row md:justify-between"
