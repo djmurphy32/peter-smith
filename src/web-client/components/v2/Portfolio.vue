@@ -106,8 +106,11 @@ const images = computed<{ src: string; key: string }[]>(() => {
             @click="api?.scrollNext()"
             class="absolute top-0 right-0 w-1/2 h-full bg-black bg-opacity-50 z-10"
           ></div>
-          <div class="w-full flex justify-center">
-            <img v-if="img.src" :src="img.src" class="max-h-[600px]" />
+          <div
+            class="max-h-[600px] flex justify-center"
+            :style="{ maxWidth: 'calc(100vw - 1rem)' }"
+          >
+            <img v-if="img.src" :src="img.src" />
           </div>
         </div>
       </CarouselItem>
