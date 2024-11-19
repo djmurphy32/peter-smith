@@ -9,12 +9,12 @@ const importedImgs = import.meta.glob(
   "../../assets/images/portfolio/V2/*.jpg",
   {
     eager: true,
-  },
+  }
 ) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] => {
   const srcs = Object.values(importedImgs).map((module) =>
-    encodeURIComponent(module.default),
+    encodeURIComponent(module.default)
   );
   return srcs.sort();
 });
@@ -75,6 +75,16 @@ const images = computed<{ src: string; key: string }[]>(() => {
     };
   });
 });
+
+const lowResFirstImgSrc = computed(() => {
+  return `/.netlify/images?url=${images.value[0].src}&w=600`;
+});
+
+const firstImgLoaded = ref(false);
+
+const onFirstImgLoad = () => {
+  firstImgLoaded.value = true;
+};
 </script>
 
 <template>
@@ -88,7 +98,7 @@ const images = computed<{ src: string; key: string }[]>(() => {
   >
     <CarouselContent>
       <CarouselItem
-        v-for="img in images"
+        v-for="(img, ix) in images"
         :key="img.key"
         class="px-0.5 content-center"
         :class="{
@@ -110,7 +120,21 @@ const images = computed<{ src: string; key: string }[]>(() => {
             class="max-h-[600px] flex justify-center"
             :style="{ maxWidth: 'calc(100vw - 1rem)' }"
           >
-            <img v-if="img.src" :src="img.src" class="object-contain" />
+            <template v-if="ix === 0">
+              <img
+                :src="img.src"
+                class="object-contain"
+                @load="onFirstImgLoad"
+              />
+              <img
+                v-if="!firstImgLoaded"
+                :src="lowResFirstImgSrc"
+                class="object-contain"
+              />
+            </template>
+            <template v-else>
+              <img :src="img.src" class="object-contain" />
+            </template>
           </div>
         </div>
       </CarouselItem>
