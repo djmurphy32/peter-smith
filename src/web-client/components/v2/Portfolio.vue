@@ -9,12 +9,12 @@ const importedImgs = import.meta.glob(
   "../../assets/images/portfolio/V2/*.jpg",
   {
     eager: true,
-  },
+  }
 ) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] => {
   const srcs = Object.values(importedImgs).map((module) =>
-    encodeURIComponent(module.default),
+    encodeURIComponent(module.default)
   );
   return srcs.sort();
 });
@@ -77,7 +77,7 @@ const images = computed<{ src: string; key: string }[]>(() => {
 });
 
 const lowResFirstImgSrc = computed(() => {
-  return `/.netlify/images?url=${images.value[0].src}&w=600`;
+  return `/.netlify/images?url=${imagesSrcs.value[0]}&w=600`;
 });
 
 const firstImgLoaded = ref(false);
