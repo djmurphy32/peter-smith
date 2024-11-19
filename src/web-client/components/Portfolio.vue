@@ -11,7 +11,7 @@ const importedImgs = import.meta.glob("../assets/images/portfolio/V2/*.jpg", {
 
 const imagesSrcs = computed((): string[] => {
   const srcs = Object.values(importedImgs).map((module) =>
-    encodeURIComponent(module.default)
+    encodeURIComponent(module.default),
   );
   return srcs.sort();
 });
