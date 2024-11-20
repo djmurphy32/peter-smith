@@ -11,11 +11,11 @@ useHead({
   title,
   meta: [
     {
-      name: "title",
+      property: "og:title",
       content: title,
     },
     {
-      name: "image",
+      property: "og:image",
       content: logoUrl,
     },
   ],
