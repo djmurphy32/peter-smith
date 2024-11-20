@@ -1,6 +1,23 @@
 <script setup lang="ts">
 import Name from "@/components/Name.vue";
 import SiteFooter from "@/components/SiteFooter.vue";
+import logo from "@/assets/logo.png";
+import { useHead } from "@unhead/vue";
+
+const title = "peter joseph smith";
+useHead({
+  title,
+  meta: [
+    {
+      name: "title",
+      content: title,
+    },
+    {
+      name: "image",
+      content: logo,
+    },
+  ],
+});
 </script>
 
 <template>
