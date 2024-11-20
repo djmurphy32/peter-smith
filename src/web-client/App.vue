@@ -5,6 +5,8 @@ import logo from "@/assets/logo.png";
 import { useHead } from "@unhead/vue";
 
 const title = "peter joseph smith";
+const host = window.location.host;
+const logoUrl = `${window.location.protocol}//${host}${logo}`;
 useHead({
   title,
   meta: [
@@ -14,7 +16,7 @@ useHead({
     },
     {
       name: "image",
-      content: logo,
+      content: logoUrl,
     },
   ],
 });
