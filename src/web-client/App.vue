@@ -1,25 +1,6 @@
 <script setup lang="ts">
 import Name from "@/components/Name.vue";
 import SiteFooter from "@/components/SiteFooter.vue";
-import logo from "@/assets/logo.png";
-import { useHead } from "@unhead/vue";
-
-const title = "peter joseph smith";
-const host = window.location.host;
-const logoUrl = `${window.location.protocol}//${host}${logo}`;
-useHead({
-  title,
-  meta: [
-    {
-      property: "og:title",
-      content: title,
-    },
-    {
-      property: "og:image",
-      content: logoUrl,
-    },
-  ],
-});
 </script>
 
 <template>
