@@ -13,16 +13,16 @@ const fontainesImgs = import.meta.glob(
   "../assets/images/portfolio/FontainesDC/*.jpg",
   {
     eager: true,
-  }
+  },
 ) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] => {
   const v2Srcs = Object.values(v2Imgs).map((module) =>
-    encodeURIComponent(module.default)
+    encodeURIComponent(module.default),
   );
 
   const fontainesSrcs = Object.values(fontainesImgs).map((module) =>
-    encodeURIComponent(module.default)
+    encodeURIComponent(module.default),
   );
   return [...fontainesSrcs.sort(), ...v2Srcs.sort()];
 });
