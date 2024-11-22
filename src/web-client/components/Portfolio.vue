@@ -5,15 +5,26 @@ import type { CarouselApi } from "@/components/carousel";
 import { computed, ref, watch } from "vue";
 import { watchOnce } from "@vueuse/core";
 
-const importedImgs = import.meta.glob("../assets/images/portfolio/V2/*.jpg", {
+const v2Imgs = import.meta.glob("../assets/images/portfolio/V2/*.jpg", {
   eager: true,
 }) as GlobEagerImport;
 
+const fontainesImgs = import.meta.glob(
+  "../assets/images/portfolio/FontainesDC/*.jpg",
+  {
+    eager: true,
+  }
+) as GlobEagerImport;
+
 const imagesSrcs = computed((): string[] => {
-  const srcs = Object.values(importedImgs).map((module) =>
-    encodeURIComponent(module.default),
+  const v2Srcs = Object.values(v2Imgs).map((module) =>
+    encodeURIComponent(module.default)
   );
-  return srcs.sort();
+
+  const fontainesSrcs = Object.values(fontainesImgs).map((module) =>
+    encodeURIComponent(module.default)
+  );
+  return [...fontainesSrcs.sort(), ...v2Srcs.sort()];
 });
 
 const api = ref<CarouselApi>();
