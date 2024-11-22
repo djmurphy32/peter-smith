@@ -8,6 +8,7 @@
     "start": "netlify dev --no-open",
     "dev": "vite",
     "netlify": "npm run build",
+    "prepare": "git config core.hooksPath .githooks",
     "preview": "npm run vite build && npm run vite preview",
     "test": "vitest",
     "lint": "eslint src/web-client",

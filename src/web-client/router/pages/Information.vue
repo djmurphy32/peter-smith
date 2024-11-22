@@ -39,8 +39,8 @@ const year = computed(() => new Date().getFullYear().toString());
         >
       </div>
     </div>
-    <div class="flex justify-center mt-10 md:mt-20">
-      <span>All images &copy; peter joseph smith {{ year }}</span>
+    <div class="flex justify-center mt-10 md:mt-20 lowercase">
+      <span>All images &copy; Peter Joseph Smith {{ year }}</span>
     </div>
   </div>
 </template>

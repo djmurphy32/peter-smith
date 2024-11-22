@@ -1,16 +1,26 @@
 <script setup lang="ts">
-import { useRoute } from "vue-router";
-import AppV1 from "@/AppV1.vue";
-import AppV2 from "@/AppV2.vue";
-import { Page } from "./router/Page";
-import { computed } from "vue";
-
-const route = useRoute();
-const v2Routes = [Page.HomeV2.toString(), Page.InformationV2.toString()];
-const isV2Route = computed(() => v2Routes.includes(route.name as string));
+import Name from "@/components/Name.vue";
+import SiteFooter from "@/components/SiteFooter.vue";
 </script>
 
 <template>
-  <AppV1 v-if="!isV2Route" />
-  <AppV2 v-else />
+  <main class="bg-neutral min-h-screen grid">
+    <div
+      class="m-4 flex flex-col md:m-0 md:grid md:grid-cols-[200px,auto,200px] gap-4"
+    >
+      <div class="flex justify-center">
+        <div class="md:fixed md:top-1/2 md:transform md:-translate-y-1/2">
+          <Name />
+        </div>
+      </div>
+      <div class="flex-grow grid grid-rows-[1fr,auto] md:pt-16">
+        <div class="flex justify-center items-center">
+          <router-view />
+        </div>
+        <div class="self-end">
+          <SiteFooter />
+        </div>
+      </div>
+    </div>
+  </main>
 </template>

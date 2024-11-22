@@ -1,16 +1,14 @@
-<template>
-  <div class="site-footer">
-    <span>&copy; all images Peter Smith {{ year }}</span>
-  </div>
-</template>
-
 <script setup lang="ts">
-const year = new Date().getFullYear().toString();
+import { Page } from "@/router/Page";
 </script>
 
-<style lang="scss">
-.site-footer {
-  margin-top: 20px;
-  margin-bottom: 50px;
-}
-</style>
+<template>
+  <div class="flex justify-center gap-x-20 mb-16 mt-8">
+    <div>
+      <RouterLink :to="{ name: Page.Home }">Work</RouterLink>
+    </div>
+    <div>
+      <RouterLink :to="{ name: Page.Information }">Information</RouterLink>
+    </div>
+  </div>
+</template>
