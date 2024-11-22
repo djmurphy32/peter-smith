@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Name from "@/components/Name.vue";
-import SiteFooter from "@/components/SiteFooter.vue";
+import Name from "@/components/name/Name.vue";
+import SiteFooter from "@/components/siteFooter/SiteFooter.vue";
 </script>
 
 <template>
