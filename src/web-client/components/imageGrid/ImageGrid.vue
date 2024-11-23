@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import { useIntersectionObserver } from "@vueuse/core";
-import { computed, ref, useTemplateRef } from "vue";
+import { computed, onMounted, ref, useTemplateRef } from "vue";
 
 interface Props {
   images: { src: string; lowResSrc: string; key: string }[];
+  selectedItem?: number;
 }
 
-const { images } = defineProps<Props>();
+const { images, selectedItem } = defineProps<Props>();
 const imageRefs = useTemplateRef<Element[]>("image");
 const lowResItems = ref<number[]>([]);
+
+const emit = defineEmits<{
+  (e: "update:selectItem", value: number): void;
+}>();
+
 useIntersectionObserver(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   imageRefs as any,
@@ -24,7 +30,7 @@ useIntersectionObserver(
       }
     });
   },
-  { rootMargin: "200px 0px" },
+  { rootMargin: "200px 0px" }
 );
 
 const fullItems = ref<number[]>([]);
@@ -56,14 +62,28 @@ const mappedImages = computed(() => {
     };
   });
 });
+
+const onClick = (index: number) => {
+  emit("update:selectItem", index);
+};
+
+onMounted(() => {
+  if (selectedItem) {
+    const element = imageRefs.value?.[selectedItem];
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
+});
 </script>
 
 <template>
   <div class="relative w-full flex flex-col md:flex-row flex-wrap">
     <div
-      v-for="image in mappedImages"
+      v-for="(image, ix) in mappedImages"
       :key="image.key"
       class="w-full md:w-1/2 lg:w-1/4 xl:w-1/5 p-2"
+      @click="() => onClick(ix)"
     >
       <div ref="image" class="flex items-center h-full min-h-[100px]">
         <img v-if="image.src" class="w-screen md:w-[100%]" :src="image.src" />

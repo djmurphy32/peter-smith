@@ -10,6 +10,11 @@ interface Props {
 }
 
 const { images } = defineProps<Props>();
+
+const emit = defineEmits<{
+  (e: "update:selectedItem", value: number): void;
+}>();
+
 const api = ref<CarouselApi>();
 function setApi(val: CarouselApi) {
   api.value = val;
@@ -22,10 +27,12 @@ watchOnce(api, (api) => {
     return;
   }
   currentCarouselItem.value = api.selectedScrollSnap();
+  emit("update:selectedItem", currentCarouselItem.value);
 
   api.on("select", () => {
     hasInteractedWithCarousel.value = true;
     currentCarouselItem.value = api.selectedScrollSnap();
+    emit("update:selectedItem", currentCarouselItem.value);
   });
 });
 
@@ -62,6 +69,7 @@ watch(currentCarouselItem, (val) => {
     @init-api="setApi"
     :opts="{
       loop: true,
+      startIndex,
     }"
     class="w-full max-w-xl carousel-width"
   >

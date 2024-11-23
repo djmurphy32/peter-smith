@@ -13,16 +13,16 @@ const fontainesImgs = import.meta.glob(
   "../../assets/images/portfolio/FontainesDC/*.jpg",
   {
     eager: true,
-  },
+  }
 ) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] => {
   const v2Srcs = Object.values(v2Imgs).map((module) =>
-    encodeURIComponent(module.default),
+    encodeURIComponent(module.default)
   );
 
   const fontainesSrcs = Object.values(fontainesImgs).map((module) =>
-    encodeURIComponent(module.default),
+    encodeURIComponent(module.default)
   );
   return [...fontainesSrcs.sort(), ...v2Srcs.sort()];
 });
@@ -36,7 +36,7 @@ const images = computed<{ src: string; lowResSrc: string; key: string }[]>(
         key: origSrc,
       };
     });
-  },
+  }
 );
 
 const showGrid = ref(false);
@@ -44,12 +44,32 @@ const showGrid = ref(false);
 const toggleShowGrid = () => {
   showGrid.value = !showGrid.value;
 };
+
+const selectedItem = ref<number>();
+
+const onClickGridItem = (index: number) => {
+  selectedItem.value = index;
+  toggleShowGrid();
+};
+
+const onUpdateCarouselItem = (index: number) => {
+  selectedItem.value = index;
+};
 </script>
 
 <template>
-  <ImageGrid v-if="showGrid" :images="images" />
+  <ImageGrid
+    v-if="showGrid"
+    :images="images"
+    :selected-item="selectedItem"
+    @update:select-item="onClickGridItem"
+  />
   <template v-else>
-    <ImageCarousel :images="images" />
+    <ImageCarousel
+      :images="images"
+      :start-index="selectedItem"
+      @update:selected-item="onUpdateCarouselItem"
+    />
     <Button @click="toggleShowGrid"> Show grid </Button>
   </template>
 </template>
