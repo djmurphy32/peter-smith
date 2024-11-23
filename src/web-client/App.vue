@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import Name from "@/components/name/Name.vue";
 import SiteFooter from "@/components/siteFooter/SiteFooter.vue";
+import SpriteSheet from "./components/sprite/SpriteSheet.vue";
 </script>
 
 <template>
+  <SpriteSheet />
   <main class="bg-neutral min-h-screen grid">
     <div
       class="m-4 flex flex-col md:m-0 md:grid md:grid-cols-[200px,auto,200px] gap-4"

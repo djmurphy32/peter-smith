@@ -3,7 +3,8 @@ import { GlobEagerImport } from "@/typings/globImport";
 import { computed, ref } from "vue";
 import ImageCarousel from "@/components/imageCarousel/ImageCarousel.vue";
 import ImageGrid from "@/components/imageGrid/ImageGrid.vue";
-import Button from "../button/Button.vue";
+import Button from "@/components/button/Button.vue";
+import Sprite from "@/components/sprite/Sprite.vue";
 
 const v2Imgs = import.meta.glob("../../assets/images/portfolio/V2/*.jpg", {
   eager: true,
@@ -13,16 +14,16 @@ const fontainesImgs = import.meta.glob(
   "../../assets/images/portfolio/FontainesDC/*.jpg",
   {
     eager: true,
-  }
+  },
 ) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] => {
   const v2Srcs = Object.values(v2Imgs).map((module) =>
-    encodeURIComponent(module.default)
+    encodeURIComponent(module.default),
   );
 
   const fontainesSrcs = Object.values(fontainesImgs).map((module) =>
-    encodeURIComponent(module.default)
+    encodeURIComponent(module.default),
   );
   return [...fontainesSrcs.sort(), ...v2Srcs.sort()];
 });
@@ -36,7 +37,7 @@ const images = computed<{ src: string; lowResSrc: string; key: string }[]>(
         key: origSrc,
       };
     });
-  }
+  },
 );
 
 const showGrid = ref(false);
@@ -65,12 +66,18 @@ const onUpdateCarouselItem = (index: number) => {
     @update:select-item="onClickGridItem"
   />
   <template v-else>
-    <ImageCarousel
-      :images="images"
-      :start-index="selectedItem"
-      @update:selected-item="onUpdateCarouselItem"
-    />
-    <Button @click="toggleShowGrid"> Show grid </Button>
+    <div class="flex flex-col">
+      <ImageCarousel
+        :images="images"
+        :start-index="selectedItem"
+        @update:selected-item="onUpdateCarouselItem"
+      />
+      <div class="flex justify-center">
+        <Button @click="toggleShowGrid" variant="secondary"
+          ><Sprite icon="grid" />
+        </Button>
+      </div>
+    </div>
   </template>
 </template>
 

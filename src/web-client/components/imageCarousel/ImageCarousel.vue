@@ -125,5 +125,6 @@ watch(currentCarouselItem, (val) => {
 .animate-nudge {
   animation: nudge 5s ease-in-out 3;
   animation-delay: 2s;
+  animation-fill-mode: forwards;
 }
 </style>

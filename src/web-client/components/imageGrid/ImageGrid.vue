@@ -30,7 +30,7 @@ useIntersectionObserver(
       }
     });
   },
-  { rootMargin: "200px 0px" }
+  { rootMargin: "200px 0px" },
 );
 
 const fullItems = ref<number[]>([]);
