@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Carousel, CarouselContent, CarouselItem } from "@/components/carousel";
 import type { CarouselApi } from "@/components/carousel";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { watchOnce } from "@vueuse/core";
 
 interface Props {
@@ -11,28 +11,49 @@ interface Props {
 
 const { images } = defineProps<Props>();
 
-const emit = defineEmits<{
-  (e: "update:viewedIndex", value: number): void;
-}>();
-
 const api = ref<CarouselApi>();
 function setApi(val: CarouselApi) {
   api.value = val;
 }
 
+const currentCarouselItem = ref(0);
 const hasInteractedWithCarousel = ref(false);
 watchOnce(api, (api) => {
   if (!api) {
     return;
   }
-
-  emit("update:viewedIndex", api.selectedScrollSnap());
+  currentCarouselItem.value = api.selectedScrollSnap();
 
   api.on("select", () => {
     hasInteractedWithCarousel.value = true;
-
-    emit("update:viewedIndex", api.selectedScrollSnap());
+    currentCarouselItem.value = api.selectedScrollSnap();
   });
+});
+
+const viewedCarouselItems = ref<number[]>([
+  currentCarouselItem.value,
+  currentCarouselItem.value + 1,
+  images.length - 1,
+]);
+
+watch(currentCarouselItem, (val) => {
+  if (viewedCarouselItems.value.length === images.length) {
+    return;
+  }
+
+  if (!viewedCarouselItems.value.includes(val)) {
+    viewedCarouselItems.value.push(val);
+  }
+
+  const nextItem = val + 1;
+  if (!viewedCarouselItems.value.includes(nextItem)) {
+    viewedCarouselItems.value.push(nextItem);
+  }
+
+  const prevItem = val - 1;
+  if (!viewedCarouselItems.value.includes(prevItem)) {
+    viewedCarouselItems.value.push(prevItem);
+  }
 });
 </script>
 
@@ -42,13 +63,12 @@ watchOnce(api, (api) => {
     @init-api="setApi"
     :opts="{
       loop: true,
-      startIndex,
     }"
     class="relative w-full max-w-xl"
   >
     <CarouselContent>
       <CarouselItem
-        v-for="img in images"
+        v-for="(img, ix) in images"
         :key="img.key"
         class="px-0.5 content-center"
         :class="{
@@ -70,7 +90,11 @@ watchOnce(api, (api) => {
             class="max-h-[600px] flex justify-center"
             :style="{ maxWidth: 'calc(100vw - 1rem)' }"
           >
-            <img v-if="img.src" :src="img.src" class="object-contain" />
+            <img
+              v-if="viewedCarouselItems.includes(ix)"
+              :src="img.src"
+              class="object-contain"
+            />
           </div>
         </div>
       </CarouselItem>
@@ -94,6 +118,5 @@ watchOnce(api, (api) => {
 .animate-nudge {
   animation: nudge 5s ease-in-out 3;
   animation-delay: 2s;
-  animation-fill-mode: forwards;
 }
 </style>
