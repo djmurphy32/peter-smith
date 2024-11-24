@@ -10,7 +10,6 @@ interface Props {
 }
 
 const { images } = defineProps<Props>();
-
 const api = ref<CarouselApi>();
 function setApi(val: CarouselApi) {
   api.value = val;
@@ -64,7 +63,7 @@ watch(currentCarouselItem, (val) => {
     :opts="{
       loop: true,
     }"
-    class="relative w-full max-w-xl carousel-width"
+    class="w-full max-w-xl carousel-width"
   >
     <CarouselContent>
       <CarouselItem
