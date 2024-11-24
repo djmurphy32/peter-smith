@@ -45,7 +45,7 @@ useIntersectionObserver(
       }
     });
   },
-  { rootMargin: "100px 0px" }
+  { rootMargin: "150px 0px 150px 0px" },
 );
 
 const mappedImages = computed(() => {
