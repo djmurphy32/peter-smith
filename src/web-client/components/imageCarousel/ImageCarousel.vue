@@ -10,7 +10,6 @@ interface Props {
 }
 
 const { images } = defineProps<Props>();
-
 const api = ref<CarouselApi>();
 function setApi(val: CarouselApi) {
   api.value = val;
@@ -64,7 +63,7 @@ watch(currentCarouselItem, (val) => {
     :opts="{
       loop: true,
     }"
-    class="relative w-full max-w-xl"
+    class="w-full max-w-xl carousel-width"
   >
     <CarouselContent>
       <CarouselItem
@@ -75,7 +74,7 @@ watch(currentCarouselItem, (val) => {
           'animate-nudge': !hasInteractedWithCarousel,
         }"
       >
-        <div class="relative flex content-center">
+        <div class="relative flex justify-center">
           <div
             v-if="canScrollPrev"
             @click="api?.scrollPrev()"
@@ -86,10 +85,7 @@ watch(currentCarouselItem, (val) => {
             @click="api?.scrollNext()"
             class="absolute top-0 right-0 w-1/2 h-full bg-black bg-opacity-50 z-10"
           ></div>
-          <div
-            class="max-h-[600px] flex justify-center"
-            :style="{ maxWidth: 'calc(100vw - 1rem)' }"
-          >
+          <div class="max-h-[600px] flex justify-center carousel-width">
             <img
               v-if="viewedCarouselItems.includes(ix)"
               :src="img.src"
@@ -103,6 +99,9 @@ watch(currentCarouselItem, (val) => {
 </template>
 
 <style scoped>
+.carousel-width {
+  max-width: calc(100vw - 2rem);
+}
 @keyframes nudge {
   0%,
   30%,
