@@ -3,7 +3,12 @@ import { useIntersectionObserver } from "@vueuse/core";
 import { computed, ref, useTemplateRef } from "vue";
 
 interface Props {
-  images: { src: string; lowResSrc: string; key: string }[];
+  images: {
+    highResSrc: string;
+    medResSrc: string;
+    lowResSrc: string;
+    key: string;
+  }[];
   selectedItem?: number;
 }
 
@@ -14,26 +19,15 @@ const emit = defineEmits<{
   (e: "update:selectItem", value: number): void;
 }>();
 
-const fullItems = ref<number[]>([]);
-useIntersectionObserver(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  imageRefs as any,
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const index = imageRefs.value?.indexOf(entry.target);
-        if (index !== undefined && index >= -1) {
-          if (!fullItems.value.includes(index)) {
-            fullItems.value.push(index);
-          }
-        }
-      }
-    });
-  },
-  { rootMargin: "100px 0px" },
-);
+const isMobile = ref(false);
+const mediaQuery = window.matchMedia("(max-width: 640px)");
+isMobile.value = mediaQuery.matches;
+const handleMediaQueryChange = (event: MediaQueryListEvent) => {
+  isMobile.value = event.matches;
+};
+mediaQuery.addEventListener("change", handleMediaQueryChange);
 
-const lowResItems = ref<number[]>([]);
+const imgsToRender = ref<number[]>([]);
 useIntersectionObserver(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   imageRefs as any,
@@ -42,24 +36,26 @@ useIntersectionObserver(
       if (entry.isIntersecting) {
         const index = imageRefs.value?.indexOf(entry.target);
         if (index) {
-          if (!lowResItems.value.includes(index)) {
-            lowResItems.value.push(index);
+          if (!imgsToRender.value.includes(index)) {
+            imgsToRender.value.push(index);
           }
         }
       }
     });
   },
-  { rootMargin: "200px 0px" },
+  { rootMargin: "200px 0px" }
 );
 
 const mappedImages = computed(() => {
   return images.map((image, ix) => {
-    const src = fullItems.value.includes(ix) ? image.src : "";
-    const lowResSrc = lowResItems.value.includes(ix) ? image.lowResSrc : "";
+    const src = imgsToRender.value.includes(ix)
+      ? isMobile.value
+        ? image.highResSrc
+        : image.medResSrc
+      : "";
 
     return {
       src,
-      lowResSrc,
       key: image.key,
     };
   });
@@ -68,8 +64,6 @@ const mappedImages = computed(() => {
 const onClick = (index: number) => {
   emit("update:selectItem", index);
 };
-
-const loadedImages = ref<number[]>([]);
 </script>
 
 <template>
@@ -81,19 +75,7 @@ const loadedImages = ref<number[]>([]);
       @click="() => onClick(ix)"
     >
       <div ref="image" class="flex items-center h-full min-h-[100px]">
-        <img
-          v-if="image.lowResSrc"
-          :class="{ hidden: loadedImages.includes(ix) }"
-          class="w-screen md:w-[100%]"
-          :src="image.lowResSrc"
-        />
-        <img
-          v-if="image.src"
-          class="w-screen md:w-[100%]"
-          :class="{ hidden: !loadedImages.includes(ix) }"
-          :src="image.src"
-          @load="loadedImages.push(ix)"
-        />
+        <img v-if="image.src" class="w-screen md:w-[100%]" :src="image.src" />
       </div>
     </div>
   </div>
