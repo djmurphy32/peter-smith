@@ -45,19 +45,17 @@ useIntersectionObserver(
       }
     });
   },
-  { rootMargin: "150px 0px 150px 0px" },
+  { rootMargin: "150px 0px 150px 0px" }
 );
 
 const mappedImages = computed(() => {
   return images.map((image, ix) => {
-    let src = fullItems.value.includes(ix) ? image.src : "";
-
-    if (!src && lowResItems.value.includes(ix)) {
-      src = image.lowResSrc;
-    }
+    const src = fullItems.value.includes(ix) ? image.src : "";
+    const lowResSrc = lowResItems.value.includes(ix) ? image.src : "";
 
     return {
       src,
+      lowResSrc,
       key: image.key,
     };
   });
@@ -66,6 +64,8 @@ const mappedImages = computed(() => {
 const onClick = (index: number) => {
   emit("update:selectItem", index);
 };
+
+const loadedImages = ref<number[]>([]);
 </script>
 
 <template>
@@ -77,7 +77,17 @@ const onClick = (index: number) => {
       @click="() => onClick(ix)"
     >
       <div ref="image" class="flex items-center h-full min-h-[100px]">
-        <img v-if="image.src" class="w-screen md:w-[100%]" :src="image.src" />
+        <img
+          v-if="image.lowResSrc && !loadedImages.includes(ix)"
+          class="w-screen md:w-[100%]"
+          :src="image.lowResSrc"
+        />
+        <img
+          v-if="image.src"
+          class="w-screen md:w-[100%]"
+          :src="image.src"
+          @load="loadedImages.push(ix)"
+        />
       </div>
     </div>
   </div>
