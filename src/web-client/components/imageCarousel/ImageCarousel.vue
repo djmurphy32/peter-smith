@@ -74,7 +74,7 @@ watch(currentCarouselItem, (val) => {
           'animate-nudge': !hasInteractedWithCarousel,
         }"
       >
-        <div class="relative flex content-center">
+        <div class="relative flex justify-center">
           <div
             v-if="canScrollPrev"
             @click="api?.scrollPrev()"
@@ -100,7 +100,7 @@ watch(currentCarouselItem, (val) => {
 
 <style scoped>
 .carousel-width {
-  max-width: calc(100vw - 1rem);
+  max-width: calc(100vw - 2rem);
 }
 @keyframes nudge {
   0%,
