@@ -46,15 +46,10 @@ const toggleShowGrid = () => {
   showGrid.value = !showGrid.value;
 };
 
-const selectedItem = ref<number>();
-
+const selectedGridItem = ref<number>();
 const onClickGridItem = (index: number) => {
-  selectedItem.value = index;
+  selectedGridItem.value = index;
   toggleShowGrid();
-};
-
-const onUpdateCarouselItem = (index: number) => {
-  selectedItem.value = index;
 };
 </script>
 
@@ -62,16 +57,11 @@ const onUpdateCarouselItem = (index: number) => {
   <ImageGrid
     v-if="showGrid"
     :images="images"
-    :selected-item="selectedItem"
     @update:select-item="onClickGridItem"
   />
   <template v-else>
-    <div class="flex flex-col">
-      <ImageCarousel
-        :images="images"
-        :start-index="selectedItem"
-        @update:selected-item="onUpdateCarouselItem"
-      />
+    <div class="flex flex-col gap-2">
+      <ImageCarousel :images="images" :start-index="selectedGridItem" />
       <div class="flex justify-center">
         <Button @click="toggleShowGrid" variant="secondary"
           ><Sprite icon="grid" />
