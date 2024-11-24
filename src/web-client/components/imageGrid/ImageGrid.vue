@@ -15,19 +15,23 @@ const emit = defineEmits<{
 }>();
 
 const fullItems = ref<number[]>([]);
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-useIntersectionObserver(imageRefs as any, (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const index = imageRefs.value?.indexOf(entry.target);
-      if (index !== undefined && index >= -1) {
-        if (!fullItems.value.includes(index)) {
-          fullItems.value.push(index);
+useIntersectionObserver(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  imageRefs as any,
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const index = imageRefs.value?.indexOf(entry.target);
+        if (index !== undefined && index >= -1) {
+          if (!fullItems.value.includes(index)) {
+            fullItems.value.push(index);
+          }
         }
       }
-    }
-  });
-});
+    });
+  },
+  { rootMargin: "100px 0px" },
+);
 
 const lowResItems = ref<number[]>([]);
 useIntersectionObserver(
@@ -45,7 +49,7 @@ useIntersectionObserver(
       }
     });
   },
-  { rootMargin: "150px 0px 150px 0px" }
+  { rootMargin: "200px 0px" },
 );
 
 const mappedImages = computed(() => {
@@ -78,13 +82,15 @@ const loadedImages = ref<number[]>([]);
     >
       <div ref="image" class="flex items-center h-full min-h-[100px]">
         <img
-          v-if="image.lowResSrc && !loadedImages.includes(ix)"
+          v-if="image.lowResSrc"
+          :class="{ hidden: loadedImages.includes(ix) }"
           class="w-screen md:w-[100%]"
           :src="image.lowResSrc"
         />
         <img
           v-if="image.src"
           class="w-screen md:w-[100%]"
+          :class="{ hidden: !loadedImages.includes(ix) }"
           :src="image.src"
           @load="loadedImages.push(ix)"
         />
