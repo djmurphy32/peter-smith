@@ -35,7 +35,7 @@ useIntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const index = imageRefs.value?.indexOf(entry.target);
-        if (index) {
+        if (index != undefined && index != -1) {
           if (!imgsToRender.value.includes(index)) {
             imgsToRender.value.push(index);
           }
@@ -71,7 +71,7 @@ const onClick = (index: number) => {
     <div
       v-for="(image, ix) in mappedImages"
       :key="image.key"
-      class="w-full md:w-1/2 lg:w-1/4 xl:w-1/5 p-2"
+      class="w-full md:w-1/2 lg:w-1/3 p-2"
       @click="() => onClick(ix)"
     >
       <div ref="image" class="flex items-center h-full min-h-[100px]">
