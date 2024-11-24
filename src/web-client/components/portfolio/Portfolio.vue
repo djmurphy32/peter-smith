@@ -14,16 +14,16 @@ const fontainesImgs = import.meta.glob(
   "../../assets/images/portfolio/FontainesDC/*.jpg",
   {
     eager: true,
-  },
+  }
 ) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] => {
   const v2Srcs = Object.values(v2Imgs).map((module) =>
-    encodeURIComponent(module.default),
+    encodeURIComponent(module.default)
   );
 
   const fontainesSrcs = Object.values(fontainesImgs).map((module) =>
-    encodeURIComponent(module.default),
+    encodeURIComponent(module.default)
   );
   return [...fontainesSrcs.sort(), ...v2Srcs.sort()];
 });
@@ -37,7 +37,7 @@ const images = computed<{ src: string; lowResSrc: string; key: string }[]>(
         key: origSrc,
       };
     });
-  },
+  }
 );
 
 const showGrid = ref(false);
@@ -63,7 +63,7 @@ const onClickGridItem = (index: number) => {
     <div class="flex flex-col gap-2">
       <ImageCarousel :images="images" :start-index="selectedGridItem" />
       <div class="flex justify-center">
-        <Button @click="toggleShowGrid" variant="secondary"
+        <Button @click="toggleShowGrid" variant="ghost"
           ><Sprite icon="grid" />
         </Button>
       </div>
