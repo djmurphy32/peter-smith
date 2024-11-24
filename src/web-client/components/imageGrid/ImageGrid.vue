@@ -51,7 +51,7 @@ useIntersectionObserver(
 const mappedImages = computed(() => {
   return images.map((image, ix) => {
     const src = fullItems.value.includes(ix) ? image.src : "";
-    const lowResSrc = lowResItems.value.includes(ix) ? image.src : "";
+    const lowResSrc = lowResItems.value.includes(ix) ? image.lowResSrc : "";
 
     return {
       src,
@@ -83,7 +83,7 @@ const loadedImages = ref<number[]>([]);
           :src="image.lowResSrc"
         />
         <img
-          v-if="image.src"
+          v-if="image.src && loadedImages.includes(ix)"
           class="w-screen md:w-[100%]"
           :src="image.src"
           @load="loadedImages.push(ix)"
