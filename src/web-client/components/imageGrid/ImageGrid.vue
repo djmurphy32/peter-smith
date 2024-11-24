@@ -83,7 +83,7 @@ const loadedImages = ref<number[]>([]);
           :src="image.lowResSrc"
         />
         <img
-          v-if="image.src && loadedImages.includes(ix)"
+          v-if="image.src"
           class="w-screen md:w-[100%]"
           :src="image.src"
           @load="loadedImages.push(ix)"
