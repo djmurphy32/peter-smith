@@ -8,7 +8,7 @@ import SpriteSheet from "./components/sprite/SpriteSheet.vue";
   <SpriteSheet />
   <main class="bg-neutral min-h-screen">
     <div
-      class="m-4 flex flex-col md:grid md:grid-cols-[200px,auto,200px] lg:grid-cols-[250px,auto,250px] xl:grid-cols-[300px,auto,300px]"
+      class="p-4 flex flex-col md:grid md:grid-cols-[200px,auto,200px] lg:grid-cols-[250px,auto,250px] xl:grid-cols-[300px,auto,300px]"
     >
       <div class="flex justify-center">
         <div class="md:fixed md:top-1/2 md:transform md:-translate-y-1/2">
