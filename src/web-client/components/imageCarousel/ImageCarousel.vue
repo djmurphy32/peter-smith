@@ -9,14 +9,14 @@ interface Props {
   startIndex?: number;
 }
 
-const { images } = defineProps<Props>();
+const { images, startIndex } = defineProps<Props>();
 
 const api = ref<CarouselApi>();
 function setApi(val: CarouselApi) {
   api.value = val;
 }
 
-const currentCarouselItem = ref(0);
+const currentCarouselItem = ref(startIndex ?? 0);
 const hasInteractedWithCarousel = ref(false);
 watchOnce(api, (api) => {
   if (!api) {
@@ -32,8 +32,12 @@ watchOnce(api, (api) => {
 
 const viewedCarouselItems = ref<number[]>([
   currentCarouselItem.value,
-  currentCarouselItem.value + 1,
-  images.length - 1,
+  currentCarouselItem.value < images.length - 1
+    ? currentCarouselItem.value + 1
+    : 0,
+  currentCarouselItem.value > 0
+    ? currentCarouselItem.value - 1
+    : images.length - 1,
 ]);
 
 watch(currentCarouselItem, (val) => {
@@ -45,13 +49,16 @@ watch(currentCarouselItem, (val) => {
     viewedCarouselItems.value.push(val);
   }
 
-  const nextItem = val + 1;
-  if (!viewedCarouselItems.value.includes(nextItem)) {
+  const nextItem = val < images.length - 1 ? val + 1 : 0;
+  if (
+    nextItem < images.length &&
+    !viewedCarouselItems.value.includes(nextItem)
+  ) {
     viewedCarouselItems.value.push(nextItem);
   }
 
-  const prevItem = val - 1;
-  if (!viewedCarouselItems.value.includes(prevItem)) {
+  const prevItem = val > 0 ? val - 1 : images.length - 1;
+  if (prevItem > -1 && !viewedCarouselItems.value.includes(prevItem)) {
     viewedCarouselItems.value.push(prevItem);
   }
 });
@@ -63,7 +70,7 @@ watch(currentCarouselItem, (val) => {
     @init-api="setApi"
     :opts="{
       loop: true,
-      startIndex: startIndex || 0,
+      startIndex: startIndex ?? 0,
     }"
     class="w-full max-w-xl carousel-width"
   >
