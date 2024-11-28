@@ -14,16 +14,16 @@ const fontainesImgs = import.meta.glob(
   "../../assets/images/portfolio/FontainesDC/*.jpg",
   {
     eager: true,
-  },
+  }
 ) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] => {
   const v2Srcs = Object.values(v2Imgs).map((module) =>
-    encodeURIComponent(module.default),
+    encodeURIComponent(module.default)
   );
 
   const fontainesSrcs = Object.values(fontainesImgs).map((module) =>
-    encodeURIComponent(module.default),
+    encodeURIComponent(module.default)
   );
   return [...fontainesSrcs.sort(), ...v2Srcs.sort()];
 });
@@ -72,7 +72,10 @@ const onClickGridItem = (index: number) => {
         :start-index="selectedGridItem"
       />
       <div class="flex justify-center">
-        <Button @click="toggleShowGrid" variant="ghost"
+        <Button
+          @click="toggleShowGrid"
+          variant="ghost"
+          aria-label="View image grid"
           ><Sprite icon="grid" />
         </Button>
       </div>
