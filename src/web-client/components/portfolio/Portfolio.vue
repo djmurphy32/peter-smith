@@ -72,7 +72,10 @@ const onClickGridItem = (index: number) => {
         :start-index="selectedGridItem"
       />
       <div class="flex justify-center">
-        <Button @click="toggleShowGrid" variant="ghost"
+        <Button
+          @click="toggleShowGrid"
+          variant="ghost"
+          aria-label="View image grid"
           ><Sprite icon="grid" />
         </Button>
       </div>
