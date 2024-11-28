@@ -77,7 +77,7 @@ const onClick = (index: number) => {
       <div ref="image" class="flex items-center h-full min-h-[100px]">
         <img
           v-if="image.src"
-          class="w-screen md:w-[100%]"
+          class="w-screen h-auto md:w-[100%]"
           :src="image.src"
           :alt="image.key"
         />

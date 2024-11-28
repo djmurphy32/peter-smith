@@ -99,7 +99,7 @@ watch(currentCarouselItem, (val) => {
               v-if="viewedCarouselItems.includes(ix)"
               :src="img.src"
               :alt="img.key"
-              class="object-contain"
+              class="object-contain w-full h-auto"
             />
           </div>
         </div>
