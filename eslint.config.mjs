@@ -19,7 +19,7 @@ export default [
     files: ["**/*.vue"],
     languageOptions: {
       globals: {
-        ...globals.node,
+        ...globals.browser,
       },
 
       parser: vueEslintParser,
@@ -51,7 +51,7 @@ export default [
     files: ["**/*.ts", "**/*.mts"],
     languageOptions: {
       globals: {
-        ...globals.node,
+        ...globals.browser,
       },
 
       parser: ts.parser,
