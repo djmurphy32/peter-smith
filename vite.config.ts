@@ -12,13 +12,6 @@ export default defineConfig({
   esbuild: {
     target: "esnext",
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: "modern-compiler",
-      },
-    },
-  },
   resolve: {
     alias: [
       {
