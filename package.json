@@ -22,7 +22,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-vue": "^8.5.2",
-    "lucide-vue-next": "^0.482.0",
+    "lucide-vue-next": "^0.483.0",
     "radix-vue": "^1.9.17",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",
