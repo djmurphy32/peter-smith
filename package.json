@@ -32,7 +32,7 @@
   "devDependencies": {
     "@eslint/js": "^9.23.0",
     "@peterek/vite-plugin-favicons": "^2.1.0",
-    "@tailwindcss/vite": "^4.0.15",
+    "@tailwindcss/vite": "^4.0.17",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/compiler-sfc": "^3.5.12",
     "@vue/eslint-config-prettier": "^10.2.0",
