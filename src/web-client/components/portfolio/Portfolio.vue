@@ -6,26 +6,18 @@ import ImageGrid from "@/components/imageGrid/ImageGrid.vue";
 import Button from "@/components/button/Button.vue";
 import Sprite from "@/components/sprite/Sprite.vue";
 
-const v2Imgs = import.meta.glob("../../assets/images/portfolio/V2/*.jpg", {
-  eager: true,
-}) as GlobEagerImport;
-
-const fontainesImgs = import.meta.glob(
-  "../../assets/images/portfolio/FontainesDC/*.jpg",
+const june2025 = import.meta.glob(
+  "../../assets/images/portfolio/June_2025/*.jpg",
   {
     eager: true,
-  },
+  }
 ) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] => {
-  const v2Srcs = Object.values(v2Imgs).map((module) =>
-    encodeURIComponent(module.default),
+  const juneSrcs = Object.values(june2025).map((module) =>
+    encodeURIComponent(module.default)
   );
-
-  const fontainesSrcs = Object.values(fontainesImgs).map((module) =>
-    encodeURIComponent(module.default),
-  );
-  return [...fontainesSrcs.sort(), ...v2Srcs.sort()];
+  return [...juneSrcs.sort()];
 });
 
 const images = computed<
