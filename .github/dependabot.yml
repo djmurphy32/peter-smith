@@ -27,4 +27,5 @@ updates:
           - "eslint-*"
           - "typescript-eslint"
           - "@vue/eslint*"
+          - "typescript-eslint"
       
