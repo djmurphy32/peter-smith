@@ -6,6 +6,7 @@ import type {
 } from "./interface";
 import { cn } from "@/lib/utils";
 import { useProvideCarousel } from "./useCarousel";
+import { onKeyStroke } from "@vueuse/core";
 
 const props = withDefaults(defineProps<CarouselProps & WithClassAsProps>(), {
   orientation: "horizontal",
@@ -33,22 +34,31 @@ defineExpose({
   scrollPrev,
 });
 
-function onKeyDown(event: KeyboardEvent) {
-  const prevKey = props.orientation === "vertical" ? "ArrowUp" : "ArrowLeft";
-  const nextKey = props.orientation === "vertical" ? "ArrowDown" : "ArrowRight";
+// function onKeyDown(event: KeyboardEvent) {
+//   const prevKey = props.orientation === "vertical" ? "ArrowUp" : "ArrowLeft";
+//   const nextKey = props.orientation === "vertical" ? "ArrowDown" : "ArrowRight";
 
-  if (event.key === prevKey) {
+//   if (event.key === prevKey) {
+//     event.preventDefault();
+//     scrollPrev();
+
+//     return;
+//   }
+
+//   if (event.key === nextKey) {
+//     event.preventDefault();
+//     scrollNext();
+//   }
+// }
+
+onKeyStroke(
+  "ArrowLeft",
+  (event) => {
     event.preventDefault();
     scrollPrev();
-
-    return;
-  }
-
-  if (event.key === nextKey) {
-    event.preventDefault();
-    scrollNext();
-  }
-}
+  },
+  { target: carouselRef }
+);
 </script>
 
 <template>
@@ -57,7 +67,6 @@ function onKeyDown(event: KeyboardEvent) {
     role="region"
     aria-roledescription="carousel"
     tabindex="0"
-    @keydown="onKeyDown"
   >
     <slot
       :can-scroll-next

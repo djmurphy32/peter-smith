@@ -1,4 +1,3 @@
-FROM node:22
+FROM node:22.19
 
-# Install netlify-cli globally
 RUN npm install -g netlify-cli

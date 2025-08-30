@@ -10,12 +10,12 @@ const june2025 = import.meta.glob(
   "../../assets/images/portfolio/June_2025/*.jpg",
   {
     eager: true,
-  },
+  }
 ) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] => {
   const juneSrcs = Object.values(june2025).map((module) =>
-    encodeURIComponent(module.default),
+    encodeURIComponent(module.default)
   );
   return [...juneSrcs.sort()];
 });
@@ -65,6 +65,7 @@ const onClickGridItem = (index: number) => {
       />
       <div class="flex justify-center">
         <Button
+          class="cursor-pointer"
           @click="toggleShowGrid"
           variant="ghost"
           aria-label="View image grid"
