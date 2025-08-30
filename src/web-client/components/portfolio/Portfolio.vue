@@ -65,6 +65,7 @@ const onClickGridItem = (index: number) => {
       />
       <div class="flex justify-center">
         <Button
+          class="cursor-pointer"
           @click="toggleShowGrid"
           variant="ghost"
           aria-label="View image grid"
