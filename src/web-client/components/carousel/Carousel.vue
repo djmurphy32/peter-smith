@@ -57,7 +57,7 @@ onKeyStroke(
     event.preventDefault();
     scrollPrev();
   },
-  { target: carouselRef }
+  { target: carouselRef },
 );
 </script>
 
