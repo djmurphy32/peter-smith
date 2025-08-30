@@ -43,7 +43,7 @@ useIntersectionObserver(
       }
     });
   },
-  { rootMargin: "500px 0px" },
+  { rootMargin: "500px 0px" }
 );
 
 const mappedImages = computed(() => {
@@ -71,7 +71,7 @@ const onClick = (index: number) => {
     <div
       v-for="(image, ix) in mappedImages"
       :key="image.key"
-      class="cursor pointer w-full md:w-1/2 lg:w-1/3 p-2"
+      class="cursor-pointer w-full md:w-1/2 lg:w-1/3 p-2"
       @click="() => onClick(ix)"
     >
       <div ref="image" class="flex items-center h-full min-h-[100px]">
