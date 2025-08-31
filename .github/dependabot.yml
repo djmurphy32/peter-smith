@@ -22,6 +22,7 @@ updates:
     # netlify dev is broken on ARM in later version
     ignore:
       - dependency-name: "netlify-cli"
+        versions: [ ">=19.0.0" ]
     groups:
       vue:
         patterns:
