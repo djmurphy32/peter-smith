@@ -10,6 +10,9 @@ updates:
     directory: /.devcontainer
     schedule:
       interval: weekly
+    ignore:
+      - dependency-name: "node"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: /
@@ -21,6 +24,9 @@ updates:
     versioning-strategy: increase
     schedule:
       interval: weekly
+    ignore:
+    # netlify dev is broken on ARM in later version
+      - dependency-name: "netlify-cli"
     groups:
       vue:
         patterns:

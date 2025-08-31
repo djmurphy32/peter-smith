@@ -9,8 +9,7 @@
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {}
   },
-  "postCreateCommand": "netlify login",
-  "postStartCommand": "npm i",
+  "postStartCommand": "npm i && npx netlify login",
   "customizations": {
     "vscode": {
       "extensions": [
