@@ -1,11 +1,6 @@
 version: 2
 
 updates:
-  - package-ecosystem: devcontainers
-    directory: /.devcontainer
-    schedule:
-      interval: weekly
-  
   - package-ecosystem: docker
     directory: /.devcontainer
     schedule:
@@ -24,8 +19,8 @@ updates:
     versioning-strategy: increase
     schedule:
       interval: weekly
-    ignore:
     # netlify dev is broken on ARM in later version
+    ignore:
       - dependency-name: "netlify-cli"
     groups:
       vue:
