@@ -1,5 +1,1 @@
 FROM node:22.19.0
-
-# Deno is required for netlify dev command and does not support latest, see README for more
-RUN curl -fsSL https://deno.land/x/install/install.sh | sh -s v1.44.4 -y \
-    && mv /root/.deno/bin/deno /usr/local/bin/deno
