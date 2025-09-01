@@ -7,7 +7,11 @@
   "remoteUser": "root",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {}
+    "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {},
+    // Deno is required for netlify dev command and does not support latest, see README for more
+    "ghcr.io/devcontainers-community/features/deno": {
+      "version": "1.44.4"
+    }
   },
   "postStartCommand": "npm i && npx netlify login",
   "customizations": {
