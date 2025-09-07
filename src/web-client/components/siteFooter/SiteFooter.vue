@@ -8,7 +8,9 @@ const links = [
 </script>
 
 <template>
-  <div class="flex justify-evenly lg:justify-center gap-x-20 mb-16 mt-8">
+  <div
+    class="flex justify-evenly gap-x-20 mb-16 mt-8 lg:max-w-[600px] lg:mx-auto"
+  >
     <div v-for="link in links" :key="link.name" class="text-center flex-1">
       <RouterLink :to="link.to">{{ link.name }}</RouterLink>
     </div>
