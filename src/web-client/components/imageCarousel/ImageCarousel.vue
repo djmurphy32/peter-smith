@@ -67,6 +67,9 @@ watch(currentCarouselItem, (val) => {
 <template>
   <Carousel
     v-slot="{ canScrollPrev, canScrollNext }"
+    role="region"
+    aria-label="Image carousel"
+    tabindex="0"
     @init-api="setApi"
     :opts="{
       loop: true,
@@ -84,24 +87,28 @@ watch(currentCarouselItem, (val) => {
         }"
       >
         <div class="relative flex justify-center">
-          <div
+          <button
             v-if="canScrollPrev"
+            tabindex="-1"
+            aria-hidden="true"
             @click="api?.scrollPrev()"
-            class="cursor-pointer absolute top-0 left-0 w-1/2 h-full bg-black bg-opacity-50 z-10"
-          ></div>
-          <div
+            class="cursor-pointer absolute top-0 left-0 w-1/2 h-full"
+          ></button>
+          <button
             v-if="canScrollNext"
+            tabindex="-1"
+            aria-hidden="true"
             @click="api?.scrollNext()"
-            class="cursor-pointer absolute top-0 right-0 w-1/2 h-full bg-black bg-opacity-50 z-10"
-          ></div>
-          <div class="max-h-[600px] flex justify-center carousel-width">
+            class="cursor-pointer absolute top-0 right-0 w-1/2 h-full"
+          ></button>
+          <figure class="max-h-[600px] flex justify-center carousel-width">
             <img
               v-if="viewedCarouselItems.includes(ix)"
               :src="img.src"
               :alt="img.key"
               class="object-contain w-full h-auto"
             />
-          </div>
+          </figure>
         </div>
       </CarouselItem>
     </CarouselContent>
