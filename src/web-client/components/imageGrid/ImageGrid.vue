@@ -61,28 +61,31 @@ const mappedImages = computed(() => {
   });
 });
 
-const onClick = (index: number) => {
+const onSelect = (index: number) => {
   emit("update:selectItem", index);
 };
 </script>
 
 <template>
   <div class="relative w-full flex flex-col md:flex-row flex-wrap">
-    <div
+    <button
       v-for="(image, ix) in mappedImages"
       :key="image.key"
+      tabindex="0"
+      aria-label="Select image {{ ix + 1 }}"
       class="cursor-pointer w-full md:w-1/2 lg:w-1/3 p-2"
-      @click="() => onClick(ix)"
+      @click="() => onSelect(ix)"
+      @keydown.enter="() => onSelect(ix)"
+      @keydown.space="() => onSelect(ix)"
     >
       <figure ref="image" class="flex items-center h-full min-h-[100px]">
         <img
           v-if="image.src"
           class="w-screen h-auto md:w-[100%]"
-          tabindex="0"
           :src="image.src"
           :alt="image.key"
         />
       </figure>
-    </div>
+    </button>
   </div>
 </template>
