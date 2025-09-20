@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Name from "@/components/name/Name.vue";
-import SiteFooter from "@/components/siteFooter/SiteFooter.vue";
+import SiteNav from "@/components/siteNav/SiteNav.vue";
 import SpriteSheet from "./components/sprite/SpriteSheet.vue";
 </script>
 
@@ -23,9 +23,9 @@ import SpriteSheet from "./components/sprite/SpriteSheet.vue";
         <main class="flex justify-center items-end">
           <router-view />
         </main>
-        <div class="self-end">
-          <SiteFooter />
-        </div>
+        <footer class="self-end">
+          <SiteNav />
+        </footer>
       </div>
     </div>
   </div>
