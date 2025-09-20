@@ -8,8 +8,7 @@ const links = [
 </script>
 
 <template>
-  <nav aria-label="Main site navigation"
-  >
+  <nav aria-label="Main site navigation">
     <ul
       class="flex justify-evenly gap-x-20 mb-16 mt-8 lg:max-w-[600px] lg:mx-auto"
     >
