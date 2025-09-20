@@ -78,6 +78,7 @@ const onClick = (index: number) => {
         <img
           v-if="image.src"
           class="w-screen h-auto md:w-[100%]"
+          tabindex="0"
           :src="image.src"
           :alt="image.key"
         />
