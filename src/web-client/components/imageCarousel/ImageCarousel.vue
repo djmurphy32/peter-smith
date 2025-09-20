@@ -101,16 +101,14 @@ watch(currentCarouselItem, (val) => {
             @click="api?.scrollNext()"
             class="cursor-pointer absolute top-0 right-0 w-1/2 h-full"
           ></button>
-          <div class="max-h-[600px] flex justify-center carousel-width">
-            <figure>
-              <img
-                v-if="viewedCarouselItems.includes(ix)"
-                :src="img.src"
-                :alt="img.key"
-                class="object-contain w-full h-auto"
-              />
-            </figure>
-          </div>
+          <figure class="max-h-[600px] flex justify-center carousel-width">
+            <img
+              v-if="viewedCarouselItems.includes(ix)"
+              :src="img.src"
+              :alt="img.key"
+              class="object-contain w-full h-auto"
+            />
+          </figure>
         </div>
       </CarouselItem>
     </CarouselContent>
