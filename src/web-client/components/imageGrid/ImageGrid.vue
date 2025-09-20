@@ -43,7 +43,7 @@ useIntersectionObserver(
       }
     });
   },
-  { rootMargin: "500px 0px" },
+  { rootMargin: "500px 0px" }
 );
 
 const mappedImages = computed(() => {
@@ -74,14 +74,14 @@ const onClick = (index: number) => {
       class="cursor-pointer w-full md:w-1/2 lg:w-1/3 p-2"
       @click="() => onClick(ix)"
     >
-      <div ref="image" class="flex items-center h-full min-h-[100px]">
+      <figure ref="image" class="flex items-center h-full min-h-[100px]">
         <img
           v-if="image.src"
           class="w-screen h-auto md:w-[100%]"
           :src="image.src"
           :alt="image.key"
         />
-      </div>
+      </figure>
     </div>
   </div>
 </template>
