@@ -1,3 +1,4 @@
+# Should match use .nvmrc file which is used by netlify
 FROM node:22.19.0
 
 # Deno is required for netlify dev command and does not support latest, see README for more
