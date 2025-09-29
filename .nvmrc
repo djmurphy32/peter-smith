@@ -1,1 +1,2 @@
-lts/*
+# Should match devcontainer Dockerfile
+22.19.0
