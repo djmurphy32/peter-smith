@@ -11,7 +11,7 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
-        "npm:@eslint/js@^9.35.0",
+        "npm:@eslint/js@^9.36.0",
         "npm:@peterek/vite-plugin-favicons@^2.1.0",
         "npm:@tailwindcss/vite@^4.1.13",
         "npm:@vitejs/plugin-vue@^6.0.1",
@@ -26,19 +26,20 @@
         "npm:embla-carousel-vue@^8.5.2",
         "npm:eslint-plugin-prettier@^5.5.4",
         "npm:eslint-plugin-vue@^10.4.0",
-        "npm:eslint@^9.35.0",
+        "npm:eslint@^9.36.0",
         "npm:jsdom@^27.0.0",
+        "npm:lint-staged@^16.1.6",
         "npm:lucide-vue-next@^0.544.0",
         "npm:netlify-cli@^23.6.0",
         "npm:postcss@^8.5.6",
         "npm:prettier@^3.5.3",
         "npm:radix-vue@^1.9.17",
+        "npm:rolldown-vite@^7.1.13",
         "npm:tailwind-merge@^3.0.2",
         "npm:tailwindcss-animate@^1.0.7",
         "npm:tailwindcss@^4.1.13",
         "npm:typescript-eslint@^8.44.0",
         "npm:typescript@^5.9.2",
-        "npm:vite@^7.1.6",
         "npm:vitest@^3.0.9",
         "npm:vue-router@^4.5.0",
         "npm:vue@^3.5.21"
