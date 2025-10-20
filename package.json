@@ -47,7 +47,7 @@
     "netlify-cli": "^23.9.1",
     "postcss": "^8.5.6",
     "prettier": "^3.5.3",
-    "rolldown-vite": "^7.1.17",
+    "rolldown-vite": "^7.1.19",
     "tailwindcss": "^4.1.14",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.1",
