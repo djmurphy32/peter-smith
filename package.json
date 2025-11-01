@@ -42,7 +42,7 @@
     "eslint": "^9.39.0",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-vue": "^10.5.1",
-    "jsdom": "^27.0.1",
+    "jsdom": "^27.1.0",
     "lint-staged": "^16.2.4",
     "netlify-cli": "^23.9.1",
     "postcss": "^8.5.6",
