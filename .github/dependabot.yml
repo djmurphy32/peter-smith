@@ -36,4 +36,9 @@ updates:
           - "typescript-eslint"
           - "@vue/eslint*"
           - "typescript-eslint"
+      tailwind:
+        patterns:
+          - "tailwindcss"
+          - "tailwind-*"
+          - "@tailwind/*"
       
