@@ -1,4 +1,4 @@
-FROM node:24.13.1
+FROM node:24.14.0
 
 # Deno is required for netlify dev command and does not support latest, see README for more
 # Deno VSC extension breaks vue volar, hence installing manually instead of as devcontainer feature
