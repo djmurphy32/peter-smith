@@ -22,6 +22,8 @@ updates:
     versioning-strategy: increase
     schedule:
       interval: weekly
+    ignore:
+      - dependency-name: "netlify-cli"
     groups:
       vue:
         patterns:
