@@ -23,5 +23,5 @@
       "uninstalled": ["denoland.vscode-deno"]
     }
   },
-  "forwardPorts": [3005, 5173]
+  "forwardPorts": [3005]
 }
