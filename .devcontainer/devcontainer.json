@@ -1,13 +1,13 @@
 {
   "name": "Peter's Dev Container",
   "build": {
-    "dockerfile": "Dockerfile",
-    "options": ["--network=host"]
+    "dockerfile": "Dockerfile"
   },
   "remoteUser": "root",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {}
+    "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {},
+    "ghcr.io/devcontainers-community/features/deno:1": {}
   },
   "postStartCommand": "npm i && npx netlify login",
   "customizations": {
