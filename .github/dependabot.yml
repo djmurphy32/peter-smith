@@ -6,6 +6,8 @@ updates:
     directory: /.devcontainer
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     ignore:
       - dependency-name: "node"
         update-types: ["version-update:semver-major"]
@@ -15,6 +17,8 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
   
   - package-ecosystem: pnpm
     open-pull-requests-limit: 20
@@ -22,6 +26,8 @@ updates:
     versioning-strategy: increase
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     groups:
       vue:
         patterns:
