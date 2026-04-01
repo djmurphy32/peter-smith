@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "vite build",
     "start": "netlify dev --no-open",
     "dev": "vite",
@@ -52,6 +53,7 @@
     "typescript": "5.9.3",
     "typescript-eslint": "8.57.2",
     "vite": "8.0.3",
-    "vitest": "4.1.2"
+    "vitest": "4.1.2",
+    "vue-eslint-parser": "10.4.0"
   }
 }
