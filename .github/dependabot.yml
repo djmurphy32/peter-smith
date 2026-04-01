@@ -20,7 +20,7 @@ updates:
     cooldown:
       default-days: 7
   
-  - package-ecosystem: pnpm
+  - package-ecosystem: npm
     open-pull-requests-limit: 20
     directory: /
     versioning-strategy: increase
