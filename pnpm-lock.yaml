@@ -85,8 +85,8 @@ importers:
         specifier: 16.4.0
         version: 16.4.0
       netlify-cli:
-        specifier: 24.8.1
-        version: 24.8.1(@types/node@25.5.0)(picomatch@4.0.4)
+        specifier: 24.9.0
+        version: 24.9.0(@types/node@25.5.0)(picomatch@4.0.4)
       postcss:
         specifier: 8.5.8
         version: 8.5.8
@@ -825,10 +825,6 @@ packages:
     resolution: {integrity: sha512-wuiaKRbRLG/L049yR+7/p7xSKa4jx6JRBnweRYwP6mMYn9D+x/wccPgsxEMtKqthmow6frs7ZSrNYTt9U3yUdQ==}
     engines: {node: ^14.16.0 || >=16.0.0}
 
-  '@netlify/blobs@10.7.2':
-    resolution: {integrity: sha512-2fHKgTRko9XKwrqLWIIvfuwip4OzkfyBcG63KAcPYJE3SgqxrEvTSfQXka2ItFD61Nrf89cCnCSfplR4PeD7AQ==}
-    engines: {node: ^14.16.0 || >=16.0.0}
-
   '@netlify/blobs@10.7.4':
     resolution: {integrity: sha512-03lXstB4xxDKeYs2RTTZrUGRC0ea2nVZvkdGlw2A42AdK7KA6N0ocVmkIn9x91oqFsqK3dWJTAv2bzaLjsehXg==}
     engines: {node: ^14.16.0 || >=16.0.0}
@@ -868,10 +864,6 @@ packages:
 
   '@netlify/dev-utils@4.3.3':
     resolution: {integrity: sha512-qziF8R9kf7mRNgSpmUH96O0aV1ZiwK4c9ZecFQbDSQuYhgy9GY1WTjiQF0oQnohjTjWNtXhrU39LAeXWNLaBJg==}
-    engines: {node: ^18.14.0 || >=20}
-
-  '@netlify/dev-utils@4.4.1':
-    resolution: {integrity: sha512-vj2fJQg51cXrnZJ1NJdXZ3LWYoDFCa2Q9o6Zu7sXa8d3AOn2mw5z1jkQPug1Dl80oBp3niBNPU6iWJQQR+sxAA==}
     engines: {node: ^18.14.0 || >=20}
 
   '@netlify/dev-utils@4.4.3':
@@ -4080,8 +4072,8 @@ packages:
     resolution: {integrity: sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg==}
     engines: {node: '>= 0.6'}
 
-  netlify-cli@24.8.1:
-    resolution: {integrity: sha512-YOp4s7YCT4yfVLEXkHj+9u8FtrmCPjePyRT6axvVM8W4vIaO5tJX3PlU52d4hguGLOL6rCWBro2gimKePzhlhQ==}
+  netlify-cli@24.9.0:
+    resolution: {integrity: sha512-99bGdxVrNH8vz3kJ5zuRd/qlG4KC0wuxTBZ+HE8NFoMdq4pXM2/DKokGcWoIt/Xudma3t+x8dEVkqS4vdftWJA==}
     engines: {node: '>=20.12.2'}
     hasBin: true
 
@@ -6365,15 +6357,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@netlify/blobs@10.7.2(supports-color@10.2.2)':
-    dependencies:
-      '@netlify/dev-utils': 4.4.1
-      '@netlify/otel': 5.1.5(supports-color@10.2.2)
-      '@netlify/runtime-utils': 2.3.0
-    transitivePeerDependencies:
-      - supports-color
-
-  '@netlify/blobs@10.7.4':
+  '@netlify/blobs@10.7.4(supports-color@10.2.2)':
     dependencies:
       '@netlify/dev-utils': 4.4.3
       '@netlify/otel': 5.1.5(supports-color@10.2.2)
@@ -6396,7 +6380,7 @@ snapshots:
   '@netlify/build@35.11.2(@opentelemetry/api@1.8.0)(@types/node@25.5.0)(picomatch@4.0.4)':
     dependencies:
       '@bugsnag/js': 8.8.1
-      '@netlify/blobs': 10.7.2(supports-color@10.2.2)
+      '@netlify/blobs': 10.7.4(supports-color@10.2.2)
       '@netlify/cache-utils': 6.0.5
       '@netlify/config': 24.4.4
       '@netlify/edge-bundler': 14.9.19
@@ -6523,24 +6507,6 @@ snapshots:
       uuid: 13.0.0
       write-file-atomic: 5.0.1
 
-  '@netlify/dev-utils@4.4.1':
-    dependencies:
-      '@whatwg-node/server': 0.10.18
-      ansis: 4.2.0
-      chokidar: 4.0.3
-      decache: 4.6.2
-      dettle: 1.0.5
-      dot-prop: 9.0.0
-      empathic: 2.0.0
-      env-paths: 3.0.0
-      image-size: 2.0.2
-      js-image-generator: 1.0.4
-      parse-gitignore: 2.0.0
-      semver: 7.7.4
-      tmp-promise: 3.0.3
-      uuid: 13.0.0
-      write-file-atomic: 5.0.1
-
   '@netlify/dev-utils@4.4.3':
     dependencies:
       '@whatwg-node/server': 0.10.18
@@ -6562,7 +6528,7 @@ snapshots:
   '@netlify/dev@4.16.4':
     dependencies:
       '@netlify/ai': 0.4.1
-      '@netlify/blobs': 10.7.4
+      '@netlify/blobs': 10.7.4(supports-color@10.2.2)
       '@netlify/config': 24.4.4
       '@netlify/db-dev': 0.7.0
       '@netlify/dev-utils': 4.4.3
@@ -6645,7 +6611,7 @@ snapshots:
 
   '@netlify/functions-dev@1.2.4':
     dependencies:
-      '@netlify/blobs': 10.7.4
+      '@netlify/blobs': 10.7.4(supports-color@10.2.2)
       '@netlify/dev-utils': 4.4.3
       '@netlify/functions': 5.1.5
       '@netlify/zip-it-and-ship-it': 14.5.3(supports-color@10.2.2)
@@ -6845,7 +6811,7 @@ snapshots:
 
   '@netlify/runtime@4.1.20':
     dependencies:
-      '@netlify/blobs': 10.7.4
+      '@netlify/blobs': 10.7.4(supports-color@10.2.2)
       '@netlify/cache': 3.4.4
       '@netlify/runtime-utils': 2.3.0
       '@netlify/types': 2.6.0
@@ -10091,7 +10057,7 @@ snapshots:
 
   negotiator@1.0.0: {}
 
-  netlify-cli@24.8.1(@types/node@25.5.0)(picomatch@4.0.4):
+  netlify-cli@24.9.0(@types/node@25.5.0)(picomatch@4.0.4):
     dependencies:
       '@fastify/static': 9.0.0
       '@netlify/ai': 0.4.1
@@ -11629,7 +11595,7 @@ snapshots:
       ofetch: 1.5.1
       ufo: 1.6.3
     optionalDependencies:
-      '@netlify/blobs': 10.7.4
+      '@netlify/blobs': 10.7.4(supports-color@10.2.2)
 
   untildify@4.0.0: {}
 
