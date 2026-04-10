@@ -18,10 +18,10 @@ curl -fsSL https://deno.land/x/install/install.sh | sh -s v1.44.4 -y \
 
 You will be prompted to authorize netlify when you start the devcontainer, if you are not you can do it manually with `npx netlify login`
 
-1. Start the app using `npm start`
+1. Start the app using `pnpm start`
 
 ## Running on local machine
 
-1. Run `npm i`
-1. Login to netlify using `npx netlify login` and complete the login through you browser
-1. Start the app using `npm start`
+1. Run `pnpm i`
+1. Login to netlify using `pnpmx netlify login` and complete the login through you browser
+1. Start the app using `pnpm start`
