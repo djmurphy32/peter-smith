@@ -1,5 +1,5 @@
 [dev]
-  command = "npm run dev"
+  command = "pnpm run dev"
   framework = "#custom"
   targetPort = 5173
   port = 3005
