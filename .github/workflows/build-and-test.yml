@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v6
+        uses: djmurphy32/pnpm-action-setup@vupdate-to-11
 
       - uses: actions/setup-node@v6
         with:
