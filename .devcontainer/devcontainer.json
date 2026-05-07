@@ -9,7 +9,7 @@
     "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {},
     "ghcr.io/devcontainers-community/features/deno:1": {}
   },
-  "postStartCommand": "pnpm i --frozen-lockfile && pnpx netlify login",
+  "postStartCommand": "pnpm ci && pnpx netlify login",
   "customizations": {
     "vscode": {
       "extensions": [
