@@ -7,13 +7,12 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "11.0.7",
-      "onFail": "download"
+      "version": "11.0.7"
     }
   },
   "scripts": {
     "build": "vite build",
-    "start": "netlify dev --no-open",
+    "start": "nextlify dev --no-open",
     "dev": "vite",
     "netlify": "pnpm build",
     "prepare": "git config core.hooksPath .githooks",
