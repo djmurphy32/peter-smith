@@ -7,7 +7,7 @@ import Button from "@/components/button/Button.vue";
 import Sprite from "@/components/sprite/Sprite.vue";
 
 const june2025 = import.meta.glob(
-  "../../assets/images/portfolio/June_2025/*.jpg",
+  "../../assets/images/portfolio/May_2026/*.jpg",
   {
     eager: true,
   },
