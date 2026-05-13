@@ -6,12 +6,9 @@ import ImageGrid from "@/components/imageGrid/ImageGrid.vue";
 import Button from "@/components/button/Button.vue";
 import Sprite from "@/components/sprite/Sprite.vue";
 
-const june2025 = import.meta.glob(
-  "../../assets/images/portfolio/May_2026/*.jpg",
-  {
-    eager: true,
-  },
-) as GlobEagerImport;
+const june2025 = import.meta.glob("../../assets/images/portfolio/*.jpg", {
+  eager: true,
+}) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] => {
   const juneSrcs = Object.values(june2025).map((module) =>
