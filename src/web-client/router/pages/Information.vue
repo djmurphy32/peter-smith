@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
-
-const year = computed(() => new Date().getFullYear().toString());
+const year = new Date().getFullYear().toString();
 </script>
 
 <template>
@@ -29,7 +27,10 @@ const year = computed(() => new Date().getFullYear().toString());
       class="flex flex-col gap-4 items-center md:flex-row md:justify-between"
     >
       <div>
-        <a href="https://www.instagram.com/peter_josephsmith"
+        <a
+          href="https://www.instagram.com/peter_josephsmith"
+          target="_blank"
+          rel="noopener noreferrer"
           >@peter_josephsmith</a
         >
       </div>

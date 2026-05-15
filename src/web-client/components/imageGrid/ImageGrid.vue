@@ -23,8 +23,7 @@ const isMobile = useMediaQuery("(max-width: 640px)");
 
 const imgsToRender = ref<number[]>([]);
 useIntersectionObserver(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  imageRefs as any,
+  imageRefs,
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
