@@ -72,22 +72,3 @@ const onClickGridItem = (index: number) => {
     </div>
   </template>
 </template>
-
-<style scoped>
-@keyframes nudge {
-  0%,
-  30%,
-  70%,
-  100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-10px);
-  }
-}
-
-.animate-nudge {
-  animation: nudge 5s ease-in-out 3;
-  animation-delay: 2s;
-}
-</style>

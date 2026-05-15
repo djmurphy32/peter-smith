@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useIntersectionObserver } from "@vueuse/core";
+import { useIntersectionObserver, useMediaQuery } from "@vueuse/core";
 import { computed, ref, useTemplateRef } from "vue";
 
 interface Props {
@@ -19,13 +19,7 @@ const emit = defineEmits<{
   (e: "update:selectItem", value: number): void;
 }>();
 
-const isMobile = ref(false);
-const mediaQuery = window.matchMedia("(max-width: 640px)");
-isMobile.value = mediaQuery.matches;
-const handleMediaQueryChange = (event: MediaQueryListEvent) => {
-  isMobile.value = event.matches;
-};
-mediaQuery.addEventListener("change", handleMediaQueryChange);
+const isMobile = useMediaQuery("(max-width: 640px)");
 
 const imgsToRender = ref<number[]>([]);
 useIntersectionObserver(
