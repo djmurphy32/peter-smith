@@ -72,7 +72,7 @@ const onSelect = (index: number) => {
       v-for="(image, ix) in mappedImages"
       :key="image.key"
       tabindex="0"
-      aria-label="Select image {{ ix + 1 }}"
+      :aria-label="`Select image ${ix + 1}`"
       class="cursor-pointer w-full md:w-1/2 lg:w-1/3 p-2"
       @click="() => onSelect(ix)"
       @keydown.enter="() => onSelect(ix)"

@@ -8,7 +8,7 @@ const year = computed(() => new Date().getFullYear().toString());
   <div class="flex flex-col justify-center max-w-[430px] gap-8">
     <div class="space-y-4 uppercase">
       <p>
-        Continuosly inspired by the pop culture he consumed growing up and the
+        Continuously inspired by the pop culture he consumed growing up and the
         tradition of story telling that surrounded him in the North East of
         Ireland, Peter focuses on drawing character and narrative in his work.
       </p>
