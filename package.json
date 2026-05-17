@@ -30,7 +30,7 @@
     "embla-carousel-vue": "8.6.0",
     "lucide-vue-next": "1.0.0",
     "radix-vue": "1.9.17",
-    "tailwind-merge": "3.5.0",
+    "tailwind-merge": "3.6.0",
     "tailwindcss-animate": "1.0.7",
     "vue": "3.5.34",
     "vue-router": "5.0.6"
@@ -54,7 +54,7 @@
     "netlify-cli": "26.0.1",
     "postcss": "8.5.14",
     "prettier": "3.8.3",
-    "tailwindcss": "4.2.4",
+    "tailwindcss": "4.3.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.59.2",
     "vite": "8.0.11",
