@@ -6,12 +6,9 @@ import ImageGrid from "@/components/imageGrid/ImageGrid.vue";
 import Button from "@/components/button/Button.vue";
 import Sprite from "@/components/sprite/Sprite.vue";
 
-const importedImages = import.meta.glob(
-  "../../assets/images/portfolio/*.jp(g|eg)",
-  {
-    eager: true,
-  },
-) as GlobEagerImport;
+const importedImages = import.meta.glob("../../assets/images/portfolio/*.jpg", {
+  eager: true,
+}) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] => {
   const srcs = Object.values(importedImages).map((module) =>
