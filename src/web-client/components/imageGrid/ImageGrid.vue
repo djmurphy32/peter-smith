@@ -23,18 +23,19 @@ const isMobile = useMediaQuery("(max-width: 640px)");
 
 const imgsToRender = ref<number[]>([]);
 useIntersectionObserver(
-  imageRefs,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  imageRefs as any,
   (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
+    entries
+      .filter((entry) => entry.isIntersecting)
+      .forEach((entry) => {
         const index = imageRefs.value?.indexOf(entry.target);
         if (index != undefined && index != -1) {
           if (!imgsToRender.value.includes(index)) {
             imgsToRender.value.push(index);
           }
         }
-      }
-    });
+      });
   },
   { rootMargin: "500px 0px" },
 );
