@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useIntersectionObserver } from "@vueuse/core";
+import { useIntersectionObserver, useMediaQuery } from "@vueuse/core";
 import { computed, ref, useTemplateRef } from "vue";
 
 interface Props {
@@ -19,29 +19,23 @@ const emit = defineEmits<{
   (e: "update:selectItem", value: number): void;
 }>();
 
-const isMobile = ref(false);
-const mediaQuery = window.matchMedia("(max-width: 640px)");
-isMobile.value = mediaQuery.matches;
-const handleMediaQueryChange = (event: MediaQueryListEvent) => {
-  isMobile.value = event.matches;
-};
-mediaQuery.addEventListener("change", handleMediaQueryChange);
+const isMobile = useMediaQuery("(max-width: 640px)");
 
 const imgsToRender = ref<number[]>([]);
 useIntersectionObserver(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   imageRefs as any,
   (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
+    entries
+      .filter((entry) => entry.isIntersecting)
+      .forEach((entry) => {
         const index = imageRefs.value?.indexOf(entry.target);
         if (index != undefined && index != -1) {
           if (!imgsToRender.value.includes(index)) {
             imgsToRender.value.push(index);
           }
         }
-      }
-    });
+      });
   },
   { rootMargin: "500px 0px" },
 );
@@ -72,7 +66,7 @@ const onSelect = (index: number) => {
       v-for="(image, ix) in mappedImages"
       :key="image.key"
       tabindex="0"
-      aria-label="Select image {{ ix + 1 }}"
+      :aria-label="`Select image ${ix + 1}`"
       class="cursor-pointer w-full md:w-1/2 lg:w-1/3 p-2"
       @click="() => onSelect(ix)"
       @keydown.enter="() => onSelect(ix)"

@@ -6,15 +6,15 @@ import ImageGrid from "@/components/imageGrid/ImageGrid.vue";
 import Button from "@/components/button/Button.vue";
 import Sprite from "@/components/sprite/Sprite.vue";
 
-const june2025 = import.meta.glob("../../assets/images/portfolio/*.jpg", {
+const importedImages = import.meta.glob("../../assets/images/portfolio/*.jpg", {
   eager: true,
 }) as GlobEagerImport;
 
 const imagesSrcs = computed((): string[] => {
-  const juneSrcs = Object.values(june2025).map((module) =>
+  const srcs = Object.values(importedImages).map((module) =>
     encodeURIComponent(module.default),
   );
-  return [...juneSrcs.sort()];
+  return [...srcs.sort()];
 });
 
 const images = computed<
@@ -72,22 +72,3 @@ const onClickGridItem = (index: number) => {
     </div>
   </template>
 </template>
-
-<style scoped>
-@keyframes nudge {
-  0%,
-  30%,
-  70%,
-  100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-10px);
-  }
-}
-
-.animate-nudge {
-  animation: nudge 5s ease-in-out 3;
-  animation-delay: 2s;
-}
-</style>

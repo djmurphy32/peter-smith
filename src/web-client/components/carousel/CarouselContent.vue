@@ -9,6 +9,8 @@ defineOptions({
 
 const props = defineProps<WithClassAsProps>();
 
+// @ts-expect-error: createInjectionState unwraps the Ref type so vue-tsc can't see
+// carouselRef is a Ref — at runtime it IS a Ref and ref="carouselRef" works correctly
 const { carouselRef } = useCarousel();
 </script>
 
