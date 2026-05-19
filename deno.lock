@@ -44,6 +44,7 @@
         "npm:vitest@4.1.5",
         "npm:vue-eslint-parser@10.4.0",
         "npm:vue-router@5.0.6",
+        "npm:vue-tsc@3.2.9",
         "npm:vue@3.5.34"
       ]
     }
