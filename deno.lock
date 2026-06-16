@@ -12,11 +12,11 @@
     "packageJson": {
       "dependencies": [
         "npm:@eslint/js@10.0.1",
-        "npm:@lucide/vue@1.17.0",
+        "npm:@lucide/vue@1.18.0",
         "npm:@peterek/vite-plugin-favicons@2.1.0",
-        "npm:@tailwindcss/vite@4.3.0",
+        "npm:@tailwindcss/vite@4.3.1",
         "npm:@vitejs/plugin-vue@6.0.7",
-        "npm:@vue/compiler-sfc@3.5.35",
+        "npm:@vue/compiler-sfc@3.5.38",
         "npm:@vue/eslint-config-prettier@10.2.0",
         "npm:@vue/eslint-config-typescript@14.8.0",
         "npm:@vue/test-utils@2.4.11",
@@ -27,26 +27,26 @@
         "npm:embla-carousel-vue@8.6.0",
         "npm:eslint-plugin-prettier@5.5.6",
         "npm:eslint-plugin-vue@10.9.2",
-        "npm:eslint@10.4.1",
+        "npm:eslint@10.5.0",
         "npm:globals@17.6.0",
         "npm:jsdom@29.1.1",
         "npm:lint-staged@17.0.7",
         "npm:lucide-vue-next@1.0.0",
         "npm:netlify-cli@26.1.0",
         "npm:postcss@8.5.15",
-        "npm:prettier@3.8.3",
+        "npm:prettier@3.8.4",
         "npm:radix-vue@1.9.17",
         "npm:tailwind-merge@3.6.0",
         "npm:tailwindcss-animate@1.0.7",
-        "npm:tailwindcss@4.3.0",
-        "npm:typescript-eslint@8.60.1",
+        "npm:tailwindcss@4.3.1",
+        "npm:typescript-eslint@8.61.1",
         "npm:typescript@6.0.3",
         "npm:vite@8.0.16",
-        "npm:vitest@4.1.8",
+        "npm:vitest@4.1.9",
         "npm:vue-eslint-parser@10.4.1",
         "npm:vue-router@5.1.0",
-        "npm:vue-tsc@3.3.3",
-        "npm:vue@3.5.35"
+        "npm:vue-tsc@3.3.5",
+        "npm:vue@3.5.38"
       ]
     }
   }
