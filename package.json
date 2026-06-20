@@ -6,7 +6,7 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "11.7.0"
+      "version": "11.8.0"
     }
   },
   "scripts": {
@@ -24,7 +24,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lucide/vue": "1.18.0",
+    "@lucide/vue": "1.21.0",
     "@vueuse/core": "14.3.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
