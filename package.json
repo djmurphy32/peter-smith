@@ -25,7 +25,7 @@
   "license": "ISC",
   "dependencies": {
     "@lucide/vue": "1.31.0",
-    "@vueuse/core": "14.3.0",
+    "@vueuse/core": "14.4.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "embla-carousel-vue": "8.6.0",
