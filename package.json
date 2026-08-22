@@ -52,7 +52,7 @@
     "globals": "17.9.0",
     "jsdom": "29.1.1",
     "lint-staged": "17.3.0",
-    "netlify-cli": "27.0.0",
+    "netlify-cli": "27.1.1",
     "postcss": "8.5.23",
     "prettier": "3.9.6",
     "tailwindcss": "4.3.3",
