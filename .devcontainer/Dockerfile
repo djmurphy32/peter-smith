@@ -1,4 +1,4 @@
-FROM node:24.21.0
+FROM node:24.22.0
 
 # Disable the download prompt for Corepack
 ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0 
