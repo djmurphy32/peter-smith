@@ -1,6 +1,11 @@
 version: 2
 
 updates:
+  - package-ecosystem: "devcontainers" # See documentation for possible values
+    directory: "/.devcontainer"
+    schedule:
+      interval: weekly
+
   - package-ecosystem: docker
     open-pull-requests-limit: 20
     directory: /.devcontainer
