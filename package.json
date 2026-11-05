@@ -6,7 +6,7 @@
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "12.15.0"
+      "version": "12.17.0"
     }
   },
   "scripts": {
@@ -24,7 +24,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lucide/vue": "1.61.0",
+    "@lucide/vue": "1.67.0",
     "@vueuse/core": "15.0.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
@@ -39,28 +39,28 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@peterek/vite-plugin-favicons": "2.1.0",
-    "@tailwindcss/vite": "4.3.3",
+    "@tailwindcss/vite": "4.3.4",
     "@vitejs/plugin-vue": "6.0.10",
     "@vue/compiler-sfc": "3.5.44",
     "@vue/eslint-config-prettier": "10.2.0",
     "@vue/eslint-config-typescript": "14.9.0",
     "@vue/test-utils": "2.5.1",
-    "autoprefixer": "10.6.1",
-    "eslint": "10.13.0",
+    "autoprefixer": "10.6.2",
+    "eslint": "10.14.0",
     "eslint-plugin-prettier": "5.5.7",
-    "eslint-plugin-vue": "10.11.1",
-    "globals": "17.13.0",
+    "eslint-plugin-vue": "10.12.0",
+    "globals": "17.14.0",
     "jsdom": "30.1.3",
     "lint-staged": "17.6.0",
-    "netlify-cli": "27.14.2",
-    "postcss": "8.5.31",
+    "netlify-cli": "27.16.2",
+    "postcss": "8.5.32",
     "prettier": "3.9.10",
-    "tailwindcss": "4.3.3",
+    "tailwindcss": "4.3.4",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.72.0",
+    "typescript-eslint": "8.72.1",
     "vite": "8.3.5",
-    "vitest": "5.0.5",
+    "vitest": "5.1.0",
     "vue-eslint-parser": "10.4.1",
-    "vue-tsc": "3.3.13"
+    "vue-tsc": "3.3.14"
   }
 }
