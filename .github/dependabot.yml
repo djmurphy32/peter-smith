@@ -50,6 +50,7 @@ updates:
       tailwind:
         patterns:
           - "tailwindcss"
+          - "tailwindcss*"
           - "tailwind-*"
           - "@tailwind/*"
       
