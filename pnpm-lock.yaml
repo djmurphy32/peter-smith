@@ -167,8 +167,8 @@ importers:
   .:
     dependencies:
       '@lucide/vue':
-        specifier: 1.70.0
-        version: 1.70.0(vue@3.5.45(typescript@6.0.3))
+        specifier: 1.72.0
+        version: 1.72.0(vue@3.5.45(typescript@6.0.3))
       '@vueuse/core':
         specifier: 15.0.0
         version: 15.0.0(vue@3.5.45(typescript@6.0.3))
@@ -985,8 +985,8 @@ packages:
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
 
-  '@lucide/vue@1.70.0':
-    resolution: {integrity: sha512-kutUu3oEtfQnyaP6hh76ShG2dxa8PiL6uY3rk3DqclQe0Vd2FtPlnclezR0XMQtlFMPiEaCOXDSuhehFHW5ErQ==}
+  '@lucide/vue@1.72.0':
+    resolution: {integrity: sha512-BPcYejGErv+kg4ilXyPU7j6YdA0kQaMiBnlcCElTsoLdQgD+6aoquA/0I4amN5yzkJrZgpULvpDonXui94ez8A==}
     peerDependencies:
       vue: '>=3.0.1'
 
@@ -6195,7 +6195,7 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
-  '@lucide/vue@1.70.0(vue@3.5.45(typescript@6.0.3))':
+  '@lucide/vue@1.72.0(vue@3.5.45(typescript@6.0.3))':
     dependencies:
       vue: 3.5.45(typescript@6.0.3)
 
